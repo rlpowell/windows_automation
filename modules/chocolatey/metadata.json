@@ -1,0 +1,28 @@
+{
+  "author": "rismoney",
+  "checksums": {
+    "spec/unit/chocolatey_spec.rb": "5ca61356ee9412c11086a0df8196e2e5",
+    "README.md": "5f0e96099ea7ab2614ef47430b0050ba",
+    "Modulefile": "aa8ab02a33c9ae59daa334d97a62841a",
+    "spec/unit/travis_spec.rb": "8838d87aa76de04ae40296d3f616bb58",
+    "lib/puppet/provider/package/chocolatey.rb": "60fb0c018f636dc30dee3b4496b75df2",
+    "spec/spec_helper.rb": "533a299e98b389da25a19a44c53ba6b9",
+    "Rakefile": "188652eaa79361ab4472fcb97b33d5d7",
+    "Gemfile": "4b785759e3784e7e1fbf969fce5a7e0a",
+    "CONTRIBUTING.md": "eef7907ffe89dee60ca4758d5b1d286c",
+    "tests/init.pp": "702184919983ef7cc7f83b6bafecc89f"
+  },
+  "project_page": "https://github.com/rismoney/puppet-chocolatey",
+  "source": "https://github.com/rismoney/puppet-chocolatey",
+  "license": "APACHE2",
+  "dependencies": [
+
+  ],
+  "types": [
+
+  ],
+  "description": "Chocolatey package provider for puppet",
+  "name": "rismoney-chocolatey",
+  "version": "0.0.2",
+  "summary": "Chocolatey package provider for puppet"
+}
