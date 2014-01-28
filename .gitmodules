@@ -1,0 +1,3 @@
+[submodule "modules/rlpowell-windows_extras"]
+	path = modules/rlpowell-windows_extras
+	url = https://github.com/rlpowell/puppet_windows_extras.git
