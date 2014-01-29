@@ -1,0 +1,336 @@
+
+Deployment Image Servicing and Management tool
+Version: 6.1.7600.16385
+
+Image Version: 6.1.7600.16385
+
+Features listing for package : Microsoft-Windows-Foundation-Package~31bf3856ad364e35~amd64~~6.1.7601.17514
+
+Feature Name : OEMHelpCustomization
+State : Disabled
+
+Feature Name : CorporationHelpCustomization
+State : Disabled
+
+Feature Name : SimpleTCP
+State : Disabled
+
+Feature Name : SNMP
+State : Disabled
+
+Feature Name : WMISnmpProvider
+State : Disabled
+
+Feature Name : TelnetServer
+State : Disabled
+
+Feature Name : TelnetClient
+State : Disabled
+
+Feature Name : WindowsGadgetPlatform
+State : Enabled
+
+Feature Name : InboxGames
+State : Enabled
+
+Feature Name : More Games
+State : Enabled
+
+Feature Name : Solitaire
+State : Enabled
+
+Feature Name : SpiderSolitaire
+State : Enabled
+
+Feature Name : Hearts
+State : Enabled
+
+Feature Name : FreeCell
+State : Enabled
+
+Feature Name : Minesweeper
+State : Enabled
+
+Feature Name : PurblePlace
+State : Enabled
+
+Feature Name : Chess
+State : Enabled
+
+Feature Name : Shanghai
+State : Enabled
+
+Feature Name : Internet Games
+State : Enabled
+
+Feature Name : Internet Checkers
+State : Enabled
+
+Feature Name : Internet Backgammon
+State : Enabled
+
+Feature Name : Internet Spades
+State : Enabled
+
+Feature Name : IIS-WebServerRole
+State : Disabled
+
+Feature Name : IIS-WebServer
+State : Disabled
+
+Feature Name : IIS-CommonHttpFeatures
+State : Disabled
+
+Feature Name : IIS-HttpErrors
+State : Disabled
+
+Feature Name : IIS-HttpRedirect
+State : Disabled
+
+Feature Name : IIS-ApplicationDevelopment
+State : Disabled
+
+Feature Name : IIS-Security
+State : Disabled
+
+Feature Name : IIS-URLAuthorization
+State : Disabled
+
+Feature Name : IIS-RequestFiltering
+State : Disabled
+
+Feature Name : IIS-NetFxExtensibility
+State : Disabled
+
+Feature Name : IIS-HealthAndDiagnostics
+State : Disabled
+
+Feature Name : IIS-HttpLogging
+State : Disabled
+
+Feature Name : IIS-LoggingLibraries
+State : Disabled
+
+Feature Name : IIS-RequestMonitor
+State : Disabled
+
+Feature Name : IIS-HttpTracing
+State : Disabled
+
+Feature Name : IIS-IPSecurity
+State : Disabled
+
+Feature Name : IIS-Performance
+State : Disabled
+
+Feature Name : IIS-HttpCompressionDynamic
+State : Disabled
+
+Feature Name : IIS-WebServerManagementTools
+State : Disabled
+
+Feature Name : IIS-ManagementScriptingTools
+State : Disabled
+
+Feature Name : IIS-IIS6ManagementCompatibility
+State : Disabled
+
+Feature Name : IIS-Metabase
+State : Disabled
+
+Feature Name : WAS-WindowsActivationService
+State : Disabled
+
+Feature Name : WAS-ProcessModel
+State : Disabled
+
+Feature Name : WAS-NetFxEnvironment
+State : Disabled
+
+Feature Name : WAS-ConfigurationAPI
+State : Disabled
+
+Feature Name : IIS-HostableWebCore
+State : Disabled
+
+Feature Name : IIS-ISAPIExtensions
+State : Disabled
+
+Feature Name : IIS-ISAPIFilter
+State : Disabled
+
+Feature Name : IIS-StaticContent
+State : Disabled
+
+Feature Name : IIS-DefaultDocument
+State : Disabled
+
+Feature Name : IIS-DirectoryBrowsing
+State : Disabled
+
+Feature Name : IIS-WebDAV
+State : Disabled
+
+Feature Name : IIS-ASPNET
+State : Disabled
+
+Feature Name : IIS-ASP
+State : Disabled
+
+Feature Name : IIS-CGI
+State : Disabled
+
+Feature Name : IIS-ServerSideIncludes
+State : Disabled
+
+Feature Name : IIS-CustomLogging
+State : Disabled
+
+Feature Name : IIS-BasicAuthentication
+State : Disabled
+
+Feature Name : IIS-HttpCompressionStatic
+State : Disabled
+
+Feature Name : IIS-ManagementConsole
+State : Disabled
+
+Feature Name : IIS-ManagementService
+State : Disabled
+
+Feature Name : IIS-WMICompatibility
+State : Disabled
+
+Feature Name : IIS-LegacyScripts
+State : Disabled
+
+Feature Name : IIS-LegacySnapIn
+State : Disabled
+
+Feature Name : IIS-FTPServer
+State : Disabled
+
+Feature Name : IIS-FTPSvc
+State : Disabled
+
+Feature Name : IIS-FTPExtensibility
+State : Disabled
+
+Feature Name : IIS-WindowsAuthentication
+State : Disabled
+
+Feature Name : IIS-DigestAuthentication
+State : Disabled
+
+Feature Name : IIS-ClientCertificateMappingAuthentication
+State : Disabled
+
+Feature Name : IIS-IISCertificateMappingAuthentication
+State : Disabled
+
+Feature Name : IIS-ODBCLogging
+State : Disabled
+
+Feature Name : MediaPlayback
+State : Enabled
+
+Feature Name : WindowsMediaPlayer
+State : Disabled
+
+Feature Name : MediaCenter
+State : Disabled
+
+Feature Name : OpticalMediaDisc
+State : Enabled
+
+Feature Name : NetFx3
+State : Enabled
+
+Feature Name : WCF-HTTP-Activation
+State : Disabled
+
+Feature Name : WCF-NonHTTP-Activation
+State : Disabled
+
+Feature Name : RasRip
+State : Disabled
+
+Feature Name : MSMQ-Container
+State : Disabled
+
+Feature Name : MSMQ-Server
+State : Disabled
+
+Feature Name : MSMQ-Triggers
+State : Disabled
+
+Feature Name : MSMQ-ADIntegration
+State : Disabled
+
+Feature Name : MSMQ-HTTP
+State : Disabled
+
+Feature Name : MSMQ-Multicast
+State : Disabled
+
+Feature Name : MSMQ-DCOMProxy
+State : Disabled
+
+Feature Name : TabletPCOC
+State : Disabled
+
+Feature Name : ServicesForNFS-ClientOnly
+State : Disabled
+
+Feature Name : ClientForNFS-Infrastructure
+State : Disabled
+
+Feature Name : NFS-Administration
+State : Disabled
+
+Feature Name : SUA
+State : Disabled
+
+Feature Name : Printing-Foundation-Features
+State : Enabled
+
+Feature Name : Printing-Foundation-LPRPortMonitor
+State : Disabled
+
+Feature Name : Printing-Foundation-LPDPrintService
+State : Disabled
+
+Feature Name : Printing-Foundation-InternetPrinting-Client
+State : Enabled
+
+Feature Name : FaxServicesClientPackage
+State : Enabled
+
+Feature Name : ScanManagementConsole
+State : Disabled
+
+Feature Name : Xps-Foundation-Xps-Viewer
+State : Enabled
+
+Feature Name : TFTP
+State : Disabled
+
+Feature Name : MSRDC-Infrastructure
+State : Enabled
+
+Feature Name : Printing-XPSServices-Features
+State : Enabled
+
+Feature Name : Indexing-Service-Package
+State : Disabled
+
+Feature Name : TIFFIFilter
+State : Disabled
+
+Feature Name : SearchEngine-Client-Package
+State : Enabled
+
+Feature Name : Internet-Explorer-Optional-amd64
+State : Enabled
+
+The operation completed successfully.
