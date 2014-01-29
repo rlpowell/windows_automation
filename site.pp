@@ -13,3 +13,4 @@ File {
 
 include 'conemu'
 include 'misc'
+include 'firefox'
