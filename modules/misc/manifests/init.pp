@@ -18,11 +18,28 @@ class misc {
   }
 
 #**************
-# Gnomoria
+# PuTTY/KiTTY
 #**************
-  file { "$homepath/Documents/My Games/Gnomoria/Worlds":
-    ensure => "$homepath/Dropbox/Games/Gnomoria/Worlds",
-    force => true,
+  windows_pin_taskbar { "$dbpath/KiTTY/kitty.exe": }
+
+#**************
+# Puppet Runs
+#**************
+  windows_pin_startmenu { "$wapath/bin/Run Puppet Apply.lnk": }
+
+#**************
+# Git
+#**************
+  package { 'git':
+    ensure => installed,
+    provider => chocolatey,
+  }
+
+#**************
+# vim
+#**************
+  file { "$homepath/.vimrc":
+    source => "$wapath/modules/misc/files/vimrc",
   }
 
 #**************
@@ -33,25 +50,24 @@ class misc {
     force => true,
   }
 
+#********************************************
+# Games
+#********************************************
+
 #**************
-# Git
+# Gnomoria
 #**************
-  package { 'git':
-    ensure => installed,
-    provider => chocolatey,
+  file { "$homepath/Documents/My Games/Gnomoria/Worlds":
+    ensure => "$homepath/Dropbox/Games/Gnomoria/Worlds",
+    force => true,
   }
+
 #**************
-# vim
+# Freelancer
 #**************
-  file { "$homepath/.vimrc":
-    source => "$wapath/modules/misc/files/.vimrc",
+  file { "$homepath/Documents/My Games/Freelancer":
+    ensure => "$homepath/Dropbox/Games/Freelancer",
+    force => true,
   }
-#**************
-# PuTTY/KiTTY
-#**************
-  windows_pin_taskbar { "$dbpath/KiTTY/kitty.exe": }
-#**************
-# Puppet Runs
-#**************
-  windows_pin_startmenu { "$wapath/bin/Run Puppet Apply.lnk": }
+
 }

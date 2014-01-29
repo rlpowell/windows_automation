@@ -1,0 +1,22 @@
+set nocompatible
+source $VIMRUNTIME/vimrc_example.vim
+source $VIMRUNTIME/mswin.vim
+behave mswin
+
+"The important bits:
+
+:filetype indent on
+:filetype plugin on
+:set autoindent
+:set nobackup
+"This is the option that allows undo levels.
+:set nocompatible
+:set noedcompatible
+:set expandtab
+:set shiftwidth=2
+:set smarttab
+:syntax on
+:set textauto
+:set notextmode
+:set textwidth=68
+
