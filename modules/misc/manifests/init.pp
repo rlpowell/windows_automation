@@ -28,7 +28,9 @@ class misc {
 #**************
 # PDF X-Change
 #**************
-  package { [ 'pdfxchangelite', 'PDFXChangeViewer', 'PDFXchangeEditor' ]:
+  # Don't have an Editor license yet
+  # package { [ 'pdfxchangelite', 'PDFXChangeViewer', 'PDFXchangeEditor' ]:
+  package { [ 'pdfxchangelite', 'PDFXChangeViewer' ]:
     ensure => installed,
     provider => chocolatey,
   }
