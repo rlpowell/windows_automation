@@ -26,16 +26,6 @@ class misc {
   }
 
 #**************
-# PDF X-Change
-#**************
-  # Don't have an Editor license yet
-  # package { [ 'pdfxchangelite', 'PDFXChangeViewer', 'PDFXchangeEditor' ]:
-  package { [ 'pdfxchangelite', 'PDFXChangeViewer' ]:
-    ensure => installed,
-    provider => chocolatey,
-  }
-
-#**************
 # PuTTY/KiTTY
 #**************
   windows_pin_taskbar { "$dbpath/KiTTY/kitty.exe": }
