@@ -41,6 +41,14 @@ class misc {
   windows_pin_startmenu { "$dbpath/keepass/KeePass.exe": }
 
 #**************
+# 7-Zip
+#**************
+  package { '7zip':
+    ensure => installed,
+    provider => chocolatey,
+  }
+  
+#**************
 # Git
 #**************
   package { 'git':
