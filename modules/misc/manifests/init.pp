@@ -36,6 +36,11 @@ class misc {
   windows_pin_startmenu { "$wapath/bin/Run Puppet Apply.lnk": }
 
 #**************
+# KeePass
+#**************
+  windows_pin_startmenu { "$dbpath/keepass/KeePass.exe": }
+
+#**************
 # Git
 #**************
   package { 'git':
