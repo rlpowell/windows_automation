@@ -41,6 +41,14 @@ class misc {
   windows_pin_startmenu { "$dbpath/keepass/KeePass.exe": }
 
 #**************
+# Start Menu And Folder Settings
+#**************
+  $sms_reg = regsubst("\"$wapath/extras/startmenu.reg\"", '/', '\\', 'G')
+  exec { 'start menu settings':
+    command => "$cmd /c regedit /s $sms_reg & $cmd /c powershell -Command Stop-Process -processname explorer",
+  }
+
+#**************
 # Printer; Requires Human
 #**************
   exec { 'kick off printer install':
