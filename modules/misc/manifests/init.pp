@@ -18,6 +18,22 @@ class misc {
   }
 
 #**************
+# sharpkeys
+#**************
+  package { 'sharpkeys':
+    ensure => installed,
+    provider => chocolatey,
+  }
+
+#**************
+# PDF X-Change
+#**************
+  package { [ 'pdfxchangelite', 'PDFXChangeViewer', 'PDFXchangeEditor' ]:
+    ensure => installed,
+    provider => chocolatey,
+  }
+
+#**************
 # PuTTY/KiTTY
 #**************
   windows_pin_taskbar { "$dbpath/KiTTY/kitty.exe": }
