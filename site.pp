@@ -6,6 +6,7 @@ $appdatapath="$env_appdata"
 $dbpath="$homepath/Dropbox"
 $wapath="$dbpath/Windows_Automation"
 $secretspath="$dbpath/Windows_Automation_Secrets"
+$cmd='C:\Windows\System32\cmd.exe'
 
 File {
 	source_permissions => ignore
@@ -14,3 +15,5 @@ File {
 include 'conemu'
 include 'misc'
 include 'firefox'
+include 'pdfxchange'
+include 'secrets'

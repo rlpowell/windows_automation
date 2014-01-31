@@ -5,7 +5,6 @@ class firefox {
   #}
 
   $f1_orig = "$appdatapath/Mozilla/Firefox/profiles.ini"
-  $com = regsubst("C:/Windows/System32/cmd.exe", '/', '\\', 'G')
   $f1 = regsubst("\"$f1_orig\"", '/', '\\', 'G')
   $f2 = regsubst("\"$dbpath/FireFox/profiles.ini\"", '/', '\\', 'G')
 
@@ -14,7 +13,7 @@ class firefox {
     ensure => absent,
   }
   exec { "hard link firefox profiles":
-    command => "$com /c mklink /h $f1 $f2",
+    command => "$cmd /c mklink /h $f1 $f2",
     require => File[$f1_orig],
   }
 
