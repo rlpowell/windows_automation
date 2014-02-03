@@ -8,6 +8,18 @@ class firefox {
   $f1 = regsubst("\"$f1_orig\"", '/', '\\', 'G')
   $f2 = regsubst("\"$dbpath/FireFox/profiles.ini\"", '/', '\\', 'G')
 
+  package { 'firefox':
+    ensure => installed,
+    provider => chocolatey,
+  }
+
+  file { "$appdatapath/Mozilla":
+    ensure => directory,
+  }
+  file { "$appdatapath/Mozilla/Firefox":
+    ensure => directory,
+  }
+
   # mklink can't overwrite, so we have to kill and re-create every freaking time; not sure how else to tell the file is in place
   file { "$f1_orig":
     ensure => absent,
