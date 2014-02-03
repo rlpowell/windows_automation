@@ -1,0 +1,3 @@
+Windows Registry Editor Version 5.00
+[HKEY_CLASSES_ROOT\*\shell\Edit with Vim\command]
+@="C:\\Program Files (x86)\\Vim\\bin\\gvim.bat \"%1\""

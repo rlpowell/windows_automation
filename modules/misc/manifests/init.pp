@@ -124,9 +124,8 @@ class misc {
   file { "$homepath/.vimrc":
     source => "$wapath/modules/misc/files/vimrc",
   }
-  exec { 'git shell integration':
-    command => "$env_programfilesx86/vim/bin/gvim.bat -register",
-    unless  => "$cmd /c reg query HKEY_CLASSES_ROOT\\Applications\\gvim.bat\\shell\\open\\command | findstr /C:'bin\\gvim.bat'",
+  windows_extras::regload { "$wapath/extras/vim.reg":
+    unless  => "$cmd /c reg query \"HKEY_CLASSES_ROOT\\*\\shell\\Edit with Vim\\command\" | findstr /C:gvim.bat",
   }
 
 #**************
@@ -136,6 +135,7 @@ class misc {
     ensure => installed,
     provider => chocolatey,
   }
+  windows_pin_taskbar { "$env_programdata/Microsoft/Windows/Start Menu/Programs/Skype/Skype.lnk": }
 
 #**************
 # Flash player for chrome/FF
