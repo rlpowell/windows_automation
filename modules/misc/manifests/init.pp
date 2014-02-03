@@ -43,17 +43,34 @@ class misc {
 #**************
 # Start Menu And Folder Settings
 #**************
-  windows_extras::regload { "$wapath/extras/startmenu.reg": }
+  windows_extras::regload { "$wapath/extras/startmenu.reg":
+    unless_key => 'HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced',
+    unless_check  => 'HideFileExt',
+  }
 
 #**************
 # Language Settings
 #**************
-  windows_extras::regload { "$wapath/extras/language.reg": }
+  windows_extras::regload { "$wapath/extras/language.reg":
+    unless_key => 'HKEY_CURRENT_USER\Control Panel\International',
+    unless_check  => 'yyyy-MM-dd',
+  }
 
 #**************
 # Convert caps lock to ctrl
 #**************
-  windows_extras::regload { "$wapath/extras/cap_to_ctrl.reg": }
+  windows_extras::regload { "$wapath/extras/cap_to_ctrl.reg":
+    unless_key => 'HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Keyboard Layout',
+    unless_check  => '0000000000000000020000001D003A0000000000',
+  }
+
+#**************
+# VLC
+#**************
+  package { 'vlc':
+    ensure => installed,
+    provider => chocolatey,
+  }
 
 #**************
 # Printer; Requires Human
@@ -94,6 +111,31 @@ class misc {
     ensure => installed,
     provider => chocolatey,
   }
+#--- File: 7Zip-Installer.cmd ---
+#@echo off
+#:Installing
+#\\yourcompany.com\software\tools\7z465.exe /S
+#:Associate
+#assoc .7z=7-Zip.7z
+#assoc .bz2=7-Zip.bz2
+#assoc .gz=7-Zip.gz
+#assoc .tar=7-Zip.tar
+#assoc .tgz=7-Zip.tgz
+#assoc .zip=7-Zip.zip
+#ftype 7-Zip.7z="C:\Program Files\7-Zip\7zFM.exe" "%1"
+#ftype 7-Zip.bz2="C:\Program Files\7-Zip\7zFM.exe" "%1"
+#ftype 7-Zip.gz="C:\Program Files\7-Zip\7zFM.exe" "%1"
+#ftype 7-Zip.tar="C:\Program Files\7-Zip\7zFM.exe" "%1"
+#ftype 7-Zip.tgz="C:\Program Files\7-Zip\7zFM.exe" "%1"
+#ftype 7-Zip.zip="C:\Program Files\7-Zip\7zFM.exe" "%1"
+#
+#%distrib_path%\7z465.msi /passive
+#xcopy "%distrib_path%\7z.dll" "%ProgramFiles%\7-Zip\&quot; /y /r
+#for /d %%A in (7z,arj,bz2,bzip2,cab,cpio,deb,dmg,gz,gzip,hfs,iso,lha,lzh,lzma,rar,rpm,split,swm,tar,taz,tbz,tbz2,tgz,tpz,wim,xar,z,zip) do (
+#assoc .%%A=7-zip.%%A
+#)
+#reg import "%distrib_path%\7z.reg"
+#exit
   
 #**************
 # Git
@@ -125,7 +167,8 @@ class misc {
     source => "$wapath/modules/misc/files/vimrc",
   }
   windows_extras::regload { "$wapath/extras/vim.reg":
-    unless  => "$cmd /c reg query \"HKEY_CLASSES_ROOT\\*\\shell\\Edit with Vim\\command\" | findstr /C:gvim.bat",
+    unless_key => 'HKEY_CLASSES_ROOT\*\shell\Edit with Vim\command',
+    unless_check  => 'gvim.bat',
   }
 
 #**************
@@ -177,6 +220,7 @@ service { 'WSearch':
     ensure => installed,
     provider => chocolatey,
   }
+  windows_pin_startmenu { "$env_programdata/Microsoft/Windows/Start Menu/Programs/Grinding Gear Games/Path of Exile.lnk": }
 
 #**************
 # Gnomoria

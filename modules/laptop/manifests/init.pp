@@ -1,5 +1,8 @@
 class laptop {
-  windows_extras::regload { "$wapath/extras/keyboard.reg": }
+  windows_extras::regload { "$wapath/extras/keyboard.reg":
+    unless_key => 'HKEY_CURRENT_USER\Keyboard Layout\Substitutes',
+    unless_check => '00010409',
+  }
 
   $high_perf_power = regsubst("\"$wapath/extras/high_perf.pow\"", '/', '\\', 'G')
   exec { 'high performance power settinsg':
