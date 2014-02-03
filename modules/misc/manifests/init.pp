@@ -43,10 +43,17 @@ class misc {
 #**************
 # Start Menu And Folder Settings
 #**************
-  $sms_reg = regsubst("\"$wapath/extras/startmenu.reg\"", '/', '\\', 'G')
-  exec { 'start menu settings':
-    command => "$cmd /c regedit /s $sms_reg & $cmd /c powershell -Command Stop-Process -processname explorer",
-  }
+  windows_extras::regload { "$wapath/extras/startmenu.reg": }
+
+#**************
+# Language Settings
+#**************
+  windows_extras::regload { "$wapath/extras/language.reg": }
+
+#**************
+# Convert caps lock to ctrl
+#**************
+  windows_extras::regload { "$wapath/extras/cap_to_ctrl.reg": }
 
 #**************
 # Printer; Requires Human
@@ -54,6 +61,30 @@ class misc {
   exec { 'kick off printer install':
     command => "$cmd /c $wapath/extras/md6l-win-mx700-1_02-en.exe",
     unless => "$cmd /c wmic printer list status | findstr /C:\"Canon MX700 series Printer\"",
+  }
+
+#**************
+# Java
+#**************
+  package { 'javaruntime':
+    ensure => installed,
+    provider => chocolatey,
+  }
+
+#**************
+# Calibre
+#**************
+  package { 'calibre':
+    ensure => installed,
+    provider => chocolatey,
+  }
+
+#**************
+# WinDirStat
+#**************
+  package { 'windirstat':
+    ensure => installed,
+    provider => chocolatey,
   }
 
 #**************
@@ -71,6 +102,21 @@ class misc {
     ensure => installed,
     provider => chocolatey,
   }
+  file { "$homepath/.gitconfig":
+    source => "$wapath/extras/gitconfig",
+  }
+
+#**************
+# WinSCP
+#**************
+  package { 'winscp':
+    ensure => installed,
+    provider => chocolatey,
+  }
+  file { "C:/Chocolatey/bin/WinSCP.ini":
+    source => "$secretspath/WinSCP.ini",
+    require => Package['winscp'],
+  }
 
 #**************
 # vim
@@ -78,6 +124,39 @@ class misc {
   file { "$homepath/.vimrc":
     source => "$wapath/modules/misc/files/vimrc",
   }
+  exec { 'git shell integration':
+    command => "$env_programfilesx86/vim/bin/gvim.bat -register",
+    unless  => "$cmd /c reg query HKEY_CLASSES_ROOT\\Applications\\gvim.bat\\shell\\open\\command | findstr /C:'bin\\gvim.bat'",
+  }
+
+#**************
+# Skype
+#**************
+  package { 'skype':
+    ensure => installed,
+    provider => chocolatey,
+  }
+
+#**************
+# Flash player for chrome/FF
+#**************
+  package { 'flashplayerplugin':
+    ensure => installed,
+    provider => chocolatey,
+  }
+
+#**************
+# Disable search indexing service
+#**************
+service { 'WSearch':
+  ensure => stopped,
+  enable => false,
+}
+
+#**************
+# Dropbox Pin
+#**************
+  windows_pin_taskbar { "$appdatapath/Microsoft/Windows/Start Menu/Programs/Dropbox/Dropbox.lnk": }
 
 #**************
 # SocialSafe
@@ -92,8 +171,19 @@ class misc {
 #********************************************
 
 #**************
+# Path Of Exile
+#**************
+  package { 'pathofexile':
+    ensure => installed,
+    provider => chocolatey,
+  }
+
+#**************
 # Gnomoria
 #**************
+  file { ["$homepath/Documents/My Games", "$homepath/Documents/My Games/Gnomoria"]:
+    ensure => directory,
+  }
   file { "$homepath/Documents/My Games/Gnomoria/Worlds":
     ensure => "$homepath/Dropbox/Games/Gnomoria/Worlds",
     force => true,
