@@ -27,10 +27,12 @@ include 'pictures'
 
 # Laptops
 node 'gunka', 'tsetupyzbe' {
-  include 'laptop'
+  $laptop=true
+  $deskop=true
 }
 
 # Desktops
-node 'kelci' {
-  # No extra stuff yet.
+node default {
+  $laptop=false
+  $desktop=true
 }
