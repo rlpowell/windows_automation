@@ -8,8 +8,14 @@ $wapath="$dbpath/Windows_Automation"
 $secretspath="$dbpath/Windows_Automation_Secrets"
 $cmd='C:\Windows\System32\cmd.exe'
 
+include 'windows_extras'
+
+Exec {
+  logoutput => true,
+}
+
 File {
-	source_permissions => ignore
+  source_permissions => ignore,
 }
 
 include 'conemu'
@@ -17,3 +23,14 @@ include 'misc'
 include 'firefox'
 include 'pdfxchange'
 include 'secrets'
+include 'pictures'
+
+# Laptops
+node 'gunka', 'tsetupyzbe' {
+  include 'laptop'
+}
+
+# Desktops
+node 'kelci' {
+  # No extra stuff yet.
+}
