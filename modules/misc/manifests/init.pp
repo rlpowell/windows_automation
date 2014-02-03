@@ -105,6 +105,14 @@ class misc {
   }
 
 #**************
+# Steam
+#**************
+  package { 'steam':
+    ensure => installed,
+    provider => chocolatey,
+  }
+
+#**************
 # 7-Zip
 #**************
   package { '7zip':
