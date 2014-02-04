@@ -139,10 +139,15 @@ class misc {
 #**************
 # vim
 #**************
+  package { 'vim':
+    ensure => installed,
+    provider => chocolatey,
+  }
   file { "$homepath/.vimrc":
     source => "$wapath/modules/misc/files/vimrc",
   }
   windows_extras::regload { "$wapath/extras/vim.reg":
+    require => Package['vim'],
     unless_key => 'HKEY_CLASSES_ROOT\*\shell\Edit with Vim\command',
     unless_check  => 'gvim.bat',
   }
@@ -186,6 +191,14 @@ service { 'WSearch':
   }
 
 #**************
+# FastGlacier
+#**************
+  package { 'fastglacier':
+    ensure => installed,
+    provider => chocolatey,
+  }
+
+#**************
 # SocialSafe
 #**************
   file { "$appdatapath/com.1minus1.socialsafe.D675411CF670AA3EFAC13BDD847989BEDE2115E2.1":
@@ -202,8 +215,18 @@ service { 'WSearch':
       unless_check => '00010409',
     }
   
-    $high_perf_power = regsubst("\"$wapath/extras/high_perf.pow\"", '/', '\\', 'G')
-    exec { 'high performance power settinsg':
+    $high_perf_power = regsubst("\"$wapath/extras/high_perf_laptop.pow\"", '/', '\\', 'G')
+    exec { 'high performance power settings':
+      command => "$cmd /c powercfg -S 381b4222-f694-41f0-9685-ff5bb260df2e & $cmd /c powercfg -D 8c5e7fda-e8bf-4a96-9a85-a6e23a8c635c & $cmd /c powercfg -import $high_perf_power 8c5e7fda-e8bf-4a96-9a85-a6e23a8c635c & cmd /c powercfg -S 8c5e7fda-e8bf-4a96-9a85-a6e23a8c635c",
+    }
+  }
+
+#********************************************
+# Desktop
+#********************************************
+  if $desktop {
+    $high_perf_power = regsubst("\"$wapath/extras/high_perf_desktop.pow\"", '/', '\\', 'G')
+    exec { 'high performance power settings':
       command => "$cmd /c powercfg -S 381b4222-f694-41f0-9685-ff5bb260df2e & $cmd /c powercfg -D 8c5e7fda-e8bf-4a96-9a85-a6e23a8c635c & $cmd /c powercfg -import $high_perf_power 8c5e7fda-e8bf-4a96-9a85-a6e23a8c635c & cmd /c powercfg -S 8c5e7fda-e8bf-4a96-9a85-a6e23a8c635c",
     }
   }
