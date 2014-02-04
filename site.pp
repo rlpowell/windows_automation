@@ -8,8 +8,6 @@ $wapath="$dbpath/Windows_Automation"
 $secretspath="$dbpath/Windows_Automation_Secrets"
 $cmd='C:\Windows\System32\cmd.exe'
 
-include 'windows_extras'
-
 Exec {
   logoutput => true,
 }
@@ -18,23 +16,31 @@ File {
   source_permissions => ignore,
 }
 
-include 'conemu'
-include 'misc'
-include 'firefox'
-include 'pdfxchange'
-include 'secrets'
-include 'pictures'
-include '7zip'
-include 'path_of_exile'
+class everything {
+  include 'windows_extras'
+  include 'conemu'
+  include 'misc'
+  include 'firefox'
+  include 'pdfxchange'
+  include 'secrets'
+  include 'pictures'
+  include '7zip'
+  include 'path_of_exile'
+}
 
 # Laptops
 node 'gunka', 'tsetupyzbe' {
   $laptop=true
-  $deskop=true
+  $deskop=false
+
+  include everything
 }
 
 # Desktops
 node default {
   $laptop=false
   $desktop=true
+
+  include everything
 }
+
