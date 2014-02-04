@@ -24,6 +24,8 @@ include 'firefox'
 include 'pdfxchange'
 include 'secrets'
 include 'pictures'
+include '7zip'
+include 'path_of_exile'
 
 # Laptops
 node 'gunka', 'tsetupyzbe' {
