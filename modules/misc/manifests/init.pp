@@ -268,4 +268,12 @@ service { 'WSearch':
     force => true,
   }
 
+#**************
+# Reus
+#**************
+  file { "$homepath/Documents/Reus":
+    ensure => "$homepath/Dropbox/Games/Reus",
+    force => true,
+  }
+
 }
