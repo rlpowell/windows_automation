@@ -208,8 +208,11 @@ service { 'WSearch':
   file { "$homepath/Documents/Anki":
     ensure => "$dbpath/ProgramData/Anki",
     force => true,
+    require => Package['anki'],
   }
-  windows_pin_startmenu { "$env_programfilesx86/Anki/anki.exe": }
+  windows_pin_startmenu { "$env_programfilesx86/Anki/anki.exe":
+    require => Package['anki'],
+  }
 
 #**************
 # SocialSafe
