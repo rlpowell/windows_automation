@@ -91,9 +91,27 @@ class misc {
 #**************
 # Calibre
 #**************
+  package { 'kindle':
+    ensure => installed,
+    provider => chocolatey,
+  }
   package { 'calibre':
     ensure => installed,
     provider => chocolatey,
+    require => Package['kindle'],
+  }
+  file { "$homepath/Documents/Calibre Library":
+    ensure => "$dbpath/Calibre Library",
+    force => true,
+    require => Package['calibre'],
+  }
+  file { "$appdatapath/calibre":
+    ensure => "$dbpath/calibre_configuration",
+    force => true,
+    require => Package['calibre'],
+  }
+  windows_pin_startmenu { "$env_programdata/Microsoft/Windows/Start Menu/Programs/calibre 64bit - E-book Management/calibre 64bit - E-book Management.lnk":
+    require => Package['calibre'],
   }
 
 #**************
@@ -111,7 +129,9 @@ class misc {
     ensure => installed,
     provider => chocolatey,
   }
-  windows_pin_startmenu { "$env_programdata/Microsoft/Windows/Start Menu/Programs/Steam/Steam.lnk": }
+  windows_pin_startmenu { "$env_programdata/Microsoft/Windows/Start Menu/Programs/Steam/Steam.lnk":
+    require => Package['steam'],
+  }
 
 #**************
 # Git
