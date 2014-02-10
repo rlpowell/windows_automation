@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<package xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <metadata>
+    <id>photoguru</id>
+    <title>PhotoGuru Backup And Restore</title>
+    <version>3.1</version>
+    <authors>CMP-Soft, LLC</authors>
+    <owners>rlpowell</owners>
+    <summary>Zenfolio bulk uploader.</summary>
+    <description>Do you take a lot of photos with a digital camera ?  If you are like most of us, you have thousands of digital photos on your computer that you want to share with clients, friends and family. There are several online services that allow you to do exactly this. One of the best and most affordable photo sharing service is offered by a company called Zenfolior. The only problem is . how do you transfer thousands of photos to Zenfolio ?  Photo Guru Backup And Restore solves this problem by allowing you to replicate the nested folder structure of your machine on Zenfolio's server and to bulk upload the photos in these folders up 16x times faster than competing applications. Uploads can be stopped and resumed at any time. Before resuming, Photo Guru will check which images have changed and need to be replaced on Zenfolio's server. Frequently used upload- and synchronization tasks can be saved to disk and can be passed via command line arguments to the program.  Once photos are stored on Zenfolio's server you can retrieve them with Photo Guru by selecting individual photos or entire folders.</description>
+    <projectUrl>http://www.cmpsoft.com/V5/photoguru/</projectUrl>
+    <tags>photos zenfolio videos uploader</tags>
+    <!-- <licenseUrl>fully commercial</licenseUrl> -->
+    <requireLicenseAcceptance>false</requireLicenseAcceptance> <!-- or true if you require the user to accept the License before installing -->
+    <iconUrl>http://www.cmpsoft.com/V5/wp-content/uploads/2013/08/PhotoGuruBox.gif</iconUrl>
+  </metadata>
+</package>
