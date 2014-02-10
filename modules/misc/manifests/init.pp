@@ -235,6 +235,11 @@ service { 'WSearch':
   }
 
 #**************
+# MediaMonkey
+#**************
+  windows_pin_taskbar { "$dbpath/MediaMonkey/MediaMonkey (non-skinned).exe": }
+
+#**************
 # SocialSafe
 #**************
   # TODO: Actually install.
