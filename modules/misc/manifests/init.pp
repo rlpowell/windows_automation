@@ -236,8 +236,11 @@ service { 'WSearch':
 
 #**************
 # MediaMonkey
-#**************
-  windows_pin_taskbar { "$dbpath/MediaMonkey/MediaMonkey (non-skinned).exe": }
+  $net_use_m_target='\\localhost\C$\Users\rlpowell\Dropbox\Portable Music'
+  # This requires logging off and on to work
+  exec { "mount drive for media monkey portable music writing":
+    command => "$cmd /c net use M: /delete & net use M: /persistent:yes \"$net_use_m_target\"",
+  }
 
 #**************
 # SocialSafe
