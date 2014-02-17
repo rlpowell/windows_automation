@@ -31,6 +31,11 @@ class misc {
   windows_pin_taskbar { "$dbpath/KiTTY/kitty.exe": }
 
 #**************
+# Automation Bash
+#**************
+  windows_pin_startmenu { "$wapath/bin/Git Bash.lnk": }
+
+#**************
 # Puppet Runs
 #**************
   windows_pin_startmenu { "$wapath/bin/Run Puppet Apply.lnk": }
