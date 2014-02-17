@@ -242,7 +242,16 @@ service { 'WSearch':
 #**************
 # MediaMonkey
 #**************
-  windows_pin_taskbar { "$dbpath/MediaMonkey/MediaMonkey (non-skinned).exe": }
+  windows_pin_taskbar { "$dbpath/MediaMonkey/MediaMonkey.exe": }
+
+  # Set up partially-portable mode, where it can make skin changes
+  # and such; see
+  # http://www.mediamonkey.com/support/index.php?_m=knowledgebase&_a=viewarticle&kbarticleid=153
+  exec { "give admin to mediamonkey":
+    command => "$dbpath/MediaMonkey/MediaMonkeyCOM.exe /regserver & $dbpath/MediaMonkey/MediaMonkey.exe \"/elevate /regserver\"",
+  }
+
+  # Set up the M: drive used to sync out media for transfer to my phone
   $net_use_m_target='\\localhost\C$\Users\rlpowell\Dropbox\Portable Music'
   # This requires logging off and on to work
   exec { "mount drive for media monkey portable music writing":
