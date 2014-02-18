@@ -240,6 +240,26 @@ service { 'WSearch':
   }
 
 #**************
+# Audacity
+#
+# Lamely, LAME must be installed by hand because it refuses robot
+# download; use http://lame1.buanzo.com.ar/
+#**************
+  package { 'audacity':
+    ensure => installed,
+    provider => chocolatey,
+  }
+  windows_pin_startmenu { "$env_programdata/Microsoft/Windows/Start Menu/Programs/Audacity.lnk":
+    require => Package['audacity'],
+  }
+  file { "$appdatapath/Audacity/Chains/Louder.txt":
+    ensure => "$wapath/extras/Louder.txt",
+    force => true,
+    require => Package['audacity'],
+  }
+
+
+#**************
 # MediaMonkey
 #**************
   windows_pin_taskbar { "$dbpath/MediaMonkey/MediaMonkey.exe": }

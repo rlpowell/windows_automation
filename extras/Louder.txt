@@ -1,0 +1,2 @@
+Compressor: Threshold=-60.000000 NoiseFloor=-50.000000 Ratio=10.000000 AttackTime=0.200000 DecayTime=1.000000 Normalize=yes UsePeak=yes
+ExportMp3:
