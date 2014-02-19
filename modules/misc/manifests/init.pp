@@ -345,5 +345,14 @@ service { 'WSearch':
     force => true,
   }
 
+#**************
+# Minecraft
+#**************
+  file { "$appdatapath/.minecraft":
+    ensure => "$dbpath/Games/Minecraft",
+    force => true,
+  }
+  windows_pin_startmenu { "$dbpath/Games/Minecraft/Minecraft.exe": }
+  windows_pin_startmenu { "$dbpath/Games/Minecraft/Minecraft Backup.lnk": }
 }
 
