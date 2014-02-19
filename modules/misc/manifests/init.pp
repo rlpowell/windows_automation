@@ -156,8 +156,12 @@ class misc {
     ensure => installed,
     provider => chocolatey,
   }
-  file { "C:/Chocolatey/bin/WinSCP.ini":
-    source => "$secretspath/WinSCP.ini",
+  file { "$appdatapath/WinSCP.ini":
+    ensure => "$secretspath/WinSCP.ini",
+    force => true,
+    require => Package['winscp'],
+  }
+  windows_pin_taskbar { "$env_programdata/Microsoft/Windows/Start Menu/Programs/WinSCP.lnk":
     require => Package['winscp'],
   }
 
@@ -184,7 +188,9 @@ class misc {
     ensure => installed,
     provider => chocolatey,
   }
-  windows_pin_taskbar { "$env_programdata/Microsoft/Windows/Start Menu/Programs/Skype/Skype.lnk": }
+  windows_pin_taskbar { "$env_programdata/Microsoft/Windows/Start Menu/Programs/Skype/Skype.lnk":
+    require => Package['skype'],
+  }
 
 #**************
 # Flash player for chrome/FF
