@@ -360,13 +360,13 @@ service { 'WSearch':
   }
   windows_pin_startmenu { "$dbpath/Games/Minecraft/Minecraft.exe": }
   windows_pin_startmenu { "$dbpath/Games/Minecraft/Minecraft Backup.lnk": }
-}
 
 #**************
 # X3:TC and X3:AP
 #**************
   file { "$homepath/Documents/Egosoft":
-    ensure => "$homepath/Dropbox/Games/Egosoft",
+    ensure => "$dbpath/Games/Egosoft",
     force => true,
   }
 
+}
