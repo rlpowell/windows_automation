@@ -266,6 +266,14 @@ service { 'WSearch':
 
 
 #**************
+# Google Drive
+#**************
+  package { 'googledrive':
+    ensure => installed,
+    provider => chocolatey,
+  }
+
+#**************
 # MediaMonkey
 #**************
   windows_pin_taskbar { "$dbpath/MediaMonkey/MediaMonkey.exe": }
