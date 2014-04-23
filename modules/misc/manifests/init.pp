@@ -266,6 +266,14 @@ service { 'WSearch':
 
 
 #**************
+# LibreOffice
+#**************
+  package { 'libreoffice':
+    ensure => installed,
+    provider => chocolatey,
+  }
+
+#**************
 # Google Drive
 #**************
   package { 'googledrive':
