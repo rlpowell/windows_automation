@@ -330,6 +330,11 @@ service { 'WSearch':
 # Dropbox Restore
 #**************
   windows_pin_startmenu { "$wapath/bin/Dropbox Restore.lnk": }
+  package { 'python-x86_32':
+    ensure => installed,
+    provider => chocolatey,
+  }
+
 
 #********************************************
 # Desktop
