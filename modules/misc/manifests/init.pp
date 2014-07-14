@@ -335,6 +335,21 @@ service { 'WSearch':
     provider => chocolatey,
   }
 
+#**************
+# VirtualBox
+#**************
+  package { 'virtualbox':
+    ensure => installed,
+    provider => chocolatey,
+  }
+
+#**************
+# Bulk Rename Utility
+#**************
+  package { 'bulkrenameutility':
+    ensure => installed,
+    provider => chocolatey,
+  }
 
 #********************************************
 # Desktop
