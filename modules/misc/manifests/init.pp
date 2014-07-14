@@ -326,6 +326,11 @@ service { 'WSearch':
     }
   }
 
+#**************
+# Dropbox Restore
+#**************
+  windows_pin_startmenu { "$wapath/bin/Dropbox Restore.lnk": }
+
 #********************************************
 # Desktop
 #********************************************
