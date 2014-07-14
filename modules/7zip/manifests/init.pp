@@ -8,7 +8,7 @@ class 7zip {
   }
 
   $unless_key='HKEY_CLASSES_ROOT\.bz2'
-  $unless_check='7-zip'
+  $unless_check='7-Zip'
   $unless="$cmd /c reg query \"$unless_key\" | findstr /L \"$unless_check\""
 
   exec { '7zip associations':
