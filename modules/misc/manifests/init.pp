@@ -49,8 +49,9 @@ class misc {
 # Start Menu And Folder Settings
 #**************
   windows_extras::regload { "$wapath/extras/startmenu.reg":
-    unless_key => 'HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced',
-    unless_check  => 'HideFileExt',
+    # The unless doesn't seem to be working; won't hurt to do it every time.
+    #unless_key => 'HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced',
+    #unless_check  => 'HideFileExt',
   }
 
 #**************
@@ -115,7 +116,7 @@ class misc {
     force => true,
     require => Package['calibre'],
   }
-  windows_pin_startmenu { "$env_programdata/Microsoft/Windows/Start Menu/Programs/calibre 64bit - E-book Management/calibre 64bit - E-book Management.lnk":
+  windows_pin_startmenu { "$env_programdata/Microsoft/Windows/Start Menu/Programs/calibre - E-book management/calibre - E-book management.lnk":
     require => Package['calibre'],
   }
 
@@ -256,6 +257,11 @@ service { 'WSearch':
     provider => chocolatey,
   }
   windows_pin_startmenu { "$env_programdata/Microsoft/Windows/Start Menu/Programs/Audacity.lnk":
+    require => Package['audacity'],
+  }
+  file { "$appdatapath/Audacity/Chains":
+    ensure => directory,
+    force => true,
     require => Package['audacity'],
   }
   file { "$appdatapath/Audacity/Chains/Louder.txt":
