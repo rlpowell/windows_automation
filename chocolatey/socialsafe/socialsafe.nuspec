@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<package xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <metadata>
+    <id>socialsafe</id>
+    <title>SocialSafe</title>
+    <version>6.6.8</version>
+    <authors>Social Safe Limited</authors>
+    <owners>rlpowell</owners>
+    <summary>SocialSafe is a backup system for your social media.</summary>
+    <description>SocialSafe is a PC and Mac application which enables you to download your online social life and unite your social networks. You can back up your Facebook Timeline, Twitter, Instagram, Facebook Pages, Linkedin, Google+, RSS, Pinterest and Viadeo to create a beautiful, searchable, digital journal.</description>
+    <projectUrl>http://www.socialsafe.net/</projectUrl>
+    <tags>socialmedia</tags>
+    <!-- <licenseUrl>fully commercial</licenseUrl> -->
+    <requireLicenseAcceptance>false</requireLicenseAcceptance> <!-- or true if you require the user to accept the License before installing -->
+    <iconUrl>http://www.socialsafe.net/UserStorage/images/1c43d0l-socialsafe.png</iconUrl>
+  </metadata>
+</package>
