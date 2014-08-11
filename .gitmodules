@@ -1,3 +1,6 @@
 [submodule "modules/windows_extras"]
 	path = modules/windows_extras
 	url = https://github.com/rlpowell/puppet_windows_extras.git
+[submodule "modules/windows_path"]
+	path = modules/windows_path
+	url = https://github.com/basti1302/puppet-windows-path.git

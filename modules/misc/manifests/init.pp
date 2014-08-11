@@ -309,6 +309,18 @@ service { 'WSearch':
   }
 
 #**************
+# ffmpeg
+#**************
+  package { 'ffmpeg':
+    ensure => installed,
+    provider => chocolatey,
+  }
+  windows_path {'ffmpeg bin':
+    ensure      => present,
+    directory   => 'C:\\tools\\ffmpeg\\bin',
+  }
+
+#**************
 # SocialSafe
 #**************
   package { 'socialsafe':
