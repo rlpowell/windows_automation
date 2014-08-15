@@ -431,4 +431,12 @@ service { 'WSearch':
     force => true,
   }
 
+#**************
+# Lichdom and maybe others
+#**************
+  file { "$homepath/Saved Games":
+    ensure => "$dbpath/Games/Home Slash Saved Games",
+    force => true,
+  }
+
 }
