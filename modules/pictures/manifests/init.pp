@@ -16,6 +16,9 @@ class pictures {
   windows_pin_startmenu { "$dbpath/Misc/zenfolio/Pictures Post Upload.lnk":
     require => Windows_pin_startmenu["$env_programdata/Microsoft/Windows/Start Menu/Programs/Photo Guru/Photo Guru Backup.lnk"],
   }
+  windows_pin_startmenu { "$dbpath/Misc/zenfolio/Pictures Rebuild Collections.lnk":
+    require => Windows_pin_startmenu["$env_programdata/Microsoft/Windows/Start Menu/Programs/Photo Guru/Photo Guru Backup.lnk"],
+  }
 
   file { "$appdatapath/../Local/Google/Picasa2":
     ensure => "$dbpath/ProgramData/Picasa2",
