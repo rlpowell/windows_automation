@@ -435,7 +435,7 @@ service { 'WSearch':
 # Lichdom and maybe others
 #**************
   file { "$homepath/Saved Games":
-    ensure => "$dbpath/Games/Home Slash Saved Games",
+    ensure => "$dbpath/Games/Saved Games",
     force => true,
   }
 
