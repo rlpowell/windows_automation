@@ -309,6 +309,13 @@ service { 'WSearch':
   }
 
 #**************
+# mp3tag
+#**************
+  package { 'mp3tag':
+    ensure => installed,
+    provider => chocolatey,
+  }
+#**************
 # ffmpeg
 #**************
   package { 'ffmpeg':
