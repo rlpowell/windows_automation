@@ -1,8 +1,10 @@
-### THE VERSION IN MISC IS PUPPET MANAGED!
 ###
 ### Requires Python for windows install with option "add python to path" selected.
 ###
-### Also requires a pip command to be run.
+### Also requires a pip command to be run:
+###
+###    cd C:\python-x86_32\Scripts
+###    pip install dropbox
 ###
 ### See https://github.com/clark800/dropbox-restore
 ###
@@ -10,11 +12,7 @@
 ###
 ### Run in ConEmu/cmd, *not* in git bash; weird things happen with paths there.
 ###
-### cd %homepath%
-###
-### cd Downloads
-###
-### python %homepath%\Dropbox\Windows_Automation\dropbox_restore.py /Games/Minecraft_FTB_Launcher 2014-05-21-17-16-17
+### python %homepath%\Dropbox\Windows_Automation\bin\dropbox_restore.py /Games/Minecraft_FTB_Launcher 2014-05-21-17-16-17
 ###
 ### *NOTE*!!  This restores *the actual dropbox directory on your system*, it does not restore to the place you run it, or whatever.  So if you want to play with both versions, back up first.
 ###
