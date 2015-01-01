@@ -394,6 +394,34 @@ service { 'WSearch':
 #********************************************
 
 #**************
+# Factorio
+#**************
+  file { "$appdatapath/Factorio":
+    ensure => "$homepath/Dropbox/Games/Factorio",
+    force => true,
+  }
+
+#**************
+# Spore
+#**************
+  file { "$appdatapath/SPORE/Games":
+    ensure => "$homepath/Dropbox/Games/Spore/Games",
+    force => true,
+  }
+  file { "$appdatapath/SPORE/EditorSaves.package":
+    ensure => "$homepath/Dropbox/Games/Spore/EditorSaves.package",
+    force => true,
+  }
+  file { "$appdatapath/SPORE/Pollination.package":
+    ensure => "$homepath/Dropbox/Games/Spore/Pollination.package",
+    force => true,
+  }
+  file { "$homepath/Documents/My Spore Creations":
+    ensure => "$homepath/Dropbox/Games/Spore/My Spore Creations",
+    force => true,
+  }
+
+#**************
 # Gnomoria
 #**************
   file { ["$homepath/Documents/My Games", "$homepath/Documents/My Games/Gnomoria"]:
