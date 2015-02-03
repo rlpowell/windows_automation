@@ -459,7 +459,7 @@ service { 'WSearch':
 #**************
 # Starpoint Gemini 2
 #**************
-  file { "$env_programfilesx86/Steam/SteamApps/common/Starpoint Gemini 2\Saves":
+  file { "$env_programfilesx86/Steam/SteamApps/common/Starpoint Gemini 2/Saves":
     ensure => "$dbpath/Games/Starpoint Gemini 2",
   }
 
