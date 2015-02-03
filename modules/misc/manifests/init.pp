@@ -108,12 +108,10 @@ class misc {
   }
   file { "$homepath/Documents/Calibre Library":
     ensure => "$dbpath/Calibre Library",
-    force => true,
     require => Package['calibre'],
   }
   file { "$appdatapath/calibre":
     ensure => "$dbpath/calibre_configuration",
-    force => true,
     require => Package['calibre'],
   }
   windows_pin_startmenu { "$env_programdata/Microsoft/Windows/Start Menu/Programs/calibre - E-book management/calibre - E-book management.lnk":
@@ -159,7 +157,6 @@ class misc {
   }
   file { "$appdatapath/WinSCP.ini":
     ensure => "$secretspath/WinSCP.ini",
-    force => true,
     require => Package['winscp'],
   }
   windows_pin_taskbar { "$env_programdata/Microsoft/Windows/Start Menu/Programs/WinSCP.lnk":
@@ -239,7 +236,6 @@ service { 'WSearch':
   }
   file { "$homepath/Documents/Anki":
     ensure => "$dbpath/ProgramData/Anki",
-    force => true,
     require => Package['anki'],
   }
   windows_pin_startmenu { "$env_programfilesx86/Anki/anki.exe":
@@ -261,12 +257,10 @@ service { 'WSearch':
   }
   file { "$appdatapath/Audacity/Chains":
     ensure => directory,
-    force => true,
     require => Package['audacity'],
   }
   file { "$appdatapath/Audacity/Chains/Louder.txt":
     ensure => "$wapath/extras/Louder.txt",
-    force => true,
     require => Package['audacity'],
   }
 
@@ -336,7 +330,6 @@ service { 'WSearch':
   }
   file { "$appdatapath/com.1minus1.socialsafe.D675411CF670AA3EFAC13BDD847989BEDE2115E2.1":
     ensure => "$dbpath/SocialSafe/com.1minus1.socialsafe.D675411CF670AA3EFAC13BDD847989BEDE2115E2.1",
-    force => true,
   }
 
 #********************************************
@@ -358,7 +351,7 @@ service { 'WSearch':
 # Dropbox Restore
 #**************
   windows_pin_startmenu { "$wapath/bin/Dropbox Restore.lnk": }
-  package { 'python-x86_32':
+  package { 'python2-x86_32':
     ensure => installed,
     provider => chocolatey,
   }
@@ -398,7 +391,6 @@ service { 'WSearch':
 #**************
   file { "$appdatapath/Factorio":
     ensure => "$homepath/Dropbox/Games/Factorio",
-    force => true,
   }
 
 #**************
@@ -406,19 +398,15 @@ service { 'WSearch':
 #**************
   file { "$appdatapath/SPORE/Games":
     ensure => "$homepath/Dropbox/Games/Spore/Games",
-    force => true,
   }
   file { "$appdatapath/SPORE/EditorSaves.package":
     ensure => "$homepath/Dropbox/Games/Spore/EditorSaves.package",
-    force => true,
   }
   file { "$appdatapath/SPORE/Pollination.package":
     ensure => "$homepath/Dropbox/Games/Spore/Pollination.package",
-    force => true,
   }
   file { "$homepath/Documents/My Spore Creations":
     ensure => "$homepath/Dropbox/Games/Spore/My Spore Creations",
-    force => true,
   }
 
 #**************
@@ -429,7 +417,6 @@ service { 'WSearch':
   }
   file { "$homepath/Documents/My Games/Gnomoria/Worlds":
     ensure => "$homepath/Dropbox/Games/Gnomoria/Worlds",
-    force => true,
   }
 
 #**************
@@ -437,7 +424,6 @@ service { 'WSearch':
 #**************
   file { "$homepath/Documents/My Games/Freelancer":
     ensure => "$homepath/Dropbox/Games/Freelancer",
-    force => true,
   }
 
 #**************
@@ -445,7 +431,6 @@ service { 'WSearch':
 #**************
   file { "$homepath/Documents/Reus":
     ensure => "$homepath/Dropbox/Games/Reus",
-    force => true,
   }
 
 #**************
@@ -453,7 +438,6 @@ service { 'WSearch':
 #**************
   file { "$appdatapath/.minecraft":
     ensure => "$dbpath/Games/Minecraft",
-    force => true,
   }
   windows_pin_startmenu { "$dbpath/Games/Minecraft/Minecraft.exe": }
   windows_pin_startmenu { "$dbpath/Games/Minecraft/Minecraft Backup.lnk": }
@@ -463,7 +447,6 @@ service { 'WSearch':
 #**************
   file { "$homepath/Documents/Egosoft":
     ensure => "$dbpath/Games/Egosoft",
-    force => true,
   }
 
 #**************
@@ -471,7 +454,13 @@ service { 'WSearch':
 #**************
   file { "$homepath/Saved Games":
     ensure => "$dbpath/Games/Saved Games",
-    force => true,
+  }
+
+#**************
+# Starpoint Gemini 2
+#**************
+  file { "$env_programfilesx86/Steam/SteamApps/common/Starpoint Gemini 2\Saves":
+    ensure => "$dbpath/Games/Starpoint Gemini 2",
   }
 
 }
