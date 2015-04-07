@@ -293,14 +293,16 @@ service { 'WSearch':
     command => "$dbpath/MediaMonkey/MediaMonkeyCOM.exe /regserver & $dbpath/MediaMonkey/MediaMonkey.exe \"/elevate /regserver\"",
   }
 
-  # Set up the M: drive used to sync out media for transfer to my phone
-  $net_use_m_target='\\localhost\C$\Users\rlpowell\Dropbox\Portable Music'
-  # This requires logging off and on to work
-  exec { "mount drive for media monkey portable music writing":
-    #command => "$cmd /c net use M: /delete & net use M: /persistent:yes \"$net_use_m_target\"",
-    command => "$cmd /c net use M: /persistent:yes \"$net_use_m_target\"",
-    unless => "$cmd /c dir M: | findstr /L techno",
-  }
+  # We use mediamonkey sync now.
+  #
+  ## Set up the M: drive used to sync out media for transfer to my phone
+  #$net_use_m_target='\\localhost\C$\Users\rlpowell\Dropbox\Portable Music'
+  ## This requires logging off and on to work
+  #exec { "mount drive for media monkey portable music writing":
+  #  #command => "$cmd /c net use M: /delete & net use M: /persistent:yes \"$net_use_m_target\"",
+  #  command => "$cmd /c net use M: /persistent:yes \"$net_use_m_target\"",
+  #  unless => "$cmd /c dir M: | findstr /L techno",
+  #}
 
 #**************
 # mp3tag
@@ -420,6 +422,13 @@ service { 'WSearch':
   }
 
 #**************
+# Morrowind
+#**************
+  file { "C:/Morrowind/Saves":
+    ensure => "$homepath/Dropbox/Games/Morrowind",
+  }
+
+#**************
 # Freelancer
 #**************
   file { "$homepath/Documents/My Games/Freelancer":
@@ -454,6 +463,13 @@ service { 'WSearch':
 #**************
   file { "$homepath/Saved Games":
     ensure => "$dbpath/Games/Saved Games",
+  }
+
+#**************
+# Hacker Evolution
+#**************
+  file { "$env_programfilesx86/Steam/SteamApps/common/Hacker Evolution/he-savegames":
+    ensure => "$dbpath/Games/Hacker Evolution",
   }
 
 #**************
