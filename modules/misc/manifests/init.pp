@@ -46,6 +46,11 @@ class misc {
   windows_pin_startmenu { "$dbpath/keepass/KeePass.exe": }
 
 #**************
+# Shut down firefox for dropbox sync
+#**************
+  windows_pin_startmenu { "$dbpath/Misc/firefox_stop/FireFox Stop.lnk": }
+
+#**************
 # Start Menu And Folder Settings
 #**************
   windows_extras::regload { "$wapath/extras/startmenu.reg":
