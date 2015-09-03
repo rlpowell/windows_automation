@@ -67,7 +67,7 @@ class firefox {
     command => "$cmd /c $homepath/Dropbox/FireFox/fix_locks.bat",
   }
 
-  file { "$homepath/Dropbox/FireFox/fix_locks.bat",
+  file { "$homepath/Dropbox/FireFox/fix_locks.bat":
     source => "$wapath/modules/firefox/files/fix_locks.bat",
   }
 
