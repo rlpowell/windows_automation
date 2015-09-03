@@ -378,6 +378,13 @@ service { 'WSearch':
     ensure => installed,
     provider => chocolatey,
   }
+#**************
+# Telegram Dropbox Hack
+#**************
+  file { "$homepath/Dropbox/Telegram/log.txt":
+    ensure => "$appdatapath/../Local/Temp/telegram.log.txt",
+  }
+
 
 #********************************************
 # Desktop
