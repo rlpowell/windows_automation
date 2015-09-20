@@ -381,8 +381,9 @@ service { 'WSearch':
 #**************
 # Telegram Dropbox Hack
 #**************
-  file { "$homepath/Dropbox/Telegram/log.txt":
-    ensure => "$appdatapath/../Local/Temp/telegram.log.txt",
+  exec { 'start telegram with log file hack':
+    command => "$cmd /c schtasks /create /tn Telegram /tr $dbpath\Telegram\Telegram_Batch.lnk /sc onstart",
+    unless => "$cmd /c schtasks /query /tn Telegram",
   }
 
 
