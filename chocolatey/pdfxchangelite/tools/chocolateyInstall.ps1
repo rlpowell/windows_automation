@@ -4,7 +4,7 @@ try { #error handling is only necessary if you need to do anything in addition t
   $tempDir = Join-Path $chocTempDir "$packageName"
 
   Install-ChocolateyZipPackage 'pdfxchangelite-zip' "$url" $tempDir
-  Install-ChocolateyInstallPackage 'pdfxchangelite' 'exe' '/SILENT' "$tempDir\PDFX5SA_LE.exe"
+  Install-ChocolateyInstallPackage 'pdfxchangelite' 'exe' '/SILENT /NORESTART' "$tempDir\PDFX5SA_LE.exe" -validExitCodes @(0,3010)
 
   # main helpers - these have error handling tucked into them so they become the only line of your script if that is all you need.
   # installer, will assert administrative rights

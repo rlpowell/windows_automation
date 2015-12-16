@@ -2,16 +2,19 @@
 <package xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <metadata>
     <id>pdfxchangelite</id>
-    <title>PDFXChange Lite</title>
-    <version>5.0.273.1</version>
+    <title>PDFXChange Lite PDF Printer Driver</title>
+    <version>2012.0</version>
     <authors>Tracker Software</authors>
     <owners>rlpowell</owners>
     <summary>The commercial version of PDF X-Change Lite</summary>
     <description>The commercial version of PDF X-Change Lite.  There's a non-commercial version as well which I haven't packaged; email me at rlpowell@digitalkingdom.org if that would be of use to you.</description>
     <projectUrl>http://www.tracker-software.com/product/pdf-xchange-lite</projectUrl>
-    <tags>pdf printer driver PDFXChangeLite</tags>
+    <tags>pdf printer driver PDFXChangeLite admin</tags>
     <!-- <licenseUrl>fully commercial</licenseUrl> -->
     <requireLicenseAcceptance>false</requireLicenseAcceptance> <!-- or true if you require the user to accept the License before installing -->
     <iconUrl>http://www.tracker-software.com/img/logo.png</iconUrl>
+    <packageSourceUrl>https://github.com/rlpowell/windows_automation/tree/master/chocolatey/pdfxchangelite</packageSourceUrl>
+    <releaseNotes>http://www.tracker-software.com/version/pdf-xchange-lite</releaseNotes>
+    <docsUrl>http://help.tracker-software.com/EUM/default.aspx?pageid=PDF-XChange%20Lite%202012:Welcome_Lite5&amp;skin=5LITE</docsUrl>
   </metadata>
 </package>
