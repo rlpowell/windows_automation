@@ -1,5 +1,12 @@
 class misc {
 #*******
+# Syspin
+#*******
+  file { 'C:\Windows\System32\syspin.exe':
+    source => "$wapath/extras/syspin.exe",
+  }
+
+#*******
 # SSH
 #*******
   file { "$homepath/.ssh":
@@ -28,35 +35,34 @@ class misc {
 #**************
 # PuTTY/KiTTY
 #**************
-  windows_pin_taskbar { "$dbpath/KiTTY/kitty.exe": }
+  windows_pin { "$dbpath/KiTTY/kitty.exe": type => taskbar }
 
 #**************
 # Automation Bash
 #**************
-  windows_pin_startmenu { "$wapath/bin/Git Bash.lnk": }
+  windows_pin { "$wapath/bin/Git Bash.lnk": type => startmenu }
 
 #**************
 # Puppet Runs
 #**************
-  windows_pin_startmenu { "$wapath/bin/Run Puppet Apply.lnk": }
+  windows_pin { "$wapath/bin/Run Puppet Apply.lnk": type => startmenu }
 
 #**************
 # KeePass
 #**************
-  windows_pin_startmenu { "$dbpath/keepass/KeePass.exe": }
+  windows_pin { "$dbpath/keepass/KeePass.exe": type => startmenu }
 
 #**************
 # Shut down firefox for dropbox sync
 #**************
-  windows_pin_startmenu { "$dbpath/Misc/firefox_stop/FireFox Stop.lnk": }
+  windows_pin { "$dbpath/Misc/firefox_stop/FireFox Stop.lnk": type => startmenu }
 
 #**************
 # Start Menu And Folder Settings
 #**************
   windows_extras::regload { "$wapath/extras/startmenu.reg":
-    # The unless doesn't seem to be working; won't hurt to do it every time.
-    #unless_key => 'HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced',
-    #unless_check  => 'HideFileExt',
+    unless_key => 'HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced',
+    unless_check  => 'Special_Test',
   }
 
 #**************
@@ -119,7 +125,8 @@ class misc {
     ensure => "$dbpath/calibre_configuration",
     require => Package['calibre'],
   }
-  windows_pin_startmenu { "$env_programdata/Microsoft/Windows/Start Menu/Programs/calibre - E-book management/calibre - E-book management.lnk":
+  windows_pin { "$env_programdata/Microsoft/Windows/Start Menu/Programs/calibre 64bit - E-book management/calibre 64bit - E-book management.lnk":
+    type => startmenu,
     require => Package['calibre'],
   }
 
@@ -138,7 +145,8 @@ class misc {
     ensure => installed,
     provider => chocolatey,
   }
-  windows_pin_startmenu { "$env_programdata/Microsoft/Windows/Start Menu/Programs/Steam/Steam.lnk":
+  windows_pin { "$env_programdata/Microsoft/Windows/Start Menu/Programs/Steam/Steam.lnk":
+    type => startmenu,
     require => Package['steam'],
   }
 
@@ -164,7 +172,8 @@ class misc {
     ensure => "$secretspath/WinSCP.ini",
     require => Package['winscp'],
   }
-  windows_pin_taskbar { "$env_programdata/Microsoft/Windows/Start Menu/Programs/WinSCP.lnk":
+  windows_pin { "$env_programdata/Microsoft/Windows/Start Menu/Programs/WinSCP.lnk":
+    type => taskbar,
     require => Package['winscp'],
   }
 
@@ -178,10 +187,12 @@ class misc {
   file { "$homepath/.vimrc":
     source => "$wapath/modules/misc/files/vimrc",
   }
-  windows_extras::regload { "$wapath/extras/vim.reg":
-    require => Package['vim'],
-    unless_key => 'HKEY_CLASSES_ROOT\*\shell\Edit with Vim\command',
-    unless_check  => 'gvim.bat',
+  if( ! $operatingsystemmajrelease == 10 ) {
+    windows_extras::regload { "$wapath/extras/vim.reg":
+      require => Package['vim'],
+      unless_key => 'HKEY_CLASSES_ROOT\*\shell\Edit with Vim\command',
+      unless_check  => 'gvim.bat',
+    }
   }
 
 #**************
@@ -191,7 +202,8 @@ class misc {
     ensure => installed,
     provider => chocolatey,
   }
-  windows_pin_taskbar { "$env_programdata/Microsoft/Windows/Start Menu/Programs/Skype/Skype.lnk":
+  windows_pin { "$env_programdata/Microsoft/Windows/Start Menu/Programs/Skype/Skype.lnk":
+    type => taskbar,
     require => Package['skype'],
   }
 
@@ -214,7 +226,7 @@ service { 'WSearch':
 #**************
 # Dropbox Pin
 #**************
-  windows_pin_taskbar { "$appdatapath/Microsoft/Windows/Start Menu/Programs/Dropbox/Dropbox.lnk": }
+  windows_pin { "$env_programdata/Microsoft/Windows/Start Menu/Programs/Dropbox/Dropbox.lnk": type => taskbar }
 
 #**************
 # Silverlight
@@ -243,7 +255,8 @@ service { 'WSearch':
     ensure => "$dbpath/ProgramData/Anki",
     require => Package['anki'],
   }
-  windows_pin_startmenu { "$env_programfilesx86/Anki/anki.exe":
+  windows_pin { "$env_programfilesx86/Anki/anki.exe":
+    type => startmenu,
     require => Package['anki'],
   }
 
@@ -257,7 +270,8 @@ service { 'WSearch':
     ensure => installed,
     provider => chocolatey,
   }
-  windows_pin_startmenu { "$env_programdata/Microsoft/Windows/Start Menu/Programs/Audacity.lnk":
+  windows_pin { "$env_programdata/Microsoft/Windows/Start Menu/Programs/Audacity.lnk":
+    type => startmenu,
     require => Package['audacity'],
   }
   file { "$appdatapath/Audacity/Chains":
@@ -289,7 +303,7 @@ service { 'WSearch':
 #**************
 # MediaMonkey
 #**************
-  windows_pin_taskbar { "$dbpath/MediaMonkey/MediaMonkey.exe": }
+  windows_pin { "$dbpath/MediaMonkey/MediaMonkey.exe": type => taskbar }
 
   # Set up partially-portable mode, where it can make skin changes
   # and such; see
@@ -337,6 +351,7 @@ service { 'WSearch':
   }
   file { "$appdatapath/com.1minus1.socialsafe.D675411CF670AA3EFAC13BDD847989BEDE2115E2.1":
     ensure => "$dbpath/SocialSafe/com.1minus1.socialsafe.D675411CF670AA3EFAC13BDD847989BEDE2115E2.1",
+    require => Package['socialsafe'],
   }
 
 #********************************************
@@ -357,7 +372,7 @@ service { 'WSearch':
 #**************
 # Dropbox Restore
 #**************
-  windows_pin_startmenu { "$wapath/bin/Dropbox Restore.lnk": }
+  windows_pin { "$wapath/bin/Dropbox Restore.lnk": type => startmenu }
   package { 'python2-x86_32':
     ensure => installed,
     provider => chocolatey,
@@ -382,10 +397,17 @@ service { 'WSearch':
 # Telegram Dropbox Hack
 #**************
   exec { 'start telegram with log file hack':
-    command => "$cmd /c schtasks /create /tn Telegram /tr $dbpath\Telegram\Telegram_Batch.lnk /sc onstart",
+    command => "$cmd /c schtasks /create /tn Telegram /tr $dbpath/Telegram/Telegram_Batch.lnk /sc onstart",
     unless => "$cmd /c schtasks /query /tn Telegram",
   }
 
+  exec { "fix telegram logs":
+    command => "$cmd /c $dbpath/Telegram/Telegram.bat >nul 2>&1",
+  }
+
+  file { "$appdatapath/Microsoft/Windows/Start Menu/Programs/Startup/Telegram_Batch.lnk":
+    source => "$dbpath/Telegram/Telegram_Batch.lnk"
+  }
 
 #********************************************
 # Desktop
@@ -411,14 +433,17 @@ service { 'WSearch':
 #**************
 # Spore
 #**************
-  file { "$appdatapath/SPORE/Games":
-    ensure => "$homepath/Dropbox/Games/Spore/Games",
+  windows_conditional_symlink { "$appdatapath/SPORE/Games":
+    target => "$homepath/Dropbox/Games/Spore/Games",
+    onlyifexists => "$appdatapath/SPORE/",
   }
-  file { "$appdatapath/SPORE/EditorSaves.package":
-    ensure => "$homepath/Dropbox/Games/Spore/EditorSaves.package",
+  windows_conditional_symlink { "$appdatapath/SPORE/EditorSaves.package":
+    target => "$homepath/Dropbox/Games/Spore/EditorSaves.package",
+    onlyifexists => "$appdatapath/SPORE/",
   }
-  file { "$appdatapath/SPORE/Pollination.package":
-    ensure => "$homepath/Dropbox/Games/Spore/Pollination.package",
+  windows_conditional_symlink { "$appdatapath/SPORE/Pollination.package":
+    target => "$homepath/Dropbox/Games/Spore/Pollination.package",
+    onlyifexists => "$appdatapath/SPORE/",
   }
   file { "$homepath/Documents/My Spore Creations":
     ensure => "$homepath/Dropbox/Games/Spore/My Spore Creations",
@@ -430,15 +455,21 @@ service { 'WSearch':
   file { ["$homepath/Documents/My Games", "$homepath/Documents/My Games/Gnomoria"]:
     ensure => directory,
   }
-  file { "$homepath/Documents/My Games/Gnomoria/Worlds":
-    ensure => "$homepath/Dropbox/Games/Gnomoria/Worlds",
+  windows_conditional_symlink { "$homepath/Documents/My Games/Gnomoria/Worlds":
+    target => "$homepath/Dropbox/Games/Gnomoria/Worlds",
+    onlyifexists => "$homepath/Documents/My Games/Gnomoria/",
   }
 
 #**************
 # Morrowind
 #**************
-  file { "C:/Morrowind/Saves":
-    ensure => "$homepath/Dropbox/Games/Morrowind",
+  windows_conditional_symlink { "C:/Morrowind/Saves":
+    target => "$homepath/Dropbox/Games/Morrowind/Saves",
+    onlyifexists => "C:/Morrowind/",
+  }
+  windows_conditional_symlink { "C:/Morrowind/Data Files":
+    target => "$homepath/Dropbox/Games/Morrowind/Data Files",
+    onlyifexists => "C:/Morrowind/",
   }
 
 #**************
@@ -461,8 +492,8 @@ service { 'WSearch':
   file { "$appdatapath/.minecraft":
     ensure => "$dbpath/Games/Minecraft",
   }
-  windows_pin_startmenu { "$dbpath/Games/Minecraft/Minecraft.exe": }
-  windows_pin_startmenu { "$dbpath/Games/Minecraft/Minecraft Backup.lnk": }
+  windows_pin { "$dbpath/Games/Minecraft/Minecraft.exe": type => startmenu }
+  windows_pin { "$dbpath/Games/Minecraft/Minecraft Backup.lnk": type => startmenu }
 
 #**************
 # X3:TC and X3:AP
@@ -474,22 +505,40 @@ service { 'WSearch':
 #**************
 # Lichdom and maybe others
 #**************
-  file { "$homepath/Saved Games":
-    ensure => "$dbpath/Games/Saved Games",
+  # We don't need the conditionality here, obviously, but this way
+  # it will move the original out of the way if necessary.
+  windows_conditional_symlink { "$homepath/Saved Games":
+    target => "$dbpath/Games/Saved Games",
+    onlyifexists => "$homepath/",
   }
 
 #**************
 # Hacker Evolution
 #**************
-  file { "$env_programfilesx86/Steam/SteamApps/common/Hacker Evolution/he-savegames":
-    ensure => "$dbpath/Games/Hacker Evolution",
+  windows_conditional_symlink { "$env_programfilesx86/Steam/SteamApps/common/Hacker Evolution/he-savegames":
+    target => "$dbpath/Games/Hacker Evolution",
+    onlyifexists => "$env_programfilesx86/Steam/SteamApps/common/Hacker Evolution",
   }
 
 #**************
 # Starpoint Gemini 2
 #**************
-  file { "$env_programfilesx86/Steam/SteamApps/common/Starpoint Gemini 2/Saves":
-    ensure => "$dbpath/Games/Starpoint Gemini 2",
+  windows_conditional_symlink { "$env_programfilesx86/Steam/SteamApps/common/Starpoint Gemini 2/Saves":
+    target => "$dbpath/Games/Starpoint Gemini 2",
+    onlyifexists => "$env_programfilesx86/Steam/SteamApps/common/Starpoint Gemini 2",
   }
+
+
+## chocolatey package for daemontoolslite is broken
+##
+## #**************
+## # Daemon Tools Lite
+## #
+## # Used to fake the morrowind CD in our non-existant CD drive
+## #**************
+##   package { 'daemontoolslite':
+##     ensure => installed,
+##     provider => chocolatey,
+##   }
 
 }

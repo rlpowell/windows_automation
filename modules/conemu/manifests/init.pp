@@ -9,5 +9,5 @@ class conemu {
     source => "$wapath/modules/conemu/files/conemu.lnk",
   }
 
-  windows_pin_startmenu { "$homepath/Desktop/ConEmu.lnk": }
+  windows_pin { "$homepath/Desktop/ConEmu.lnk": type => startmenu }
 }

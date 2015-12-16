@@ -16,10 +16,15 @@ File {
   source_permissions => ignore,
 }
 
+# Without this, gem install doesn't work
+file { "$env_programfiles/Puppet Labs/Puppet/sys/ruby/lib/ruby/site_ruby/2.0.0/rubygems/ssl_certs/AddTrustExternalCARoot-2048.pem":
+  source => "$wapath/extras/AddTrustExternalCARoot-2048.pem",
+}
+
 class everything {
+  include 'misc'
   include 'windows_extras'
   include 'conemu'
-  include 'misc'
   include 'firefox'
   include 'pdfxchange'
   include 'secrets'
@@ -29,7 +34,7 @@ class everything {
 }
 
 # Laptops
-node 'gunka', 'tsetupyzbe' {
+node 'rlp-laptop' {
   $laptop=true
   $deskop=false
 
@@ -37,7 +42,7 @@ node 'gunka', 'tsetupyzbe' {
 }
 
 # Desktops
-node default {
+node 'desktop' {
   $laptop=false
   $desktop=true
 

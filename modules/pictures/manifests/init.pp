@@ -1,23 +1,28 @@
 class pictures {
-  package { [ 'picasa', 'irfanview', 'rubygems', 'photoguru', 'quicktime' ]:
+  package { [ 'picasa', 'irfanview', 'ruby', 'photoguru', 'quicktime' ]:
     ensure => installed,
     provider => chocolatey,
   }
 
-  windows_pin_startmenu { "$dbpath/Misc/zenfolio/Pictures Pre Sorting.lnk":
-    require => Package['picasa', 'rubygems', 'photoguru'],
+  windows_pin { "$dbpath/Misc/zenfolio/Pictures Pre Sorting.lnk":
+    type => startmenu,
+    require => Package['picasa', 'ruby', 'photoguru'],
   }
-  windows_pin_startmenu { "$env_programdata/Microsoft/Windows/Start Menu/Programs/Picasa 3/Picasa 3.lnk":
-    require => Windows_pin_startmenu["$dbpath/Misc/zenfolio/Pictures Pre Sorting.lnk"],
+  windows_pin { "$env_programdata/Microsoft/Windows/Start Menu/Programs/Picasa 3/Picasa 3.lnk":
+    type => startmenu,
+    require => Windows_pin["$dbpath/Misc/zenfolio/Pictures Pre Sorting.lnk"],
   }
-  windows_pin_startmenu { "$env_programdata/Microsoft/Windows/Start Menu/Programs/Photo Guru/Photo Guru Backup.lnk":
-    require => Windows_pin_startmenu["$env_programdata/Microsoft/Windows/Start Menu/Programs/Picasa 3/Picasa 3.lnk"],
+  windows_pin { "$env_programdata/Microsoft/Windows/Start Menu/Programs/Photo Guru/Photo Guru Backup.lnk":
+    type => startmenu,
+    require => Windows_pin["$env_programdata/Microsoft/Windows/Start Menu/Programs/Picasa 3/Picasa 3.lnk"],
   }
-  windows_pin_startmenu { "$dbpath/Misc/zenfolio/Pictures Post Upload.lnk":
-    require => Windows_pin_startmenu["$env_programdata/Microsoft/Windows/Start Menu/Programs/Photo Guru/Photo Guru Backup.lnk"],
+  windows_pin { "$dbpath/Misc/zenfolio/Pictures Post Upload.lnk":
+    type => startmenu,
+    require => Windows_pin["$env_programdata/Microsoft/Windows/Start Menu/Programs/Photo Guru/Photo Guru Backup.lnk"],
   }
-  windows_pin_startmenu { "$dbpath/Misc/zenfolio/Pictures Rebuild Collections.lnk":
-    require => Windows_pin_startmenu["$env_programdata/Microsoft/Windows/Start Menu/Programs/Photo Guru/Photo Guru Backup.lnk"],
+  windows_pin { "$dbpath/Misc/zenfolio/Pictures Rebuild Collections.lnk":
+    type => startmenu,
+    require => Windows_pin["$env_programdata/Microsoft/Windows/Start Menu/Programs/Photo Guru/Photo Guru Backup.lnk"],
   }
 
   file { "$appdatapath/../Local/Google/Picasa2":
@@ -38,6 +43,6 @@ class pictures {
   package { [ 'highline', 'inifile', 'exifr', 'nokogiri', 'htmlentities', 'iptc' ]:
     ensure => installed,
     provider => gem,
-    require => Package['rubygems'],
+    require => Package['ruby'],
   }
 }

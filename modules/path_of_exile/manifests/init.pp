@@ -6,7 +6,7 @@ class path_of_exile {
     ensure => installed,
     provider => chocolatey,
   }
-  windows_pin_startmenu { "$env_programdata/Microsoft/Windows/Start Menu/Programs/Grinding Gear Games/Path of Exile.lnk": }
+  windows_pin { "$env_programdata/Microsoft/Windows/Start Menu/Programs/Grinding Gear Games/Path of Exile.lnk": type => startmenu }
 
   if $laptop {
     file { "$homepath/Documents/My Games/Path of Exile/production_Config.ini":
