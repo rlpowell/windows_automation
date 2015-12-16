@@ -2,16 +2,20 @@
 <package xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <metadata>
     <id>fastglacier</id>
-    <title>FastGlacier</title>
-    <version>2.5.7</version>
+    <title>FastGlacier AWS Glacier Client</title>
+    <version>2.8.3</version>
     <authors>NetSDK Software, LLC.</authors>
     <owners>rlpowell</owners>
     <summary>FastGlacier is a freeware Windows Client for Amazon Glacier</summary>
     <description>FastGlacier is a freeware Windows Client for Amazon Glacier, an extremely low-cost storage service that provides secure and durable storage for data archiving and backup.  FastGlacier enables you to upload your files to Amazon Glacier using your full bandwidth. With FastGlacier you can also download your files from Amazon Glacier and manage the vaults with ease!</description>
     <projectUrl>http://fastglacier.com/</projectUrl>
-    <tags>AWS glacier</tags>
+    <tags>AWS glacier admin</tags>
     <!-- <licenseUrl>fully commercial</licenseUrl> -->
     <requireLicenseAcceptance>false</requireLicenseAcceptance> <!-- or true if you require the user to accept the License before installing -->
     <iconUrl>http://fastglacier.com/images/fastglacier-logo-web.png</iconUrl>
+    <packageSourceUrl>https://github.com/rlpowell/windows_automation/tree/master/chocolatey/fastglacier</packageSourceUrl>
+    <releaseNotes>https://fastglacier.com/news.aspx</releaseNotes>
+    <docsUrl>https://fastglacier.com/help.aspx</docsUrl>
+    <bugTrackerUrl>https://fastglacier.com/contactus.aspx</bugTrackerUrl>
   </metadata>
 </package>
