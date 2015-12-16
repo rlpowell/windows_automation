@@ -19,4 +19,5 @@ behave mswin
 :set textauto
 :set notextmode
 :set textwidth=68
-
+:set dir=C:\\Temp
+:set undodir=C:\\Temp
