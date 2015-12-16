@@ -1,0 +1,38 @@
+https://github.com/chocolatey/choco/wiki/CreatePackages
+
+For building and testing, be in ConEmu, cmd, or powershell, not bash!
+
+To build: cpack
+To test:  cinst [packageName] -fdv -s "%cd%"
+
+From the auto-validator, some things to keep in mind:
+
+##### Guidelines
+Guidelines are strong suggestions that improve the quality of a package version. These are considered something to fix for next time to increase the quality of the package. O
+ver time Guidelines can become Requirements. A package version can be approved without addressing Guideline comments but will reduce the quality of the package.
+
+* The nuspec has been enhanced to allow `packageSourceUrl`, pointing to the url where the package source resides. This is a strong guideline because it simplifies collaborati
+on. Please add it to the nuspec. [More...](https://github.com/chocolatey/package-validator/wiki/PackageSourceUrlMissing)
+* Release Notes (releaseNotes) are a short description of changes in each version of a package. Please include releasenotes in the nuspec. **NOTE:** To prevent the need to co
+ntinually update this field, providing a URL to an external list of Release Notes is perfectly acceptable. [More...](https://github.com/chocolatey/package-validator/wiki/Rele
+aseNotesNotEmpty)
+* This package uses a helper function that requires administrative permissions, the tag 'admin' should also be in the nuspec. [More...](https://github.com/chocolatey/package-
+validator/wiki/AdminTagShouldBeUsedWhenUsingAdminHelper)
+  * **NOTE:** This becomes a Requirement starting on 1 February 2016.
+* Title (title) matches id exactly. Please consider using something slightly more descriptive for the title in the nuspec. [More...](https://github.com/chocolatey/package-val
+idator/wiki/TitleNotSameAsPackageId)
+* There are more than 3 installation scripts in this package. This is not recommended as it increases the complexity of the package. [More...](https://github.com/chocolatey/p
+ackage-validator/wiki/MoreThanMaximumAutomationScripts)
+
+##### Suggestions
+Suggestions are either newly introduced items that will later become Guidelines or items that are don't carry enough weight to become a Guideline. Either way they should be c
+onsidered. A package version can be approved without addressing Suggestion comments.
+
+* The nuspec has been enhanced to allow more information related to the software. [More...](https://github.com/chocolatey/package-validator/wiki/NuspecEnhancementsMissing) Pl
+ease consider adding one or more of the following to the nuspec, if available:
+  * docsUrl - points to the location of the wiki or docs of the software
+  * mailingListUrl - points to the forum or email list group for the software
+  * bugTrackerUrl - points to the location where issues and tickets can be accessed
+  * projectSourceUrl - points to the location of the underlying software source
+
+
