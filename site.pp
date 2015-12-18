@@ -42,7 +42,7 @@ node 'rlp-laptop' {
 }
 
 # Desktops
-node 'desktop' {
+node 'kelci' {
   $laptop=false
   $desktop=true
 
