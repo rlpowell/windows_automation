@@ -184,8 +184,12 @@ class misc {
     ensure => installed,
     provider => chocolatey,
   }
+  file { "$homepath/AppData/Local/Temp/vim":
+    ensure => directory,
+  }
   file { "$homepath/.vimrc":
     source => "$wapath/modules/misc/files/vimrc",
+    require => File["$homepath/AppData/Local/Temp/vim"],
   }
   if( ! $operatingsystemmajrelease == 10 ) {
     windows_extras::regload { "$wapath/extras/vim.reg":
@@ -528,6 +532,14 @@ service { 'WSearch':
     onlyifexists => "$env_programfilesx86/Steam/SteamApps/common/Starpoint Gemini 2",
   }
 
+#**************
+# MyPhoneExplorer
+#
+# 18-09:07 <    rlpowell> So, for my future self the next time: For
+# android backup/restore, MyPhoneExplorer is like the sync program
+# for the old PalmOS, but for Android.
+#**************
+  windows_pin { "$dbpath/MyPhoneExplorer/MyPhoneExplorer portable.exe": type => startmenu }
 
 ## chocolatey package for daemontoolslite is broken
 ##

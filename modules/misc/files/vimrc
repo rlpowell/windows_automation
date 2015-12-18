@@ -19,5 +19,5 @@ behave mswin
 :set textauto
 :set notextmode
 :set textwidth=68
-:set dir=C:\\Temp
-:set undodir=C:\\Temp
+:set dir=C:\Users\rlpowell\AppData\Local\Temp\vim
+:set undodir=C:\Users\rlpowell\AppData\Local\Temp\vim
