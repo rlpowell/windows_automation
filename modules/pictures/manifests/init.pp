@@ -1,12 +1,12 @@
 class pictures {
-  package { [ 'picasa', 'irfanview', 'ruby', 'photoguru', 'quicktime' ]:
+  package { [ 'picasa', 'irfanview', 'photoguru', 'quicktime' ]:
     ensure => installed,
     provider => chocolatey,
   }
 
   windows_pin { "$dbpath/Misc/zenfolio/Pictures Pre Sorting.lnk":
     type => startmenu,
-    require => Package['picasa', 'ruby', 'photoguru'],
+    require => Package['picasa', 'photoguru'],
   }
   windows_pin { "$env_programdata/Microsoft/Windows/Start Menu/Programs/Picasa 3/Picasa 3.lnk":
     type => startmenu,
@@ -43,6 +43,5 @@ class pictures {
   package { [ 'highline', 'inifile', 'exifr', 'nokogiri', 'htmlentities', 'iptc' ]:
     ensure => installed,
     provider => gem,
-    require => Package['ruby'],
   }
 }
