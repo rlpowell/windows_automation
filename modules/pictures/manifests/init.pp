@@ -40,8 +40,13 @@ class pictures {
     unless_check  => 'captionmode',
   }
 
-  package { [ 'highline', 'inifile', 'exifr', 'nokogiri', 'htmlentities', 'iptc' ]:
+  package { [ 'highline', 'exifr', 'nokogiri', 'htmlentities', 'iptc' ]:
     ensure => installed,
     provider => gem,
+  }
+
+  package { 'inifile':
+    provider => gem,
+    ensure => "2.0.2",
   }
 }
