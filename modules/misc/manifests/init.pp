@@ -219,13 +219,20 @@ class misc {
     provider => chocolatey,
   }
 
-#**************
-# Disable search indexing service
-#**************
+# Windows 10 start menu searches don't work without the indexing service
+#
+# #**************
+# # Disable search indexing service
+# #**************
+# service { 'WSearch':
+#   ensure => stopped,
+#   enable => false,
+# }
 service { 'WSearch':
-  ensure => stopped,
-  enable => false,
+  ensure => running,
+  enable => true,
 }
+
 
 #**************
 # Dropbox Pin
