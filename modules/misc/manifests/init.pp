@@ -540,6 +540,14 @@ service { 'WSearch':
   }
 
 #**************
+# FortressCraft Evolved
+#**************
+  windows_conditional_symlink { "$homepath/AppData/LocalLow/ProjectorGames/FortressCraft":
+    target => "$dbpath/Games/FortressCraft",
+    onlyifexists => "$homepath/AppData/LocalLow/ProjectorGames",
+  }
+
+#**************
 # MyPhoneExplorer
 #
 # 18-09:07 <    rlpowell> So, for my future self the next time: For
