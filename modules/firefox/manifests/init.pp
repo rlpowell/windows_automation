@@ -34,9 +34,9 @@ class firefox {
   windows_pin { "$homepath/Desktop/FF Profiles.lnk": type => taskbar }
 
   exec { "second FF":
-    command => "$cmd /c xcopy \"C:\\Program Files (x86)\\Mozilla Firefox\" \"C:\\Program Files (x86)\\Mozilla Firefox Home\\\" /s/h/e/k/f/c/o/y",
+    command => "$cmd /c xcopy \"C:\\Program Files\\Mozilla Firefox\" \"C:\\Program Files\\Mozilla Firefox Home\\\" /s/h/e/k/f/c/o/y",
     require => Exec["hard link firefox profiles"],
-    creates => 'C:\Program Files (x86)\Mozilla Firefox Home',
+    creates => 'C:\Program Files\Mozilla Firefox Home',
   }
 
   file { "$homepath/Desktop/FF Home.lnk":
@@ -48,20 +48,20 @@ class firefox {
     require => File["$homepath/Desktop/FF Home.lnk"],
   }
 
-  exec { "third FF":
-    command => "$cmd /c xcopy \"C:\\Program Files (x86)\\Mozilla Firefox\" \"C:\\Program Files (x86)\\Mozilla Firefox CB\\\" /s/h/e/k/f/c/o/y",
-    require => Exec["hard link firefox profiles"],
-    creates => 'C:\Program Files (x86)\Mozilla Firefox CB',
-  }
-
-  file { "$homepath/Desktop/FF CB.lnk":
-    source => "$wapath/modules/firefox/files/FF CB.lnk",
-  }
-
-  windows_pin { "$homepath/Desktop/FF CB.lnk":
-    type => taskbar,
-    require => File["$homepath/Desktop/FF CB.lnk"],
-  }
+  #   exec { "third FF":
+  #     command => "$cmd /c xcopy \"C:\\Program Files\\Mozilla Firefox\" \"C:\\Program Files\\Mozilla Firefox CB\\\" /s/h/e/k/f/c/o/y",
+  #     require => Exec["hard link firefox profiles"],
+  #     creates => 'C:\Program Files\Mozilla Firefox CB',
+  #   }
+  # 
+  #   file { "$homepath/Desktop/FF CB.lnk":
+  #     source => "$wapath/modules/firefox/files/FF CB.lnk",
+  #   }
+  # 
+  #   windows_pin { "$homepath/Desktop/FF CB.lnk":
+  #     type => taskbar,
+  #     require => File["$homepath/Desktop/FF CB.lnk"],
+  #   }
 
   exec { "fix parent.lock":
     command => "$cmd /c $homepath/Dropbox/FireFox/fix_locks.bat >nul 2>&1",
