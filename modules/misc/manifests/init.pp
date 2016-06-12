@@ -354,15 +354,15 @@ service { 'WSearch':
   }
 
 #**************
-# SocialSafe
+# Digi.me (formerly socialsafe)
 #**************
-  package { 'socialsafe':
+  package { 'digime':
     ensure => installed,
     provider => chocolatey,
   }
   file { "$appdatapath/com.1minus1.socialsafe.D675411CF670AA3EFAC13BDD847989BEDE2115E2.1":
-    ensure => "$dbpath/SocialSafe/com.1minus1.socialsafe.D675411CF670AA3EFAC13BDD847989BEDE2115E2.1",
-    require => Package['socialsafe'],
+    ensure => "$dbpath/digi.me/com.1minus1.socialsafe.D675411CF670AA3EFAC13BDD847989BEDE2115E2.1",
+    require => Package['digime'],
   }
 
 #********************************************
