@@ -16,10 +16,12 @@ File {
   source_permissions => ignore,
 }
 
-# Without this, gem install doesn't work
-file { "$rubysitedir/rubygems/ssl_certs/AddTrustExternalCARoot-2048.pem":
-  source => "$wapath/extras/AddTrustExternalCARoot-2048.pem",
-}
+# Seems to have been fixed
+# 
+# # Without this, gem install doesn't work
+# file { "$rubysitedir/rubygems/ssl_certs/AddTrustExternalCARoot-2048.pem":
+#   source => "$wapath/extras/AddTrustExternalCARoot-2048.pem",
+# }
 
 class everything {
   include 'misc'
@@ -30,7 +32,8 @@ class everything {
   include 'secrets'
   include 'pictures'
   include '7zip'
-  include 'path_of_exile'
+  # We handle this manually so we can copy the content over
+  # include 'path_of_exile'
 }
 
 # Laptops
@@ -42,7 +45,7 @@ node 'rlp-laptop' {
 }
 
 # Desktops
-node 'kelci' {
+node 'rlp-desktop' {
   $laptop=false
   $desktop=true
 
