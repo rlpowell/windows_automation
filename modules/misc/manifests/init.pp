@@ -568,4 +568,16 @@ service { 'WSearch':
 ##     provider => chocolatey,
 ##   }
 
-}
+#**************
+# Plex
+#**************
+  package { 'plexmediaserver':
+    ensure => installed,
+    provider => chocolatey,
+  }
+  file { "$homepath/AppData/Local/Plex Media Server/Metadata":
+    ensure => "$dbpath/Plex_Metadata",
+    require => Package['plexmediaserver'],
+  }
+
+} # end of misc class
