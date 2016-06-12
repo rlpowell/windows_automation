@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<package xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <metadata>
+    <id>digime</id>
+    <title>digi.me</title>
+    <version>7.1.5</version>
+    <authors>digi.me Limited</authors>
+    <owners>rlpowell</owners>
+    <summary>digi.me is a backup system for your social media.</summary>
+    <description>Digi.me downloads everything from your online social network accounts and stores it in a library safely tucked away on your computer. From here it's a simple click to copy photos, posts, dms, friends to your desktop. You could export your Facebook photos to your Dropbox folder, export a Twitter private message thread, or export the Instagram photos you've recently liked.</description>
+    <projectUrl>https://get.digi.me/</projectUrl>
+    <tags>socialmedia</tags>
+    <!-- <licenseUrl>fully commercial</licenseUrl> -->
+    <requireLicenseAcceptance>false</requireLicenseAcceptance> <!-- or true if you require the user to accept the License before installing -->
+    <iconUrl>https://digi.me/UserStorage/images/digi-me-socialsafe.png</iconUrl>
+  </metadata>
+</package>

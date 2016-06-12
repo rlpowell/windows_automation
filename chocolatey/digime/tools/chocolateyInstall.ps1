@@ -1,7 +1,7 @@
 #try { #error handling is only necessary if you need to do anything in addition to/instead of the main helpers
   # main helpers - these have error handling tucked into them so they become the only line of your script if that is all you need.
   # installer, will assert administrative rights
-  Install-ChocolateyPackage 'socialsafe' 'exe' '--mode unattended' 'http://socialsafe.net/userstorage/builds/live/native/SocialSafe-installer.exe' '' -validExitCodes @(0,1)
+  Install-ChocolateyPackage 'digime' 'exe' '--mode unattended' 'http://digi.me/userstorage/builds/live/native/digi.me-installer.exe' '' -validExitCodes @(0,1)
   # "/s /S /q /Q /quiet /silent /SILENT /VERYSILENT" # try any of these to get the silent installer 
   # msi is always /quiet
   # For the URL, you can use an http:// URL or a network share using the UNC format (\\server\share).
