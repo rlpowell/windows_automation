@@ -7,11 +7,19 @@
     <authors>digi.me Limited</authors>
     <owners>rlpowell</owners>
     <summary>digi.me is a backup system for your social media.</summary>
-    <description>Digi.me downloads everything from your online social network accounts and stores it in a library safely tucked away on your computer. From here it's a simple click to copy photos, posts, dms, friends to your desktop. You could export your Facebook photos to your Dropbox folder, export a Twitter private message thread, or export the Instagram photos you've recently liked.</description>
+    <description>Digi.me downloads everything from your online social network accounts and stores it in a library safely tucked away on your computer. From here it's a simple click to copy photos, posts, dms, friends to your desktop. You could export your Facebook photos to your Dropbox folder, export a Twitter private message thread, or export the Instagram photos you've recently liked.
+
+#### Commercial software
+
+This program is free but becomes [feature limited](https://digi.me/pricing) after 30 days without a license.
+</description>
     <projectUrl>https://get.digi.me/</projectUrl>
-    <tags>socialmedia</tags>
-    <!-- <licenseUrl>fully commercial</licenseUrl> -->
+    <tags>socialmedia trial admin</tags>
     <requireLicenseAcceptance>false</requireLicenseAcceptance> <!-- or true if you require the user to accept the License before installing -->
     <iconUrl>https://digi.me/UserStorage/images/digi-me-socialsafe.png</iconUrl>
+    <licenseUrl>https://digi.me/privacy#terms</licenseUrl>
+    <copyright>© 2009 digi.me Limited</copyright>
+    <docsUrl>http://digi.me/help</docsUrl>
+    <releaseNotes>https://digi.me/roadmap#release</releaseNotes>
   </metadata>
 </package>
