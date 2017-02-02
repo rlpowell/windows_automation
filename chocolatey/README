@@ -5,6 +5,15 @@ For building and testing, be in ConEmu, cmd, or powershell, not bash!
 To build: cpack
 To test:  cinst [packageName] -fdv -s "%cd%"
 
+Use checksums!  This looks like:
+
+      Install-ChocolateyPackage 'anki' 'exe' '/S' 'https://apps.ankiweb.net/downloads/current/anki-2.0.38.exe' -Checksum '51F4A62AA97EF2DB57037CC51A36E6D04CB53D1F0BF74119E325F6C34608A5BF' -ChecksumType 'sha256'
+
+You can gather them by doing:
+
+      $ checksum -f ~/Downloads/anki-2.0.38.exe -t sha256
+      51F4A62AA97EF2DB57037CC51A36E6D04CB53D1F0BF74119E325F6C34608A5BF
+
 From the auto-validator, some things to keep in mind:
 
 ##### Guidelines
