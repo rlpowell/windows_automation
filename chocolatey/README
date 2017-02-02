@@ -1,6 +1,7 @@
 https://github.com/chocolatey/choco/wiki/CreatePackages
 
 For building and testing, be in ConEmu, cmd, or powershell, not bash!
+As administrator!
 
 To build: cpack
 To test:  cinst [packageName] -fdv -s "%cd%"
