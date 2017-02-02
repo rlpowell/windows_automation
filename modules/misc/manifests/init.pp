@@ -405,19 +405,11 @@ service { 'WSearch':
     provider => chocolatey,
   }
 #**************
-# Telegram Dropbox Hack
+# Telegram
 #**************
-  exec { 'start telegram with log file hack':
-    command => "$cmd /c schtasks /create /tn Telegram /tr $dbpath/Telegram/Telegram_Batch.lnk /sc onstart",
-    unless => "$cmd /c schtasks /query /tn Telegram",
-  }
-
-  exec { "fix telegram logs":
-    command => "$cmd /c $dbpath/Telegram/Telegram.bat >nul 2>&1",
-  }
-
-  file { "$appdatapath/Microsoft/Windows/Start Menu/Programs/Startup/Telegram_Batch.lnk":
-    source => "$dbpath/Telegram/Telegram_Batch.lnk"
+  package { 'telegram.install':
+    ensure => installed,
+    provider => chocolatey,
   }
 
 #********************************************
@@ -578,6 +570,25 @@ service { 'WSearch':
   file { "$homepath/AppData/Local/Plex Media Server/Metadata":
     ensure => "$dbpath/Plex_Metadata",
     require => Package['plexmediaserver'],
+  }
+
+#**************
+# Ubiquiti UniFi
+#**************
+  package { 'ubiquiti-unifi-controller':
+    ensure => installed,
+    provider => chocolatey,
+  }
+  file { "$homepath/Ubiquiti UniFi/data":
+    ensure => "$dbpath/Misc/UniFi_data",
+    require => Package['ubiquiti-unifi-controller'],
+  }
+
+#**************
+# Stardew Valley
+#**************
+  file { "$appdatapath/StardewValley":
+    ensure => "$dbpath/Games/StardewValley",
   }
 
 } # end of misc class
