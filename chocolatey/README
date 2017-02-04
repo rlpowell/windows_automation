@@ -5,6 +5,7 @@ As administrator!
 
 To build: cpack
 To test:  cinst [packageName] -fdv -s "%cd%"
+          If that fails, try adding "--version [new version]"
 
 Use checksums!  This looks like:
 
