@@ -591,4 +591,13 @@ service { 'WSearch':
     ensure => "$dbpath/Games/StardewValley",
   }
 
+#**************
+# FastCopy, RoboCopy type thing but handles hard links better
+# From https://ipmsg.org/tools/fastcopy.html.en
+#**************
+  package { 'fastcopy.portable':
+    ensure => installed,
+    provider => chocolatey,
+  }
+
 } # end of misc class
