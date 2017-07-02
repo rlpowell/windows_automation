@@ -592,6 +592,13 @@ service { 'WSearch':
   }
 
 #**************
+# My Riding Stables: Life With Horses (technically My Riding Stables 2)
+#**************
+  file { "$homepath/Documents/DTP/MyRidingStables":
+    ensure => "$dbpath/Games/MyRidingStables",
+  }
+
+#**************
 # FastCopy, RoboCopy type thing but handles hard links better
 # From https://ipmsg.org/tools/fastcopy.html.en
 #**************
