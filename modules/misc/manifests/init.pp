@@ -149,6 +149,18 @@ class misc {
     type => startmenu,
     require => Package['steam'],
   }
+  # Steam Cloud
+  #
+  # We don't need this to be on dropbox, but putting it there gives
+  # us emergency restore options.
+  #
+  # Not so much for the conditionality, but so it will move the
+  # original out of the way if necessary.
+  windows_conditional_symlink { "$env_programfilesx86/Steam/userdata":
+    target => "$dbpath/Games/Steam_userdata",
+    onlyifexists => "$env_programfilesx86/Steam/",
+  }
+
 
 #**************
 # Git
