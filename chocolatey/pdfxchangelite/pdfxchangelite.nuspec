@@ -3,13 +3,13 @@
   <metadata>
     <id>pdfxchangelite</id>
     <title>PDFXChange Lite PDF Printer Driver</title>
-    <version>2012.0</version>
+    <version>6.0.322.5</version>
     <authors>Tracker Software</authors>
     <owners>rlpowell</owners>
-    <summary>The commercial version of PDF X-Change Lite</summary>
-    <description>The commercial version of PDF X-Change Lite.  There's a non-commercial version as well which I haven't packaged; email me at rlpowell@digitalkingdom.org if that would be of use to you.</description>
+    <summary>Freeware PDF Printer Driver</summary>
+    <description>PDF-XChange Lite is the lite and simplified version of Tracker-Software’s best-selling virtual printer, PDF-XChange Standard. It installs in the same manner as a standard printer and can be selected as desired to print/convert documents into industry-standard PDFs. Almost all windows applications are compatible with this software. It uses the same cutting-edge PDF creation engine as all of the Tracker Software applications.</description>
     <projectUrl>http://www.tracker-software.com/product/pdf-xchange-lite</projectUrl>
-    <tags>pdf printer driver PDFXChangeLite admin</tags>
+    <tags>pdf printer driver PDFXChangeLite admin freeware</tags>
     <!-- <licenseUrl>fully commercial</licenseUrl> -->
     <requireLicenseAcceptance>false</requireLicenseAcceptance> <!-- or true if you require the user to accept the License before installing -->
     <iconUrl>http://www.tracker-software.com/img/logo.png</iconUrl>

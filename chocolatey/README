@@ -4,8 +4,7 @@ For building and testing, be in ConEmu, cmd, or powershell, not bash!
 As administrator!
 
 To build: cpack
-To test:  cinst [packageName] -fdv -s "%cd%"
-          If that fails, try adding "--version [new version]"
+To test:  cinst -fd [package].nuspec
 
 Use checksums!  This looks like:
 
@@ -46,4 +45,7 @@ ease consider adding one or more of the following to the nuspec, if available:
   * bugTrackerUrl - points to the location where issues and tickets can be accessed
   * projectSourceUrl - points to the location of the underlying software source
 
+
+OLD to test: cinst [packageName] -fdv -s "%cd%"
+            If that fails, try adding "--version [new version]"
 
