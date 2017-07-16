@@ -619,4 +619,13 @@ service { 'WSearch':
     provider => chocolatey,
   }
 
+
+#**************
+# WinCompose; for writing accents
+#**************
+  package { 'wincompose':
+    ensure => installed,
+    provider => chocolatey,
+  }
+
 } # end of misc class
