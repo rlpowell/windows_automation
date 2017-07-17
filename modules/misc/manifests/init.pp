@@ -628,4 +628,14 @@ service { 'WSearch':
     provider => chocolatey,
   }
 
+#**************
+# Process Explorer; better process monitoring
+#**************
+  package { 'procexp':
+    ensure => installed,
+    provider => chocolatey,
+  }
+  windows_pin { "$env_programdata/chocolatey/bin/procexp64.exe": type => taskbar }
+
+
 } # end of misc class
