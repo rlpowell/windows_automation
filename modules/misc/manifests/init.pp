@@ -637,5 +637,12 @@ service { 'WSearch':
   }
   windows_pin { "$env_programdata/chocolatey/bin/procexp64.exe": type => taskbar }
 
+#**************
+# WinRAR: archives that respect junctions
+#**************
+  package { 'winrar':
+    ensure => installed,
+    provider => chocolatey,
+  }
 
 } # end of misc class
