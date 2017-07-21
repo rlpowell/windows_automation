@@ -610,6 +610,7 @@ service { 'WSearch':
     ensure => directory,
   }
   file { "$homepath/Documents/DTP/MyRidingStables":
+    require => File["$homepath/Documents/DTP"],
     ensure => directory,
   }
   # Symlinking the directory makes it crash, but it can only have 3
@@ -618,14 +619,17 @@ service { 'WSearch':
   # Not so much for the conditionality, but so it will move the
   # original out of the way if necessary.
   windows_conditional_symlink { "$homepath/Documents/DTP/MyRidingStables/pf_bt1_1.sav":
+    require => File["$homepath/Documents/DTP/MyRidingStables"],
     target => "$dbpath/Games/MyRidingStables/pf_bt1_1.sav",
     onlyifexists => "$homepath/Documents/DTP/MyRidingStables/",
   }
   windows_conditional_symlink { "$homepath/Documents/DTP/MyRidingStables/pf_bt1_2.sav":
+    require => File["$homepath/Documents/DTP/MyRidingStables"],
     target => "$dbpath/Games/MyRidingStables/pf_bt1_2.sav",
     onlyifexists => "$homepath/Documents/DTP/MyRidingStables/",
   }
   windows_conditional_symlink { "$homepath/Documents/DTP/MyRidingStables/pf_bt1_3.sav":
+    require => File["$homepath/Documents/DTP/MyRidingStables"],
     target => "$dbpath/Games/MyRidingStables/pf_bt1_3.sav",
     onlyifexists => "$homepath/Documents/DTP/MyRidingStables/",
   }
