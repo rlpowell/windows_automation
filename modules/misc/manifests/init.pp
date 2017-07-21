@@ -606,8 +606,14 @@ service { 'WSearch':
 #**************
 # My Riding Stables: Life With Horses (technically My Riding Stables 2)
 #**************
-  file { "$homepath/Documents/DTP/MyRidingStables":
-    ensure => "$dbpath/Games/MyRidingStables",
+  file { "$homepath/Documents/DTP":
+    ensure => directory,
+  }
+  # Not so much for the conditionality, but so it will move the
+  # original out of the way if necessary.
+  windows_conditional_symlink { "$homepath/Documents/DTP/MyRidingStables":
+    target => "$dbpath/Games/MyRidingStables",
+    onlyifexists => "$homepath/Documents/DTP/",
   }
 
 #**************
