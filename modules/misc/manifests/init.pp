@@ -633,6 +633,11 @@ service { 'WSearch':
     target => "$dbpath/Games/MyRidingStables/pf_bt1_3.sav",
     onlyifexists => "$homepath/Documents/DTP/MyRidingStables/",
   }
+  windows_conditional_symlink { "$homepath/Documents/DTP/MyRidingStables/settings.sav":
+    require => File["$homepath/Documents/DTP/MyRidingStables"],
+    target => "$dbpath/Games/MyRidingStables/settings.sav",
+    onlyifexists => "$homepath/Documents/DTP/MyRidingStables/",
+  }
 
 #**************
 # FastCopy, RoboCopy type thing but handles hard links better
