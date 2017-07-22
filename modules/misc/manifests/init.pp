@@ -90,14 +90,6 @@ class misc {
   }
 
 #**************
-# Printer; Requires Human
-#**************
-  exec { 'kick off printer install':
-    command => "$cmd /c $wapath/extras/md6l-win-mx700-1_02-en.exe",
-    unless => "$cmd /c wmic printer list status | findstr /C:\"Canon MX700 series Printer\"",
-  }
-
-#**************
 # Java
 #**************
   package { 'javaruntime':
