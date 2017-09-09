@@ -293,9 +293,9 @@ service { 'WSearch':
     ensure => directory,
     require => Package['audacity'],
   }
-  file { "$appdatapath/Audacity/Chains/Louder.txt":
-    ensure => "$wapath/extras/Louder.txt",
-    require => Package['audacity'],
+  windows_conditional_symlink { "$appdatapath/Audacity/Chains":
+    target => "$dbpath/Misc/Audacity_Chains",
+    onlyifexists => "$appdatapath/Audacity",
   }
 
 
