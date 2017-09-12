@@ -1,1 +1,1 @@
-Install-ChocolateyPackage 'anki' 'exe' '/S' 'https://apps.ankiweb.net/downloads/current/anki-2.0.44.exe' -Checksum 'CA1A9781CE0592775C56FC0193025BDA70AA75C92CF81FDE499535BAFD74438B' -ChecksumType 'sha256'
+Install-ChocolateyPackage 'anki' 'exe' '/S' 'https://apps.ankiweb.net/downloads/current/anki-2.0.47.exe' -Checksum 'CD2A51DB5C9FA0CACE3B52997F0423B8D954B825DF97A8DD03D86C438B257C06' -ChecksumType 'sha256'
