@@ -4,7 +4,7 @@ For building and testing, be in ConEmu, cmd, or powershell, not bash!
 As administrator!
 
 To build: cpack
-To test:  cinst -fd [package].nuspec
+To test:  cinst -fd ./[nupkgfile]
 
 Use checksums!  This looks like:
 
