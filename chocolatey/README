@@ -3,8 +3,8 @@ https://github.com/chocolatey/choco/wiki/CreatePackages
 For building and testing, be in ConEmu, cmd, or powershell, not bash!
 As administrator!
 
-To build: cpack
-To test:  cinst -fd ./[nupkgfile]
+To build:  cpack
+To test:   choco install [package_name] -dv -s .
 
 Use checksums!  This looks like:
 
