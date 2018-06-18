@@ -3,7 +3,7 @@
   <metadata>
     <id>fastglacier</id>
     <title>FastGlacier AWS Glacier Client</title>
-    <version>3.4.7</version>
+    <version>3.8.7</version>
     <authors>NetSDK Software, LLC.</authors>
     <owners>rlpowell</owners>
     <summary>FastGlacier is a freeware Windows Client for Amazon Glacier</summary>

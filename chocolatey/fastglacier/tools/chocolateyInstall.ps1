@@ -1,1 +1,1 @@
-Install-ChocolateyPackage 'fastglacier' 'exe' '/silent' 'https://fastglacier.com/download/fastglacier-3-4-7.exe' -Checksum 'DD9BBE82C39B6CB5951EC8335E5CDA02CB194D31CAC620F9A0ACD8198BEEF5EB' -ChecksumType 'sha256'
+Install-ChocolateyPackage 'fastglacier' 'exe' '/silent' 'https://fastglacier.com/download/fastglacier-3-8-7.exe' -Checksum 'C4A7AEC6800F3711ED1A98CE4256342D1180FE023DEE7463FAE07AD125E98D6A' -ChecksumType 'sha256'
