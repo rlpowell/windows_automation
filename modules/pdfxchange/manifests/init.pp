@@ -2,27 +2,15 @@ class pdfxchange {
 #**************
 # PDF X-Change
 #**************
-  # Don't have an Editor license yet
-  # package { [ 'pdfxchangelite', 'PDFXChangeViewer', 'PDFXchangeEditor' ]:
-  #package { [ 'pdfxchangelite', 'PDFXChangeViewer' ]:
-  package { [ 'PDFXchangeEditor', 'pdfxchangelite' ]:
-    ensure => installed,
-    provider => chocolatey,
-  }
-
-  #windows_extras::regload { "$secretspath/pdfxchange_viewer.reg":
-  #  require => Package['PDFXChangeViewer'],
-  #  unless_key => 'HKEY_CURRENT_USER\Software\Tracker Software\PDFViewer\Registration',
-  #  unless_check  => 'rlpowell@digitalkingdom.org',
-  #}
-  windows_extras::regload { "$secretspath/pdfxchange_lite.reg":
-    require => Package['pdfxchangelite'],
-    unless_key => 'HKEY_CURRENT_USER\Software\Tracker Software\PDF-XChange Lite 5',
-    unless_check  => 'rlpowell@digitalkingdom.org',
-  }
-  windows_extras::regload { "$secretspath/pdfxchange_editor.reg":
-    require => Package['PDFXchangeEditor'],
-    unless_key => 'HKEY_CURRENT_USER\Software\Tracker Software\PDFXEditor\3.0\Settings\Registration',
-    unless_check  => 'rlpowell@digitalkingdom.org',
+  # See https://github.com/flcdrg/au-packages/pull/33 for how this works.
+  #
+  # Note that as of 20 June 2018, this won't actually work because
+  # the 7.0.325.1 version doesn't have it; see
+  # https://chocolatey.org/packages/PDFXchangeEditor for whether the
+  # next version has come out.  You can just double-click on the
+  # xcvault file if it's not fixed yet.
+  package { 'PDFXchangeEditor':
+    ensure          => installed,
+    install_options => ['--params', '/KeyFile:C:\Users\rlpowell\Dropbox\Windows_Automation_Secrets\PDFXChangeEditor.xcvault' ],
   }
 }
