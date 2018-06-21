@@ -1,8 +1,8 @@
-include 'stdlib'
-#include 'chocolatey'
+include stdlib
 
 $homepath="$env_home"
 $appdatapath="$env_appdata"
+$allusersprofile="$env_allusersprofile"
 $dbpath="$homepath/Dropbox"
 $wapath="$dbpath/Windows_Automation"
 $secretspath="$dbpath/Windows_Automation_Secrets"
@@ -16,6 +16,12 @@ File {
   source_permissions => ignore,
 }
 
+case $operatingsystem {
+  'windows': {
+    Package { provider => chocolatey, }
+  }
+}
+
 # Seems to have been fixed
 # 
 # # Without this, gem install doesn't work
@@ -23,8 +29,12 @@ File {
 #   source => "$wapath/extras/AddTrustExternalCARoot-2048.pem",
 # }
 
-class everything {
-  include 'misc'
+class everything( $laptop, $desktop ) {
+  class { 'misc':
+    laptop  => $laptop,
+    desktop => $desktop,
+  }
+
   include 'windows_extras'
   include 'conemu'
   include 'firefox'
@@ -37,18 +47,18 @@ class everything {
 }
 
 # Laptops
-node 'rlp-laptop' {
-  $laptop=true
-  $deskop=false
-
-  include everything
+node 'rlp-laptop', 'rlp-lenovo-p71' {
+  class { 'everything':
+    laptop  => true,
+    desktop => false,
+  }
 }
 
 # Desktops
 node 'rlp-desktop' {
-  $laptop=false
-  $desktop=true
-
-  include everything
+  class { 'everything':
+    laptop  => false,
+    desktop => true,
+  }
 }
 

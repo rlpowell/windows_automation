@@ -1,4 +1,4 @@
-class misc {
+class misc( $laptop, $desktop ) {
 #*******
 # Syspin
 #*******
@@ -10,17 +10,17 @@ class misc {
 # SSH
 #*******
   file { "$homepath/.ssh":
-    mode => 770,
+    mode => '770',
     ensure => directory,
   }
 
   file { "$homepath/.ssh/id_rsa":
-    mode => 440,
+    mode => '440',
     source => "$secretspath/id_rsa",
   }
 
   file { "$homepath/.ssh/id_rsa.pub":
-    mode => 440,
+    mode => '440',
     source => "$secretspath/id_rsa.pub",
   }
 
@@ -29,7 +29,6 @@ class misc {
 #**************
   package { 'sharpkeys':
     ensure => installed,
-    provider => chocolatey,
   }
 
 #**************
@@ -86,7 +85,6 @@ class misc {
 #**************
   package { 'vlc':
     ensure => installed,
-    provider => chocolatey,
   }
 
 #**************
@@ -94,7 +92,6 @@ class misc {
 #**************
   package { 'javaruntime':
     ensure => installed,
-    provider => chocolatey,
   }
 
 #**************
@@ -102,11 +99,9 @@ class misc {
 #**************
   package { 'kindle':
     ensure => installed,
-    provider => chocolatey,
   }
   package { 'calibre':
     ensure => installed,
-    provider => chocolatey,
     require => Package['kindle'],
   }
   file { "$homepath/Documents/Calibre Library":
@@ -127,7 +122,6 @@ class misc {
 #**************
   package { 'windirstat':
     ensure => installed,
-    provider => chocolatey,
   }
 
 #**************
@@ -135,7 +129,6 @@ class misc {
 #**************
   package { 'steam':
     ensure => installed,
-    provider => chocolatey,
   }
   windows_pin { "$env_programdata/Microsoft/Windows/Start Menu/Programs/Steam/Steam.lnk":
     type => startmenu,
@@ -159,7 +152,6 @@ class misc {
 #**************
   package { 'git':
     ensure => installed,
-    provider => chocolatey,
   }
   file { "$homepath/.gitconfig":
     source => "$wapath/extras/gitconfig",
@@ -170,7 +162,6 @@ class misc {
 #**************
   package { 'winscp':
     ensure => installed,
-    provider => chocolatey,
   }
   file { "$appdatapath/WinSCP.ini":
     ensure => "$secretspath/WinSCP.ini",
@@ -186,7 +177,6 @@ class misc {
 #**************
   package { 'vim':
     ensure => installed,
-    provider => chocolatey,
   }
   file { "$homepath/AppData/Local/Temp/vim":
     ensure => directory,
@@ -208,7 +198,6 @@ class misc {
 #**************
   package { 'skype':
     ensure => installed,
-    provider => chocolatey,
   }
   windows_pin { "$env_programdata/Microsoft/Windows/Start Menu/Programs/Skype/Skype.lnk":
     type => taskbar,
@@ -220,7 +209,6 @@ class misc {
 #**************
   package { 'flashplayerplugin':
     ensure => installed,
-    provider => chocolatey,
   }
 
 # Windows 10 start menu searches don't work without the indexing service
@@ -248,7 +236,6 @@ service { 'WSearch':
 #**************
   package { 'Silverlight':
     ensure => installed,
-    provider => chocolatey,
   }
 
 #**************
@@ -256,7 +243,6 @@ service { 'WSearch':
 #**************
   package { 'fastglacier':
     ensure => installed,
-    provider => chocolatey,
   }
 
 #**************
@@ -264,7 +250,6 @@ service { 'WSearch':
 #**************
   package { 'anki':
     ensure => installed,
-    provider => chocolatey,
   }
   file { "$homepath/Documents/Anki":
     ensure => "$dbpath/ProgramData/Anki",
@@ -283,7 +268,6 @@ service { 'WSearch':
 #**************
   package { 'audacity':
     ensure => installed,
-    provider => chocolatey,
   }
   windows_pin { "$env_programdata/Microsoft/Windows/Start Menu/Programs/Audacity.lnk":
     type => startmenu,
@@ -304,7 +288,6 @@ service { 'WSearch':
 #**************
   package { 'libreoffice':
     ensure => installed,
-    provider => chocolatey,
   }
 
 #**************
@@ -312,7 +295,6 @@ service { 'WSearch':
 #**************
   package { 'googledrive':
     ensure => installed,
-    provider => chocolatey,
   }
 
 #**************
@@ -343,14 +325,12 @@ service { 'WSearch':
 #**************
   package { 'mp3tag':
     ensure => installed,
-    provider => chocolatey,
   }
 #**************
 # ffmpeg
 #**************
   package { 'ffmpeg':
     ensure => installed,
-    provider => chocolatey,
   }
   windows_path {'ffmpeg bin':
     ensure      => present,
@@ -362,7 +342,6 @@ service { 'WSearch':
 #**************
   package { 'digime':
     ensure => installed,
-    provider => chocolatey,
   }
   file { "$appdatapath/com.1minus1.socialsafe.D675411CF670AA3EFAC13BDD847989BEDE2115E2.1":
     ensure => "$dbpath/digi.me/com.1minus1.socialsafe.D675411CF670AA3EFAC13BDD847989BEDE2115E2.1",
@@ -390,7 +369,6 @@ service { 'WSearch':
   windows_pin { "$wapath/bin/Dropbox Restore.lnk": type => startmenu }
   package { 'python2-x86_32':
     ensure => installed,
-    provider => chocolatey,
   }
 
 #**************
@@ -398,7 +376,6 @@ service { 'WSearch':
 #**************
   package { 'virtualbox':
     ensure => installed,
-    provider => chocolatey,
   }
 
 #**************
@@ -406,14 +383,12 @@ service { 'WSearch':
 #**************
   package { 'bulkrenameutility':
     ensure => installed,
-    provider => chocolatey,
   }
 #**************
 # Telegram
 #**************
   package { 'telegram.install':
     ensure => installed,
-    provider => chocolatey,
   }
 
 #********************************************
@@ -569,7 +544,6 @@ service { 'WSearch':
 #**************
   package { 'plexmediaserver':
     ensure => installed,
-    provider => chocolatey,
   }
   file { "$homepath/AppData/Local/Plex Media Server/Metadata":
     ensure => "$dbpath/Plex_Metadata",
@@ -581,7 +555,6 @@ service { 'WSearch':
 #**************
   package { 'ubiquiti-unifi-controller':
     ensure => installed,
-    provider => chocolatey,
   }
   file { "$homepath/Ubiquiti UniFi/data":
     ensure => "$dbpath/Misc/UniFi_data",
@@ -637,7 +610,6 @@ service { 'WSearch':
 #**************
   package { 'fastcopy.portable':
     ensure => installed,
-    provider => chocolatey,
   }
 
 
@@ -646,7 +618,6 @@ service { 'WSearch':
 #**************
   package { 'wincompose':
     ensure => installed,
-    provider => chocolatey,
   }
 
 #**************
@@ -654,7 +625,6 @@ service { 'WSearch':
 #**************
   package { 'procexp':
     ensure => installed,
-    provider => chocolatey,
   }
   windows_pin { "$env_programdata/chocolatey/bin/procexp64.exe": type => taskbar }
 
@@ -663,7 +633,6 @@ service { 'WSearch':
 #**************
   package { 'winrar':
     ensure => installed,
-    provider => chocolatey,
   }
 
 } # end of misc class
