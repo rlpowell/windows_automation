@@ -138,15 +138,19 @@ class misc( $laptop, $desktop ) {
     type => startmenu,
     require => Package['steam'],
   }
+
   # Steam Cloud
   #
   # We don't need this to be on dropbox, but putting it there gives
-  # us emergency restore options.
+  # us emergency restore options.  We do it per-machine because
+  # otherwise (1) we get annoying messages and (2) we may or may not
+  # be able to do per-machine per-game settings properly.
   #
-  # Not so much for the conditionality, but so it will move the
-  # original out of the way if necessary.
+  # The windows_conditional_symlink here is so much for the
+  # conditionality, but so it will move the original out of the way
+  # if necessary.
   windows_conditional_symlink { "$env_programfilesx86/Steam/userdata":
-    target => "$dbpath/Games/Steam_userdata",
+    target => "$dbpath/Games/Steam_userdata-$hostname",
     onlyifexists => "$env_programfilesx86/Steam/",
   }
 
