@@ -7,6 +7,4 @@ class conemu {
     require => Package['ConEmu'],
     source => "$wapath/modules/conemu/files/conemu.lnk",
   }
-
-  windows_pin { "$homepath/Desktop/ConEmu.lnk": type => startmenu }
 }

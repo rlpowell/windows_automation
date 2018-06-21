@@ -1,0 +1,60 @@
+<LayoutModificationTemplate xmlns="http://schemas.microsoft.com/Start/2014/LayoutModification" xmlns:defaultlayout="http://schemas.microsoft.com/Start/2014/FullDefaultLayout" xmlns:start="http://schemas.microsoft.com/Start/2014/StartLayout" xmlns:taskbar="http://schemas.microsoft.com/Start/2014/TaskbarLayout" Version="1">
+  <LayoutOptions StartTileGroupCellWidth="6" />
+  <DefaultLayoutOverride LayoutCustomizationRestrictionType="OnlySpecifiedGroups">
+    <StartLayoutCollection>
+      <defaultlayout:StartLayout GroupCellWidth="6" xmlns:defaultlayout="http://schemas.microsoft.com/Start/2014/FullDefaultLayout">
+        <start:Group Name="Puppetized Common" xmlns:start="http://schemas.microsoft.com/Start/2014/StartLayout">
+          <start:DesktopApplicationTile Size="2x2" Row="0" Column="0" DesktopApplicationLinkPath="%ALLUSERSPROFILE%\Microsoft\Windows\Start Menu\Programs\KeePass.lnk" />
+          <start:DesktopApplicationTile Size="2x2" Row="0" Column="2" DesktopApplicationLinkPath="%ALLUSERSPROFILE%\Microsoft\Windows\Start Menu\Programs\calibre 64bit - E-book Management\calibre 64bit - E-book management.lnk" />
+          <start:DesktopApplicationTile Size="2x2" Row="0" Column="4" DesktopApplicationLinkPath="%ALLUSERSPROFILE%\Microsoft\Windows\Start Menu\Programs\anki.lnk" />
+          <start:Tile                   Size="2x2" Row="2" Column="0" AppUserModelID="Microsoft.WindowsCalculator_8wekyb3d8bbwe!App" />
+          <start:DesktopApplicationTile Size="2x2" Row="2" Column="2" DesktopApplicationLinkPath="%ALLUSERSPROFILE%\Microsoft\Windows\Start Menu\Programs\Tracker Software\PDF-XChange Editor.lnk" />
+          <start:DesktopApplicationTile Size="2x2" Row="2" Column="4" DesktopApplicationLinkPath="%ALLUSERSPROFILE%\Microsoft\Windows\Start Menu\Programs\IrfanView\IrfanView 64 4.51.lnk" />
+          <start:DesktopApplicationTile Size="2x2" Row="4" Column="0" DesktopApplicationLinkPath="%ALLUSERSPROFILE%\Microsoft\Windows\Start Menu\Programs\VideoLAN\VLC media player.lnk" />
+          <start:DesktopApplicationTile Size="2x2" Row="4" Column="2" DesktopApplicationLinkPath="%ALLUSERSPROFILE%\Microsoft\Windows\Start Menu\Programs\LibreOffice 6.0\LibreOffice Writer.lnk" />
+          <start:DesktopApplicationTile Size="2x2" Row="4" Column="4" DesktopApplicationLinkPath="%APPDATA%\Microsoft\Windows\Start Menu\Programs\WinDirStat\WinDirStat.lnk" />
+          <start:DesktopApplicationTile Size="2x2" Row="6" Column="0" DesktopApplicationLinkPath="%APPDATA%\Microsoft\Windows\Start Menu\Programs\WinRAR\WinRAR.lnk" />
+        </start:Group>
+        <start:Group Name="Puppetized Rare" xmlns:start="http://schemas.microsoft.com/Start/2014/StartLayout">
+          <start:DesktopApplicationTile Size="2x2" Row="0" Column="0" DesktopApplicationLinkPath="%ALLUSERSPROFILE%\Microsoft\Windows\Start Menu\Programs\Run Puppet Apply.lnk" />
+          <start:DesktopApplicationTile Size="2x2" Row="0" Column="2" DesktopApplicationLinkPath="%ALLUSERSPROFILE%\Microsoft\Windows\Start Menu\Programs\Git Bash.lnk" />
+          <start:DesktopApplicationTile Size="2x2" Row="0" Column="4" DesktopApplicationLinkPath="%ALLUSERSPROFILE%\Microsoft\Windows\Start Menu\Programs\Audacity.lnk" />
+          <start:DesktopApplicationTile Size="2x2" Row="2" Column="0" DesktopApplicationLinkPath="%ALLUSERSPROFILE%\Microsoft\Windows\Start Menu\Programs\Oracle VM VirtualBox\Oracle VM VirtualBox.lnk" />
+          <start:DesktopApplicationTile Size="2x2" Row="2" Column="2" DesktopApplicationLinkPath="%ALLUSERSPROFILE%\Microsoft\Windows\Start Menu\Programs\Bulk Rename Utility\Bulk Rename Utility.lnk" />
+          <start:DesktopApplicationTile Size="2x2" Row="2" Column="4" DesktopApplicationLinkPath="%ALLUSERSPROFILE%\Microsoft\Windows\Start Menu\Programs\FastGlacier\FastGlacier.lnk" />
+          <start:DesktopApplicationTile Size="2x2" Row="4" Column="0" DesktopApplicationLinkPath="%ALLUSERSPROFILE%\Microsoft\Windows\Start Menu\Programs\Mp3tag\Mp3tag.lnk" />
+          <start:DesktopApplicationTile Size="2x2" Row="4" Column="2" DesktopApplicationLinkPath="%ALLUSERSPROFILE%\Microsoft\Windows\Start Menu\Programs\Plex Media Server\Plex Media Server.lnk" />
+          <start:DesktopApplicationTile Size="2x2" Row="4" Column="4" DesktopApplicationLinkPath="%APPDATA%\Microsoft\Windows\Start Menu\Programs\WinCompose\WinCompose.lnk" />
+          <start:DesktopApplicationTile Size="2x2" Row="6" Column="0" DesktopApplicationLinkPath="%ALLUSERSPROFILE%\Microsoft\Windows\Start Menu\Programs\RandyRants.com\SharpKeys\SharpKeys.lnk" />
+        </start:Group>
+        <start:Group Name="Puppetized Taskbar Copies" xmlns:start="http://schemas.microsoft.com/Start/2014/StartLayout">
+          <start:DesktopApplicationTile Size="2x2" Row="0" Column="0" DesktopApplicationLinkPath="%APPDATA%\Microsoft\Windows\Start Menu\Programs\Telegram Desktop\Telegram.lnk" />
+          <start:DesktopApplicationTile Size="2x2" Row="0" Column="2" DesktopApplicationLinkPath="%ALLUSERSPROFILE%\Microsoft\Windows\Start Menu\Programs\Google Chrome.lnk" />
+          <start:DesktopApplicationTile Size="2x2" Row="0" Column="4" DesktopApplicationLinkPath="%ALLUSERSPROFILE%\Microsoft\Windows\Start Menu\Programs\kitty.lnk" />
+          <start:DesktopApplicationTile Size="2x2" Row="2" Column="0" DesktopApplicationLinkPath="%APPDATA%\Microsoft\Windows\Start Menu\Programs\Steam\Steam.lnk" />
+          <start:DesktopApplicationTile Size="2x2" Row="2" Column="2" DesktopApplicationLinkPath="%ALLUSERSPROFILE%\Microsoft\Windows\Start Menu\Programs\WinSCP.lnk" />
+          <start:Tile                   Size="2x2" Row="2" Column="4" AppUserModelID="Microsoft.SkypeApp_kzf8qxf38zg5c!App" />
+          <start:DesktopApplicationTile Size="2x2" Row="4" Column="0" DesktopApplicationLinkPath="%ALLUSERSPROFILE%\Microsoft\Windows\Start Menu\Programs\Dropbox\Dropbox.lnk" />
+          <start:DesktopApplicationTile Size="2x2" Row="4" Column="2" DesktopApplicationLinkPath="%ALLUSERSPROFILE%\Microsoft\Windows\Start Menu\Programs\MediaMonkey.lnk" />
+          <start:DesktopApplicationTile Size="2x2" Row="4" Column="4" DesktopApplicationLinkPath="%ALLUSERSPROFILE%\Microsoft\Windows\Start Menu\Programs\TeamViewer 13.lnk" />
+          <start:DesktopApplicationTile Size="2x2" Row="6" Column="0" DesktopApplicationLinkPath="%APPDATA%\Microsoft\Windows\Start Menu\Programs\Vim 8.0\Vim.lnk" />
+          <start:DesktopApplicationTile Size="2x2" Row="6" Column="2" DesktopApplicationLinkPath="%ALLUSERSPROFILE%\Microsoft\Windows\Start Menu\Programs\ConEmu (x64).lnk" />
+          <start:DesktopApplicationTile Size="2x2" Row="6" Column="4" DesktopApplicationLinkPath="%ALLUSERSPROFILE%\Microsoft\Windows\Start Menu\Programs\Process Explorer.lnk" />
+        </start:Group>
+      </defaultlayout:StartLayout>
+    </StartLayoutCollection>
+  </DefaultLayoutOverride>
+  <CustomTaskbarLayoutCollection PinListPlacement="Replace">
+    <defaultlayout:TaskbarLayout>
+      <taskbar:TaskbarPinList>
+        <taskbar:DesktopApp DesktopApplicationLinkPath="%ALLUSERSPROFILE%\Microsoft\Windows\Start Menu\Programs\ConEmu\ConEmu (x64).lnk" />
+        <taskbar:DesktopApp DesktopApplicationLinkPath="%APPDATA%\Microsoft\Windows\Start Menu\Programs\Telegram Desktop\Telegram.lnk" />
+        <taskbar:DesktopApp DesktopApplicationLinkPath="%ALLUSERSPROFILE%\Microsoft\Windows\Start Menu\Programs\Google Chrome.lnk" />
+        <taskbar:DesktopApp DesktopApplicationLinkPath="%ALLUSERSPROFILE%\Microsoft\Windows\Start Menu\Programs\Process Explorer.lnk" />
+        <taskbar:DesktopApp DesktopApplicationLinkPath="%ALLUSERSPROFILE%\Microsoft\Windows\Start Menu\Programs\TeamViewer 13.lnk" />
+        <taskbar:DesktopApp DesktopApplicationLinkPath="%APPDATA%\Microsoft\Windows\Start Menu\Programs\System Tools\File Explorer.lnk" />
+        <taskbar:DesktopApp DesktopApplicationLinkPath="%APPDATA%\Microsoft\Windows\Start Menu\Programs\Vim 8.0\Vim.lnk" />
+      </taskbar:TaskbarPinList>
+    </defaultlayout:TaskbarLayout>
+  </CustomTaskbarLayoutCollection>
+</LayoutModificationTemplate>

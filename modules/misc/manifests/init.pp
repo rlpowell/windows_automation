@@ -1,12 +1,5 @@
 class misc( $laptop, $desktop ) {
 #*******
-# Syspin
-#*******
-  file { 'C:\Windows\System32\syspin.exe':
-    source => "$wapath/extras/syspin.exe",
-  }
-
-#*******
 # SSH
 #*******
   file { "$homepath/.ssh":
@@ -30,31 +23,6 @@ class misc( $laptop, $desktop ) {
   package { 'sharpkeys':
     ensure => installed,
   }
-
-#**************
-# PuTTY/KiTTY
-#**************
-  windows_pin { "$dbpath/KiTTY/kitty.exe": type => taskbar }
-
-#**************
-# Automation Bash
-#**************
-  windows_pin { "$wapath/bin/Git Bash.lnk": type => startmenu }
-
-#**************
-# Puppet Runs
-#**************
-  windows_pin { "$wapath/bin/Run Puppet Apply.lnk": type => startmenu }
-
-#**************
-# KeePass
-#**************
-  windows_pin { "$dbpath/keepass/KeePass.exe": type => startmenu }
-
-#**************
-# Shut down firefox for dropbox sync
-#**************
-  windows_pin { "$dbpath/Misc/firefox_stop/FireFox Stop.lnk": type => startmenu }
 
 #**************
 # Start Menu And Folder Settings
@@ -116,10 +84,6 @@ class misc( $laptop, $desktop ) {
     ensure => "$dbpath/calibre_configuration",
     require => Package['calibre'],
   }
-  windows_pin { "$env_programdata/Microsoft/Windows/Start Menu/Programs/calibre 64bit - E-book management/calibre 64bit - E-book management.lnk":
-    type => startmenu,
-    require => Package['calibre'],
-  }
 
 #**************
 # WinDirStat
@@ -133,10 +97,6 @@ class misc( $laptop, $desktop ) {
 #**************
   package { 'steam':
     ensure => installed,
-  }
-  windows_pin { "$env_programdata/Microsoft/Windows/Start Menu/Programs/Steam/Steam.lnk":
-    type => startmenu,
-    require => Package['steam'],
   }
 
   # Steam Cloud
@@ -175,10 +135,6 @@ class misc( $laptop, $desktop ) {
     ensure => "$secretspath/WinSCP.ini",
     require => Package['winscp'],
   }
-  windows_pin { "$env_programdata/Microsoft/Windows/Start Menu/Programs/WinSCP.lnk":
-    type => taskbar,
-    require => Package['winscp'],
-  }
 
 #**************
 # vim
@@ -207,10 +163,6 @@ class misc( $laptop, $desktop ) {
   package { 'skype':
     ensure => installed,
   }
-  windows_pin { "$env_programdata/Microsoft/Windows/Start Menu/Programs/Skype/Skype.lnk":
-    type => taskbar,
-    require => Package['skype'],
-  }
 
 #**************
 # Flash player for chrome/FF
@@ -232,12 +184,6 @@ service { 'WSearch':
   ensure => running,
   enable => true,
 }
-
-
-#**************
-# Dropbox Pin
-#**************
-  windows_pin { "$env_programdata/Microsoft/Windows/Start Menu/Programs/Dropbox/Dropbox.lnk": type => taskbar }
 
 #**************
 # Silverlight
@@ -263,10 +209,6 @@ service { 'WSearch':
     ensure => "$dbpath/ProgramData/Anki",
     require => Package['anki'],
   }
-  windows_pin { "$env_programfilesx86/Anki/anki.exe":
-    type => startmenu,
-    require => Package['anki'],
-  }
 
 #**************
 # Audacity
@@ -276,10 +218,6 @@ service { 'WSearch':
 #**************
   package { 'audacity':
     ensure => installed,
-  }
-  windows_pin { "$env_programdata/Microsoft/Windows/Start Menu/Programs/Audacity.lnk":
-    type => startmenu,
-    require => Package['audacity'],
   }
   windows_conditional_symlink { "$appdatapath/Audacity/Chains":
     target => "$dbpath/Misc/Audacity_Chains",
@@ -304,8 +242,6 @@ service { 'WSearch':
 #**************
 # MediaMonkey
 #**************
-  windows_pin { "$dbpath/MediaMonkey/MediaMonkey.exe": type => taskbar }
-
   # Set up partially-portable mode, where it can make skin changes
   # and such; see
   # http://www.mediamonkey.com/support/index.php?_m=knowledgebase&_a=viewarticle&kbarticleid=153
@@ -359,7 +295,6 @@ service { 'WSearch':
 #**************
 # Dropbox Restore
 #**************
-  windows_pin { "$wapath/bin/Dropbox Restore.lnk": type => startmenu }
   package { 'python2':
     ensure => installed,
   }
@@ -579,7 +514,6 @@ service { 'WSearch':
   package { 'procexp':
     ensure => installed,
   }
-  windows_pin { "$env_programdata/chocolatey/bin/procexp64.exe": type => taskbar }
 
 #**************
 # WinRAR: archives that respect junctions
