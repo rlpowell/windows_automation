@@ -567,7 +567,7 @@ service { 'WSearch':
 
 
 #**************
-# WinCompose; for writing accents
+# WinCompose; for writing accents on the dvorak keyboard
 #**************
   package { 'wincompose':
     ensure => installed,
@@ -586,6 +586,36 @@ service { 'WSearch':
 #**************
   package { 'winrar':
     ensure => installed,
+  }
+
+#**************
+# Checksum for use in Chocolatey
+#**************
+  package { 'checksum':
+    ensure => installed,
+  }
+
+#**************
+# TeamViewer
+#**************
+  package { 'teamviewer':
+    ensure => installed,
+  }
+
+#**************
+# License for Chocolatey
+#**************
+  file { "$allusersprofile/chocolatey/license":
+    ensure => directory,
+  }
+  file { "$allusersprofile/chocolatey/license/chocolatey.license.xml":
+    ensure => "$secretspath/chocolatey.license.xml",
+    notify => Exec['install chocolatey license'],
+  }
+  exec { 'install chocolatey license':
+    refreshonly => true,
+    command     => "$cmd /c choco upgrade -y chocolatey.extension",
+    logoutput   => true,
   }
 
 } # end of misc class
