@@ -521,6 +521,10 @@ service { 'WSearch':
   package { 'winrar':
     ensure => installed,
   }
+  file { "$appdatapath/WinRAR/rarreg.key":
+    ensure  => "$secretspath/rarreg.key",
+    require => Package['winrar'],
+  }
 
 #**************
 # Checksum for use in Chocolatey
