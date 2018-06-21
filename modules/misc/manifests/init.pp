@@ -281,10 +281,6 @@ service { 'WSearch':
     type => startmenu,
     require => Package['audacity'],
   }
-  file { "$appdatapath/Audacity/Chains":
-    ensure => directory,
-    require => Package['audacity'],
-  }
   windows_conditional_symlink { "$appdatapath/Audacity/Chains":
     target => "$dbpath/Misc/Audacity_Chains",
     onlyifexists => "$appdatapath/Audacity",
