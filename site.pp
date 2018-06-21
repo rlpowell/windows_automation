@@ -42,8 +42,6 @@ class everything( $laptop, $desktop ) {
   include 'pdfxchange'
   include 'secrets'
   include 'pictures'
-  # We handle this manually so we can copy the content over
-  # include 'path_of_exile'
 }
 
 # Laptops
