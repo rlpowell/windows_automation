@@ -360,7 +360,7 @@ service { 'WSearch':
 # Dropbox Restore
 #**************
   windows_pin { "$wapath/bin/Dropbox Restore.lnk": type => startmenu }
-  package { 'python2-x86_32':
+  package { 'python2':
     ensure => installed,
   }
 
