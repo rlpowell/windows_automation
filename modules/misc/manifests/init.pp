@@ -216,7 +216,7 @@ service { 'WSearch':
 # Lamely, LAME must be installed by hand because it refuses robot
 # download; use http://lame1.buanzo.com.ar/
 #**************
-  package { 'audacity':
+  package { [ 'audacity', 'audacity-lame']:
     ensure => installed,
   }
   windows_conditional_symlink { "$appdatapath/Audacity/Chains":
