@@ -1,7 +1,6 @@
 class conemu {
   package { 'ConEmu':
     ensure => installed,
-    provider => 'chocolatey',
   }
 
   file { "$homepath/Desktop/ConEmu.lnk":
