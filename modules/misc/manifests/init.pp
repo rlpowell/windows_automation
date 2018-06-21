@@ -98,7 +98,11 @@ class misc( $laptop, $desktop ) {
 # Calibre
 #**************
   package { 'kindle':
-    ensure => installed,
+    # More recent versions don't work with DeDRM.  Note that
+    # actually being able to download this requires Chocolatey Pro,
+    # because it uses the Chocolatey CDN (the 1.17 version doesn't
+    # download properly from its original source anymore).
+    ensure   => '1.17',
   }
   package { 'calibre':
     ensure => installed,
