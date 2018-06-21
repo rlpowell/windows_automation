@@ -313,17 +313,6 @@ service { 'WSearch':
     command => "$dbpath/MediaMonkey/MediaMonkeyCOM.exe /regserver & $dbpath/MediaMonkey/MediaMonkey.exe \"/elevate /regserver\"",
   }
 
-  # We use mediamonkey sync now.
-  #
-  ## Set up the M: drive used to sync out media for transfer to my phone
-  #$net_use_m_target='\\localhost\C$\Users\rlpowell\Dropbox\Portable Music'
-  ## This requires logging off and on to work
-  #exec { "mount drive for media monkey portable music writing":
-  #  #command => "$cmd /c net use M: /delete & net use M: /persistent:yes \"$net_use_m_target\"",
-  #  command => "$cmd /c net use M: /persistent:yes \"$net_use_m_target\"",
-  #  unless => "$cmd /c dir M: | findstr /L techno",
-  #}
-
 #**************
 # mp3tag
 #**************
@@ -473,15 +462,6 @@ service { 'WSearch':
   }
 
 #**************
-# Minecraft
-#**************
-  file { "$appdatapath/.minecraft":
-    ensure => "$dbpath/Games/Minecraft",
-  }
-  windows_pin { "$dbpath/Games/Minecraft/Minecraft.exe": type => startmenu }
-  windows_pin { "$dbpath/Games/Minecraft/Minecraft Backup.lnk": type => startmenu }
-
-#**************
 # X3:TC and X3:AP
 #**************
   file { "$homepath/Documents/Egosoft":
@@ -523,27 +503,6 @@ service { 'WSearch':
   }
 
 #**************
-# MyPhoneExplorer
-#
-# 18-09:07 <    rlpowell> So, for my future self the next time: For
-# android backup/restore, MyPhoneExplorer is like the sync program
-# for the old PalmOS, but for Android.
-#**************
-  windows_pin { "$dbpath/MyPhoneExplorer/MyPhoneExplorer portable.exe": type => startmenu }
-
-## chocolatey package for daemontoolslite is broken
-##
-## #**************
-## # Daemon Tools Lite
-## #
-## # Used to fake the morrowind CD in our non-existant CD drive
-## #**************
-##   package { 'daemontoolslite':
-##     ensure => installed,
-##     provider => chocolatey,
-##   }
-
-#**************
 # Plex
 #**************
   package { 'plexmediaserver':
@@ -552,17 +511,6 @@ service { 'WSearch':
   file { "$homepath/AppData/Local/Plex Media Server/Metadata":
     ensure => "$dbpath/Plex_Metadata",
     require => Package['plexmediaserver'],
-  }
-
-#**************
-# Ubiquiti UniFi
-#**************
-  package { 'ubiquiti-unifi-controller':
-    ensure => installed,
-  }
-  file { "$homepath/Ubiquiti UniFi/data":
-    ensure => "$dbpath/Misc/UniFi_data",
-    require => Package['ubiquiti-unifi-controller'],
   }
 
 #**************
@@ -585,8 +533,9 @@ service { 'WSearch':
   # Symlinking the directory makes it crash, but it can only have 3
   # save games, so...
   #
-  # Not so much for the conditionality, but so it will move the
-  # original out of the way if necessary.
+  # The windows_conditional_symlink here is so much for the
+  # conditionality, but so it will move the original out of the way
+  # if necessary.
   windows_conditional_symlink { "$homepath/Documents/DTP/MyRidingStables/pf_bt1_1.sav":
     require => File["$homepath/Documents/DTP/MyRidingStables"],
     target => "$dbpath/Games/MyRidingStables/pf_bt1_1.sav",
