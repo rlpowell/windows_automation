@@ -1,6 +1,6 @@
 class conemu {
   package { 'ConEmu':
-    ensure => installed,
+    ensure => latest,
   }
 
   file { "$homepath/Desktop/ConEmu.lnk":

@@ -21,7 +21,7 @@ class misc( $laptop, $desktop ) {
 # sharpkeys
 #**************
   package { 'sharpkeys':
-    ensure => installed,
+    ensure => latest,
   }
 
 #**************
@@ -52,14 +52,14 @@ class misc( $laptop, $desktop ) {
 # VLC
 #**************
   package { 'vlc':
-    ensure => installed,
+    ensure => latest,
   }
 
 #**************
 # Java
 #**************
   package { 'javaruntime':
-    ensure => installed,
+    ensure => latest,
   }
 
 #**************
@@ -73,7 +73,7 @@ class misc( $laptop, $desktop ) {
     ensure   => '1.17',
   }
   package { 'calibre':
-    ensure => installed,
+    ensure => latest,
     require => Package['kindle'],
   }
   file { "$homepath/Documents/Calibre Library":
@@ -89,14 +89,14 @@ class misc( $laptop, $desktop ) {
 # WinDirStat
 #**************
   package { 'windirstat':
-    ensure => installed,
+    ensure => latest,
   }
 
 #**************
 # Steam
 #**************
   package { 'steam':
-    ensure => installed,
+    ensure => latest,
   }
 
   # Steam Cloud
@@ -119,7 +119,7 @@ class misc( $laptop, $desktop ) {
 # Git
 #**************
   package { 'git':
-    ensure => installed,
+    ensure => latest,
   }
   file { "$homepath/.gitconfig":
     source => "$wapath/extras/gitconfig",
@@ -129,7 +129,7 @@ class misc( $laptop, $desktop ) {
 # WinSCP
 #**************
   package { 'winscp':
-    ensure => installed,
+    ensure => latest,
   }
   file { "$appdatapath/WinSCP.ini":
     ensure => "$secretspath/WinSCP.ini",
@@ -140,7 +140,7 @@ class misc( $laptop, $desktop ) {
 # vim
 #**************
   package { 'vim':
-    ensure => installed,
+    ensure => latest,
   }
   file { "$homepath/AppData/Local/Temp/vim":
     ensure => directory,
@@ -161,14 +161,14 @@ class misc( $laptop, $desktop ) {
 # Skype
 #**************
   package { 'skype':
-    ensure => installed,
+    ensure => latest,
   }
 
 #**************
 # Flash player for chrome/FF
 #**************
   package { 'flashplayerplugin':
-    ensure => installed,
+    ensure => latest,
   }
 
 # Windows 10 start menu searches don't work without the indexing service
@@ -189,21 +189,21 @@ service { 'WSearch':
 # Silverlight
 #**************
   package { 'Silverlight':
-    ensure => installed,
+    ensure => latest,
   }
 
 #**************
 # FastGlacier
 #**************
   package { 'fastglacier':
-    ensure => installed,
+    ensure => latest,
   }
 
 #**************
 # Anki
 #**************
   package { 'anki':
-    ensure => installed,
+    ensure => latest,
   }
   file { "$homepath/Documents/Anki":
     ensure => "$dbpath/ProgramData/Anki",
@@ -217,7 +217,7 @@ service { 'WSearch':
 # download; use http://lame1.buanzo.com.ar/
 #**************
   package { [ 'audacity', 'audacity-lame']:
-    ensure => installed,
+    ensure => latest,
   }
   windows_conditional_symlink { "$appdatapath/Audacity/Chains":
     target => "$dbpath/Misc/Audacity_Chains",
@@ -229,14 +229,14 @@ service { 'WSearch':
 # LibreOffice
 #**************
   package { 'libreoffice':
-    ensure => installed,
+    ensure => latest,
   }
 
 #**************
 # Google Drive
 #**************
   package { 'googledrive':
-    ensure => installed,
+    ensure => latest,
   }
 
 #**************
@@ -253,13 +253,13 @@ service { 'WSearch':
 # mp3tag
 #**************
   package { 'mp3tag':
-    ensure => installed,
+    ensure => latest,
   }
 #**************
 # ffmpeg
 #**************
   package { 'ffmpeg':
-    ensure => installed,
+    ensure => latest,
   }
   windows_path {'ffmpeg bin':
     ensure      => present,
@@ -296,27 +296,27 @@ service { 'WSearch':
 # Dropbox Restore
 #**************
   package { 'python2':
-    ensure => installed,
+    ensure => latest,
   }
 
 #**************
 # VirtualBox
 #**************
   package { 'virtualbox':
-    ensure => installed,
+    ensure => latest,
   }
 
 #**************
 # Bulk Rename Utility
 #**************
   package { 'bulkrenameutility':
-    ensure => installed,
+    ensure => latest,
   }
 #**************
 # Telegram
 #**************
   package { 'telegram.install':
-    ensure => installed,
+    ensure => latest,
   }
 
 #********************************************
@@ -441,7 +441,7 @@ service { 'WSearch':
 # Plex
 #**************
   package { 'plexmediaserver':
-    ensure => installed,
+    ensure => latest,
   }
   file { "$homepath/AppData/Local/Plex Media Server/Metadata":
     ensure => "$dbpath/Plex_Metadata",
@@ -497,7 +497,7 @@ service { 'WSearch':
 # From https://ipmsg.org/tools/fastcopy.html.en
 #**************
   package { 'fastcopy.portable':
-    ensure => installed,
+    ensure => latest,
   }
 
 
@@ -505,21 +505,21 @@ service { 'WSearch':
 # WinCompose; for writing accents on the dvorak keyboard
 #**************
   package { 'wincompose':
-    ensure => installed,
+    ensure => latest,
   }
 
 #**************
 # Process Explorer; better process monitoring
 #**************
   package { 'procexp':
-    ensure => installed,
+    ensure => latest,
   }
 
 #**************
 # WinRAR: archives that respect junctions
 #**************
   package { 'winrar':
-    ensure => installed,
+    ensure => latest,
   }
   file { "$appdatapath/WinRAR/rarreg.key":
     ensure  => "$secretspath/rarreg.key",
@@ -530,14 +530,14 @@ service { 'WSearch':
 # Checksum for use in Chocolatey
 #**************
   package { 'checksum':
-    ensure => installed,
+    ensure => latest,
   }
 
 #**************
 # TeamViewer
 #**************
   package { 'teamviewer':
-    ensure => installed,
+    ensure => latest,
   }
 
 #**************

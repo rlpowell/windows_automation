@@ -10,7 +10,7 @@ class pdfxchange {
   # next version has come out.  You can just double-click on the
   # xcvault file if it's not fixed yet.
   package { 'PDFXchangeEditor':
-    ensure          => installed,
+    ensure          => latest,
     install_options => ['--params', '/KeyFile:C:\Users\rlpowell\Dropbox\Windows_Automation_Secrets\PDFXChangeEditor.xcvault' ],
   }
 }

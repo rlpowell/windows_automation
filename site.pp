@@ -1,4 +1,5 @@
 include stdlib
+include chocolatey
 
 $homepath="$env_home"
 $appdatapath="$env_appdata"
@@ -18,7 +19,10 @@ File {
 
 case $operatingsystem {
   'windows': {
-    Package { provider => chocolatey, }
+    Package {
+      provider         => chocolatey,
+      package_settings => { 'verbose' => true, 'log_output' => true, },
+    }
   }
 }
 
