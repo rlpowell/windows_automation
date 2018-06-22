@@ -16,10 +16,10 @@ Puppet::Type.newtype(:registry_value) do
 
     **Autorequires:** Any parent registry key managed by Puppet will be
     autorequired.
-EOT
+  EOT
 
   def self.title_patterns
-    [ [ /^(.*?)\Z/m, [ [ :path, lambda{|x| x} ] ] ] ]
+    [[/^(.*?)\Z/m, [[:path, lambda { |x| x }]]]]
   end
 
   ensurable
@@ -28,8 +28,9 @@ EOT
     desc "The path to the registry value to manage.  For example:
       'HKLM\Software\Value1', 'HKEY_LOCAL_MACHINE\Software\Vendor\Value2'.
       If Puppet is running on a 64-bit system, the 32-bit registry key can
-      be explicitly manage using a prefix.  For example:
-      '32:HKLM\Software\Value3'"
+      be explicitly managed using a prefix.  For example:
+      '32:HKLM\Software\Value3'. Use a double backslash between the value name
+      and path when managing a value with a backslash in the name."
 
     validate do |path|
       PuppetX::Puppetlabs::Registry::RegistryValuePath.new(path).valid?
@@ -84,6 +85,9 @@ EOT
         fail("The data must be a valid QWORD: #{value}") unless val and (val.abs >> 64) <= 0
         val
       when :binary
+        if (value.respond_to?(:length) && value.length == 1) || (value.kind_of?(Integer) && value <= 9)
+          value = "0#{value}"
+        end
         unless value.match(/^([a-f\d]{2} ?)*$/i)
           fail("The data must be a hex encoded string of the form: '00 01 02 ...'")
         end
