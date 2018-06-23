@@ -1,1 +1,0 @@
-Install-ChocolateyPackage 'digime' 'exe' '--mode unattended' 'http://download.digi.me/helium/windows/digi.me.exe' '' -validExitCodes @(0,1) -Checksum 'F42A291A5068B32119B6B1B8FE5B301F989D99DDC90DADAFB5641B3E0285615E' -ChecksumType 'sha256'
