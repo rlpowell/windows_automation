@@ -270,7 +270,7 @@ service { 'WSearch':
 # Digi.me (formerly socialsafe)
 #**************
   package { 'digime':
-    ensure => installed,
+    ensure => latest,
   }
   file { "$appdatapath/com.1minus1.socialsafe.D675411CF670AA3EFAC13BDD847989BEDE2115E2.1":
     ensure => "$dbpath/digi.me/com.1minus1.socialsafe.D675411CF670AA3EFAC13BDD847989BEDE2115E2.1",
