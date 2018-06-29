@@ -556,4 +556,12 @@ service { 'WSearch':
     logoutput   => true,
   }
 
+#**************
+# Slack
+#**************
+  package { 'slack':
+    ensure => latest,
+  }
+
+
 } # end of misc class
