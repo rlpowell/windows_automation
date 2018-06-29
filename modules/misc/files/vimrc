@@ -1,6 +1,9 @@
 set nocompatible
 source $VIMRUNTIME/vimrc_example.vim
-source $VIMRUNTIME/mswin.vim
+" source $VIMRUNTIME/mswin.vim
+" 
+" " Fix ctrl-f from mswin.vim
+" :unmap <C-F>
 behave mswin
 
 "The important bits:
@@ -21,3 +24,28 @@ behave mswin
 :set textwidth=68
 :set dir=C:\Users\rlpowell\AppData\Local\Temp\vim
 :set undodir=C:\Users\rlpowell\AppData\Local\Temp\vim
+
+" Show utf-8 properly
+set enc=utf-8
+set fileencoding=utf-8
+set fileencodings=ucs-bom,utf8,prc
+set guifont=Monaco:h11
+set guifontwide=NSimsun:h12
+
+" The bits of mswin.vim we care about
+if has("clipboard")
+    " CTRL-X and SHIFT-Del are Cut
+    vnoremap <C-X> "+x
+    vnoremap <S-Del> "+x
+
+    " CTRL-C and CTRL-Insert are Copy
+    vnoremap <C-C> "+y
+    vnoremap <C-Insert> "+y
+
+    " CTRL-V and SHIFT-Insert are Paste
+    " map <C-V>		"+gP
+    map <S-Insert>		"+gP
+
+    " cmap <C-V>		<C-R>+
+    cmap <S-Insert>		<C-R>+
+endif
