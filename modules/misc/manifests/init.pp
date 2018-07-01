@@ -269,12 +269,8 @@ service { 'WSearch':
 #**************
 # Digi.me (formerly socialsafe)
 #**************
-  package { 'digime':
+  package { 'digime-2':
     ensure => latest,
-  }
-  file { "$appdatapath/com.1minus1.socialsafe.D675411CF670AA3EFAC13BDD847989BEDE2115E2.1":
-    ensure => "$dbpath/digi.me/com.1minus1.socialsafe.D675411CF670AA3EFAC13BDD847989BEDE2115E2.1",
-    require => Package['digime'],
   }
 
 #********************************************
