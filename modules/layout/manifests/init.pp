@@ -56,14 +56,26 @@ class layout {
   file { 'layout xml':
     path   => 'C:\Layout\layout.xml',
     source => "$wapath/modules/layout/files/layout.xml",
+    notify => Exec['refresh group policy'],
   }
   reboot { 'after layout xml':
-    subscribe => [ File['layout xml'], File['group policy'], ],
     timeout   => 30,
     message   => 'Puppet will reboot this system in 30 seconds',
     apply     => finished,
   }
 
+  # Not sure if this helps or not; the automation doesn't seem to
+  # actually work, here, and we end up having to do it manually,
+  # like so:
+  #
+  # - Start -> Edit group policy
+  # - User Configuration -> Administrative Templates -> Start Menu And Taskbar
+  # - Set “Start Layout” to Enabled and the file to C:\Layout\layout.xml
+  # - You may need to disable it, log out, log back in, and enable and set it
+  #
+  file { 'C:\Windows\System32\GroupPolicy\User':
+    ensure => directory,
+  }
   # This part sets up the local group policy that applies it
   file { 'group policy':
     path   => 'C:\Windows\System32\GroupPolicy\User\Registry.pol',
@@ -77,6 +89,7 @@ class layout {
     notify => Exec['refresh group policy'],
   }
   exec { 'refresh group policy':
+    logoutput   => true,
     refreshonly => true,
     command     => "$cmd /c gpupdate /force",
     notify      => Reboot['after layout xml'],
