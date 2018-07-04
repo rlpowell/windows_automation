@@ -560,4 +560,14 @@ service { 'WSearch':
   }
 
 
+#**************
+# Rebel Galaxy
+#**************
+  file { "$homepath/Documents/My Games/Double Damage Games":
+    ensure => directory,
+  }
+  file { "$homepath/Documents/My Games/Double Damage Games/RebelGalaxy":
+    target => "$homepath/Dropbox/Games/RebelGalaxy-$hostname",
+  }
+
 } # end of misc class
