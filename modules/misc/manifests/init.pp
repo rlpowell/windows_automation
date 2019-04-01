@@ -219,7 +219,7 @@ service { 'WSearch':
   package { [ 'audacity', 'audacity-lame']:
     ensure => latest,
   }
-  windows_conditional_symlink { "$appdatapath/Audacity/Chains":
+  windows_conditional_symlink { "$appdatapath/Audacity/Macros":
     target => "$dbpath/Misc/Audacity_Chains",
     onlyifexists => "$appdatapath/Audacity",
   }
