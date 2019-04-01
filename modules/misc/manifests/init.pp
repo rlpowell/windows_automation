@@ -570,4 +570,20 @@ service { 'WSearch':
     target => "$homepath/Dropbox/Games/RebelGalaxy-$hostname",
   }
 
+#**************
+# Citra (3DS Emulator)
+#**************
+  windows_conditional_symlink { "$appdatapath/Citra/config":
+    target => "$homepath/Dropbox/Games/Emulation/3DS/Citra_Windows_config",
+    onlyifexists => "$appdatapath/Citra/",
+  }
+  windows_conditional_symlink { "$appdatapath/Citra/nand":
+    target => "$homepath/Dropbox/Games/Emulation/3DS/Citra_Windows_nand",
+    onlyifexists => "$appdatapath/Citra/",
+  }
+  windows_conditional_symlink { "$appdatapath/Citra/sdmc":
+    target => "$homepath/Dropbox/Games/Emulation/3DS/Citra_Windows_sdmc",
+    onlyifexists => "$appdatapath/Citra/",
+  }
+
 } # end of misc class
