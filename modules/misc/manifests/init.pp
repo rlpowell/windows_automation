@@ -597,4 +597,40 @@ service { 'WSearch':
     onlyifexists => "$appdatapath/Citra/",
   }
 
+#**************
+# SevTech Ages
+#**************
+  windows_extras::windows_conditional_symlink_early { "$homepath/Twitch/Minecraft/Instances/SevTech Ages/saves":
+    target => "$homepath/Dropbox/Games/SevTech_Ages_Saves",
+    onlyifexists => "$homepath/Twitch/Minecraft/Instances/SevTech Ages",
+  }
+
+#**************
+# Siralim 3
+#**************
+  windows_extras::windows_symlink_early { "$homepath/AppData/Local/Siralim3":
+    target => "$homepath/Dropbox/Games/Siralim3",
+  }
+
+#**************
+# Mindustry
+#**************
+  windows_extras::windows_conditional_symlink_early { "$env_programfilesx86/Steam/steamapps/common/Mindustry/saves":
+    target => "$dbpath/Games/mindustry",
+    onlyifexists => "$env_programfilesx86/Steam/SteamApps/common/Mindustry",
+  }
+  # For the laptop
+  windows_extras::windows_conditional_symlink_early { "D:/Steam Storage/steamapps/common/Mindustry/saves":
+    target => "$dbpath/Games/mindustry",
+    onlyifexists => "D:/Steam Storage/steamapps/common/Mindustry",
+  }
+
+#**************
+# Planetary Annihilation
+#**************
+  windows_extras::windows_conditional_symlink_early { "$homepath/AppData/Local/Uber Entertainment/Planetary Annihilation":
+    target       => "$dbpath/Games/Planetary Annihilation",
+    onlyifexists => "$homepath/AppData/Local/Uber Entertainment",
+  }
+
 } # end of misc class
