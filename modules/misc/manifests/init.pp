@@ -406,6 +406,11 @@ service { 'WSearch':
     target => "$dbpath/Games/Hacker Evolution",
     onlyifexists => "$env_programfilesx86/Steam/SteamApps/common/Hacker Evolution",
   }
+  # For the laptop
+  windows_extras::windows_conditional_symlink_early { "D:/Steam Storage/steamapps/common/Hacker Evolution/he-savegames":
+    target => "$dbpath/Games/Hacker Evolution",
+    onlyifexists => "D:/Steam Storage/steamapps/common/Hacker Evolution",
+  }
 
 #**************
 # Starpoint Gemini 2
@@ -413,6 +418,11 @@ service { 'WSearch':
   windows_extras::windows_conditional_symlink_early { "$env_programfilesx86/Steam/SteamApps/common/Starpoint Gemini 2/Saves":
     target => "$dbpath/Games/Starpoint Gemini 2",
     onlyifexists => "$env_programfilesx86/Steam/SteamApps/common/Starpoint Gemini 2",
+  }
+  # For the laptop
+  windows_extras::windows_conditional_symlink_early { "D:/Steam Storage/steamapps/common/Starpoint Gemini 2/Saves":
+    target => "$dbpath/Games/Starpoint Gemini 2",
+    onlyifexists => "D:/Steam Storage/steamapps/common/Starpoint Gemini 2",
   }
 
 #**************
