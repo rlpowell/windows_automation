@@ -533,24 +533,35 @@ service { 'WSearch':
 # TeamViewer
 #**************
   package { 'teamviewer':
-    ensure => latest,
+    ensure => absent,
   }
 
 #**************
 # License for Chocolatey
 #**************
-  file { "$allusersprofile/chocolatey/license":
-    ensure => directory,
-  }
-  file { "$allusersprofile/chocolatey/license/chocolatey.license.xml":
-    ensure => "$secretspath/chocolatey.license.xml",
-    notify => Exec['install chocolatey license'],
-  }
-  exec { 'install chocolatey license':
-    refreshonly => true,
-    command     => "$cmd /c choco upgrade -y chocolatey.extension",
-    logoutput   => true,
-  }
+    file { "$allusersprofile/chocolatey/license":
+      ensure => absent,
+      force  => true,
+      notify => Exec['remove chocolatey license'],
+    }
+    exec { 'remove chocolatey license':
+      refreshonly => true,
+      command     => "$cmd /c choco uninstall -y chocolatey.extension",
+      logoutput   => true,
+    }
+    Exec['remove chocolatey license'] -> Package <| |>
+    #   file { "$allusersprofile/chocolatey/license":
+    #     ensure => directory,
+    #   }
+    #   file { "$allusersprofile/chocolatey/license/chocolatey.license.xml":
+    #     ensure => "$secretspath/chocolatey.license.xml",
+    #     notify => Exec['install chocolatey license'],
+    #   }
+    #   exec { 'install chocolatey license':
+    #     refreshonly => true,
+    #     command     => "$cmd /c choco upgrade -y chocolatey.extension",
+    #     logoutput   => true,
+    #   }
 
 #**************
 # Slack
