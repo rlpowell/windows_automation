@@ -45,7 +45,7 @@ class misc( $laptop, $desktop ) {
 #**************
   windows_extras::regload { "$wapath/extras/cap_to_ctrl.reg":
     unless_key => 'HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Keyboard Layout',
-    unless_check  => '0000000000000000020000001D003A0000000000',
+    unless_check  => '1D003A',
   }
 
 #**************
@@ -279,7 +279,7 @@ service { 'WSearch':
   if $laptop {
     windows_extras::regload { "$wapath/extras/keyboard.reg":
       unless_key => 'HKEY_CURRENT_USER\Keyboard Layout\Substitutes',
-      unless_check => '00010409',
+      unless_check => '00000409',
     }
   
     $high_perf_power = regsubst("\"$wapath/extras/high_perf_laptop.pow\"", '/', '\\', 'G')
