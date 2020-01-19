@@ -106,10 +106,10 @@ class misc( $laptop, $desktop ) {
   # otherwise (1) we get annoying messages and (2) we may or may not
   # be able to do per-machine per-game settings properly.
   #
-  # The windows_conditional_symlink here is so much for the
+  # The windows_extras::windows_conditional_symlink_early here is so much for the
   # conditionality, but so it will move the original out of the way
   # if necessary.
-  windows_conditional_symlink { "$env_programfilesx86/Steam/userdata":
+  windows_extras::windows_conditional_symlink_early { "$env_programfilesx86/Steam/userdata":
     target => "$dbpath/Games/Steam_userdata-$hostname",
     onlyifexists => "$env_programfilesx86/Steam/",
   }
@@ -219,7 +219,7 @@ service { 'WSearch':
   package { [ 'audacity', 'audacity-lame']:
     ensure => latest,
   }
-  windows_conditional_symlink { "$appdatapath/Audacity/Macros":
+  windows_extras::windows_conditional_symlink_early { "$appdatapath/Audacity/Macros":
     target => "$dbpath/Misc/Audacity_Chains",
     onlyifexists => "$appdatapath/Audacity",
   }
@@ -332,27 +332,27 @@ service { 'WSearch':
 #**************
 # Factorio
 #**************
-  file { "$appdatapath/Factorio":
-    ensure => "$homepath/Dropbox/Games/Factorio",
+  windows_extras::windows_symlink_early { "$appdatapath/Factorio":
+    target => "$homepath/Dropbox/Games/Factorio",
   }
 
 #**************
 # Spore
 #**************
-  windows_conditional_symlink { "$appdatapath/SPORE/Games":
+  windows_extras::windows_conditional_symlink_early { "$appdatapath/SPORE/Games":
     target => "$homepath/Dropbox/Games/Spore/Games",
     onlyifexists => "$appdatapath/SPORE/",
   }
-  windows_conditional_symlink { "$appdatapath/SPORE/EditorSaves.package":
+  windows_extras::windows_conditional_symlink_early { "$appdatapath/SPORE/EditorSaves.package":
     target => "$homepath/Dropbox/Games/Spore/EditorSaves.package",
     onlyifexists => "$appdatapath/SPORE/",
   }
-  windows_conditional_symlink { "$appdatapath/SPORE/Pollination.package":
+  windows_extras::windows_conditional_symlink_early { "$appdatapath/SPORE/Pollination.package":
     target => "$homepath/Dropbox/Games/Spore/Pollination.package",
     onlyifexists => "$appdatapath/SPORE/",
   }
-  file { "$homepath/Documents/My Spore Creations":
-    ensure => "$homepath/Dropbox/Games/Spore/My Spore Creations",
+  windows_extras::windows_symlink_early { "$homepath/Documents/My Spore Creations":
+    target => "$homepath/Dropbox/Games/Spore/My Spore Creations",
   }
 
 #**************
@@ -361,7 +361,7 @@ service { 'WSearch':
   file { ["$homepath/Documents/My Games", "$homepath/Documents/My Games/Gnomoria"]:
     ensure => directory,
   }
-  windows_conditional_symlink { "$homepath/Documents/My Games/Gnomoria/Worlds":
+  windows_extras::windows_conditional_symlink_early { "$homepath/Documents/My Games/Gnomoria/Worlds":
     target => "$homepath/Dropbox/Games/Gnomoria/Worlds",
     onlyifexists => "$homepath/Documents/My Games/Gnomoria/",
   }
@@ -369,11 +369,11 @@ service { 'WSearch':
 #**************
 # Morrowind
 #**************
-  windows_conditional_symlink { "C:/Morrowind/Saves":
+  windows_extras::windows_conditional_symlink_early { "C:/Morrowind/Saves":
     target => "$homepath/Dropbox/Games/Morrowind/Saves",
     onlyifexists => "C:/Morrowind/",
   }
-  windows_conditional_symlink { "C:/Morrowind/Data Files":
+  windows_extras::windows_conditional_symlink_early { "C:/Morrowind/Data Files":
     target => "$homepath/Dropbox/Games/Morrowind/Data Files",
     onlyifexists => "C:/Morrowind/",
   }
@@ -381,22 +381,22 @@ service { 'WSearch':
 #**************
 # Freelancer
 #**************
-  file { "$homepath/Documents/My Games/Freelancer":
-    ensure => "$homepath/Dropbox/Games/Freelancer",
+  windows_extras::windows_symlink_early { "$homepath/Documents/My Games/Freelancer":
+    target => "$homepath/Dropbox/Games/Freelancer",
   }
 
 #**************
 # Reus
 #**************
-  file { "$homepath/Documents/Reus":
-    ensure => "$homepath/Dropbox/Games/Reus",
+  windows_extras::windows_symlink_early { "$homepath/Documents/Reus":
+    target => "$homepath/Dropbox/Games/Reus",
   }
 
 #**************
 # X3:TC and X3:AP
 #**************
-  file { "$homepath/Documents/Egosoft":
-    ensure => "$dbpath/Games/Egosoft",
+  windows_extras::windows_symlink_early { "$homepath/Documents/Egosoft":
+    target => "$dbpath/Games/Egosoft",
   }
 
 #**************
@@ -404,7 +404,7 @@ service { 'WSearch':
 #**************
   # We don't need the conditionality here, obviously, but this way
   # it will move the original out of the way if necessary.
-  windows_conditional_symlink { "$homepath/Saved Games":
+  windows_extras::windows_conditional_symlink_early { "$homepath/Saved Games":
     target => "$dbpath/Games/Saved Games",
     onlyifexists => "$homepath/",
   }
@@ -412,7 +412,7 @@ service { 'WSearch':
 #**************
 # Hacker Evolution
 #**************
-  windows_conditional_symlink { "$env_programfilesx86/Steam/SteamApps/common/Hacker Evolution/he-savegames":
+  windows_extras::windows_conditional_symlink_early { "$env_programfilesx86/Steam/SteamApps/common/Hacker Evolution/he-savegames":
     target => "$dbpath/Games/Hacker Evolution",
     onlyifexists => "$env_programfilesx86/Steam/SteamApps/common/Hacker Evolution",
   }
@@ -420,7 +420,7 @@ service { 'WSearch':
 #**************
 # Starpoint Gemini 2
 #**************
-  windows_conditional_symlink { "$env_programfilesx86/Steam/SteamApps/common/Starpoint Gemini 2/Saves":
+  windows_extras::windows_conditional_symlink_early { "$env_programfilesx86/Steam/SteamApps/common/Starpoint Gemini 2/Saves":
     target => "$dbpath/Games/Starpoint Gemini 2",
     onlyifexists => "$env_programfilesx86/Steam/SteamApps/common/Starpoint Gemini 2",
   }
@@ -428,7 +428,7 @@ service { 'WSearch':
 #**************
 # FortressCraft Evolved
 #**************
-  windows_conditional_symlink { "$homepath/AppData/LocalLow/ProjectorGames/FortressCraft":
+  windows_extras::windows_conditional_symlink_early { "$homepath/AppData/LocalLow/ProjectorGames/FortressCraft":
     target => "$dbpath/Games/FortressCraft",
     onlyifexists => "$homepath/AppData/LocalLow/ProjectorGames",
   }
@@ -447,8 +447,8 @@ service { 'WSearch':
 #**************
 # Stardew Valley
 #**************
-  file { "$appdatapath/StardewValley":
-    ensure => "$dbpath/Games/StardewValley",
+  windows_extras::windows_symlink_early { "$appdatapath/StardewValley":
+    target => "$dbpath/Games/StardewValley",
   }
 
 #**************
@@ -464,25 +464,25 @@ service { 'WSearch':
   # Symlinking the directory makes it crash, but it can only have 3
   # save games, so...
   #
-  # The windows_conditional_symlink here is so much for the
+  # The windows_extras::windows_conditional_symlink_early here is so much for the
   # conditionality, but so it will move the original out of the way
   # if necessary.
-  windows_conditional_symlink { "$homepath/Documents/DTP/MyRidingStables/pf_bt1_1.sav":
+  windows_extras::windows_conditional_symlink_early { "$homepath/Documents/DTP/MyRidingStables/pf_bt1_1.sav":
     require => File["$homepath/Documents/DTP/MyRidingStables"],
     target => "$dbpath/Games/MyRidingStables/pf_bt1_1.sav",
     onlyifexists => "$homepath/Documents/DTP/MyRidingStables/",
   }
-  windows_conditional_symlink { "$homepath/Documents/DTP/MyRidingStables/pf_bt1_2.sav":
+  windows_extras::windows_conditional_symlink_early { "$homepath/Documents/DTP/MyRidingStables/pf_bt1_2.sav":
     require => File["$homepath/Documents/DTP/MyRidingStables"],
     target => "$dbpath/Games/MyRidingStables/pf_bt1_2.sav",
     onlyifexists => "$homepath/Documents/DTP/MyRidingStables/",
   }
-  windows_conditional_symlink { "$homepath/Documents/DTP/MyRidingStables/pf_bt1_3.sav":
+  windows_extras::windows_conditional_symlink_early { "$homepath/Documents/DTP/MyRidingStables/pf_bt1_3.sav":
     require => File["$homepath/Documents/DTP/MyRidingStables"],
     target => "$dbpath/Games/MyRidingStables/pf_bt1_3.sav",
     onlyifexists => "$homepath/Documents/DTP/MyRidingStables/",
   }
-  windows_conditional_symlink { "$homepath/Documents/DTP/MyRidingStables/settings.sav":
+  windows_extras::windows_conditional_symlink_early { "$homepath/Documents/DTP/MyRidingStables/settings.sav":
     require => File["$homepath/Documents/DTP/MyRidingStables"],
     target => "$dbpath/Games/MyRidingStables/settings.sav",
     onlyifexists => "$homepath/Documents/DTP/MyRidingStables/",
@@ -566,22 +566,22 @@ service { 'WSearch':
   file { "$homepath/Documents/My Games/Double Damage Games":
     ensure => directory,
   }
-  file { "$homepath/Documents/My Games/Double Damage Games/RebelGalaxy":
+  windows_extras::windows_symlink_early { "$homepath/Documents/My Games/Double Damage Games/RebelGalaxy":
     target => "$homepath/Dropbox/Games/RebelGalaxy-$hostname",
   }
 
 #**************
 # Citra (3DS Emulator)
 #**************
-  windows_conditional_symlink { "$appdatapath/Citra/config":
+  windows_extras::windows_conditional_symlink_early { "$appdatapath/Citra/config":
     target => "$homepath/Dropbox/Games/Emulation/3DS/Citra_Windows_config",
     onlyifexists => "$appdatapath/Citra/",
   }
-  windows_conditional_symlink { "$appdatapath/Citra/nand":
+  windows_extras::windows_conditional_symlink_early { "$appdatapath/Citra/nand":
     target => "$homepath/Dropbox/Games/Emulation/3DS/Citra_Windows_nand",
     onlyifexists => "$appdatapath/Citra/",
   }
-  windows_conditional_symlink { "$appdatapath/Citra/sdmc":
+  windows_extras::windows_conditional_symlink_early { "$appdatapath/Citra/sdmc":
     target => "$homepath/Dropbox/Games/Emulation/3DS/Citra_Windows_sdmc",
     onlyifexists => "$appdatapath/Citra/",
   }
