@@ -255,16 +255,6 @@ service { 'WSearch':
   package { 'mp3tag':
     ensure => latest,
   }
-#**************
-# ffmpeg
-#**************
-  package { 'ffmpeg':
-    ensure => latest,
-  }
-  windows_path {'ffmpeg bin':
-    ensure      => present,
-    directory   => 'C:\\tools\\ffmpeg\\bin',
-  }
 
 #**************
 # Digi.me (formerly socialsafe)
