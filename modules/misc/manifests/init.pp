@@ -102,7 +102,7 @@ class misc( $laptop, $desktop ) {
 # Steam
 #**************
   package { 'steam':
-    ensure => latest,
+    ensure => present,
   }
 
   # Steam Cloud
@@ -167,14 +167,7 @@ class misc( $laptop, $desktop ) {
 # Skype
 #**************
   package { 'skype':
-    ensure => latest,
-  }
-
-#**************
-# Flash player for chrome/FF
-#**************
-  package { 'flashplayerplugin':
-    ensure => latest,
+    ensure => present,
   }
 
 # Windows 10 start menu searches don't work without the indexing service
@@ -190,13 +183,6 @@ service { 'WSearch':
   ensure => running,
   enable => true,
 }
-
-#**************
-# Silverlight
-#**************
-  package { 'Silverlight':
-    ensure => latest,
-  }
 
 #**************
 # FastGlacier
@@ -235,14 +221,14 @@ service { 'WSearch':
 # LibreOffice
 #**************
   package { 'libreoffice':
-    ensure => latest,
+    ensure => present,
   }
 
 #**************
 # Google Drive
 #**************
   package { 'googledrive':
-    ensure => latest,
+    ensure => present,
   }
 
 #**************
@@ -301,8 +287,15 @@ service { 'WSearch':
 # Telegram
 #**************
   package { 'telegram.install':
-    ensure => latest,
+    ensure => present,
   }
+#**************
+# Discord
+#**************
+  package { 'discord.install':
+    ensure => present,
+  }
+
 
 #********************************************
 # Desktop
@@ -566,7 +559,7 @@ service { 'WSearch':
 # Slack
 #**************
   package { 'slack':
-    ensure => latest,
+    ensure => present,
   }
 
 
