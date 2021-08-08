@@ -636,11 +636,28 @@ service { 'WSearch':
   }
 
 #**************
+# iTunes Media Library
+#
+# If this isn't synced then every time you re-OS you have to do crazy things to stop everything from getting wiped
+#**************
+  windows_extras::windows_symlink_early { "$homepath/Music/iTunes":
+    target       => "$dbpath/Misc/iTunes Library",
+  }
+
+#**************
 # Planetary Annihilation
 #**************
   windows_extras::windows_conditional_symlink_early { "$homepath/AppData/Local/Uber Entertainment/Planetary Annihilation":
     target       => "$dbpath/Games/Planetary Annihilation",
     onlyifexists => "$homepath/AppData/Local/Uber Entertainment",
+  }
+
+#**************
+# Dyson Sphere Program
+#**************
+  windows_extras::windows_conditional_symlink_early { "$homepath/Documents/Dyson Sphere Program/Save":
+    target       => "$dbpath/Games/Dyson_Sphere_Program_Save",
+    onlyifexists => "$homepath/Documents/Dyson Sphere Program",
   }
 
 } # end of misc class
