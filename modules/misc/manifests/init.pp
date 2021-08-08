@@ -544,29 +544,34 @@ service { 'WSearch':
 #**************
 # License for Chocolatey
 #**************
+    # Removal:
+    #
+    # file { "$allusersprofile/chocolatey/license":
+    #   ensure => absent,
+    #   force  => true,
+    #   notify => Exec['remove chocolatey license'],
+    # }
+    # exec { 'remove chocolatey license':
+    #   refreshonly => true,
+    #   command     => "$cmd /c choco uninstall -y chocolatey.extension",
+    #   logoutput   => true,
+    # }
+    # Exec['remove chocolatey license'] -> Package <| |>
+
+    # Installation:
+
     file { "$allusersprofile/chocolatey/license":
-      ensure => absent,
-      force  => true,
-      notify => Exec['remove chocolatey license'],
+      ensure => directory,
     }
-    exec { 'remove chocolatey license':
+    file { "$allusersprofile/chocolatey/license/chocolatey.license.xml":
+      ensure => "$secretspath/chocolatey.license.xml",
+      notify => Exec['install chocolatey license'],
+    }
+    exec { 'install chocolatey license':
       refreshonly => true,
-      command     => "$cmd /c choco uninstall -y chocolatey.extension",
+      command     => "$cmd /c choco upgrade -y chocolatey.extension",
       logoutput   => true,
     }
-    Exec['remove chocolatey license'] -> Package <| |>
-    #   file { "$allusersprofile/chocolatey/license":
-    #     ensure => directory,
-    #   }
-    #   file { "$allusersprofile/chocolatey/license/chocolatey.license.xml":
-    #     ensure => "$secretspath/chocolatey.license.xml",
-    #     notify => Exec['install chocolatey license'],
-    #   }
-    #   exec { 'install chocolatey license':
-    #     refreshonly => true,
-    #     command     => "$cmd /c choco upgrade -y chocolatey.extension",
-    #     logoutput   => true,
-    #   }
 
 #**************
 # Slack
