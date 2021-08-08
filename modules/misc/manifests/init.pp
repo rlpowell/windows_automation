@@ -279,13 +279,6 @@ service { 'WSearch':
   }
 
 #**************
-# Dropbox Restore
-#**************
-  package { 'python2':
-    ensure => latest,
-  }
-
-#**************
 # VirtualBox
 #**************
   package { 'virtualbox':
