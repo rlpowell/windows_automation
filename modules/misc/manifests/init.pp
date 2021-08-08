@@ -241,6 +241,19 @@ service { 'WSearch':
     command => "$dbpath/MediaMonkey/MediaMonkeyCOM.exe /regserver & $dbpath/MediaMonkey/MediaMonkey.exe \"/elevate /regserver\"",
   }
 
+  # This sets up the M: drive as a sync target for MediaMonkey;
+  # see https://superuser.com/questions/29072/how-to-make-subst-mapping-persistent-across-reboots for the registry trick being used here.
+  windows_extras::regload { "$wapath/extras/portable_music_drive.reg":
+    unless_key   => 'HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Run',
+    unless_check => 'M Drive',
+    notify      => Reboot['after adding M drive'],
+  }
+  reboot { 'after adding M drive':
+    timeout   => 30,
+    message   => 'Puppet will reboot this system in 30 seconds',
+    apply     => finished,
+  }
+
 #**************
 # mp3tag
 #**************
