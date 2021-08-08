@@ -29,7 +29,7 @@ behave mswin
 set enc=utf-8
 set fileencoding=utf-8
 set fileencodings=ucs-bom,utf8,prc
-set guifont=Monaco:h11
+set guifont=Lucida_Console:h13
 set guifontwide=NSimsun:h12
 
 " The bits of mswin.vim we care about
