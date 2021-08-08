@@ -11,8 +11,7 @@ class firefox {
   $f2 = regsubst("\"$dbpath/FireFox/profiles.ini\"", '/', '\\', 'G')
 
   package { 'firefox':
-    ensure => installed,
-    provider => chocolatey,
+    ensure => latest,
   }
 
   file { "$appdatapath/Mozilla":
@@ -47,6 +46,11 @@ class firefox {
     type => taskbar,
     require => File["$homepath/Desktop/FF Home.lnk"],
   }
+
+  #**************
+  # Shut down firefox for dropbox sync
+  #**************
+  windows_pin { "$dbpath/Misc/firefox_stop/FireFox Stop.lnk": type => startmenu }
 
   #   exec { "third FF":
   #     command => "$cmd /c xcopy \"C:\\Program Files (x86)\\Mozilla Firefox\" \"C:\\Program Files (x86)\\Mozilla Firefox CB\\\" /s/h/e/k/f/c/o/y",
