@@ -1,4 +1,10 @@
 class misc( $laptop, $desktop ) {
+
+#*******
+# Important warning
+#*******
+  notify { "\n\n\n\nDO NOT change the pagefile size!!  You can disable it on all but one drive, but LEAVE IT SYSTEM MANAGED, or you will get crashes!\n\n\n\n": }
+
 #*******
 # SSH
 #*******
