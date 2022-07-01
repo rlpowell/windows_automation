@@ -645,4 +645,13 @@ service { 'WSearch':
     onlyifexists => "$homepath/Documents/Dyson Sphere Program",
   }
 
+#**************
+# Make Windows wait longer to exit, so GoodSync can complete
+#**************
+  windows_extras::regload { "$wapath/extras/hung_app_timeout.reg":
+    unless_key => 'HKEY_USERS\.DEFAULT\Control Panel\Desktop',
+    unless_value => 'HungAppTimeout',
+    unless_check  => '90000',
+  }
+
 } # end of misc class
