@@ -116,8 +116,8 @@ class layout {
     source => "$wapath/extras/KeePass.lnk",
     notify => Exec['refresh group policy'],
   }
-  file { "$allusersprofile/Microsoft/Windows/Start Menu/Programs/MediaMonkey.lnk":
-    source => "$wapath/extras/MediaMonkey.lnk",
+  file { "$allusersprofile/Microsoft/Windows/Start Menu/Programs/MediaMonkey5.lnk":
+    source => "$wapath/extras/MediaMonkey5.lnk",
     notify => Exec['refresh group policy'],
   }
   file { "$allusersprofile/Microsoft/Windows/Start Menu/Programs/Run Puppet Apply.lnk":
