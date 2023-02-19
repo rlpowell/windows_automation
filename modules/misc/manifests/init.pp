@@ -219,11 +219,8 @@ service { 'WSearch':
 #**************
 # MediaMonkey
 #**************
-  # Set up partially-portable mode, where it can make skin changes
-  # and such; see
-  # http://www.mediamonkey.com/support/index.php?_m=knowledgebase&_a=viewarticle&kbarticleid=153
-  exec { "give admin to mediamonkey":
-    command => "$dbpath/MediaMonkey/MediaMonkeyCOM.exe /regserver & $dbpath/MediaMonkey/MediaMonkey.exe \"/elevate /regserver\"",
+  package { 'mediamonkey':
+    ensure => latest,
   }
 
   # This sets up the M: drive as a sync target for MediaMonkey;
