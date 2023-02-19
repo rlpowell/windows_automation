@@ -651,7 +651,6 @@ service { 'WSearch':
   windows_extras::regload { "$wapath/extras/hung_app_timeout.reg":
     unless_key => 'HKEY_USERS\.DEFAULT\Control Panel\Desktop',
     unless_value => 'HungAppTimeout',
-    unless_check  => '90000',
+    unless_check  => '300000',
   }
-
 } # end of misc class

@@ -1,4 +1,4 @@
 Windows Registry Editor Version 5.00
 
 [HKEY_USERS\.DEFAULT\Control Panel\Desktop]
-"HungAppTimeout"=dword:00090000
+"HungAppTimeout"=dword:00300000
