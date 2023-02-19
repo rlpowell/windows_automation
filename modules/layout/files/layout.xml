@@ -23,7 +23,6 @@
           <start:DesktopApplicationTile Size="2x2" Row="2" Column="2" DesktopApplicationLinkPath="%ALLUSERSPROFILE%\Microsoft\Windows\Start Menu\Programs\Bulk Rename Utility\Bulk Rename Utility.lnk" />
           <start:DesktopApplicationTile Size="2x2" Row="2" Column="4" DesktopApplicationLinkPath="%ALLUSERSPROFILE%\Microsoft\Windows\Start Menu\Programs\FastGlacier\FastGlacier.lnk" />
           <start:DesktopApplicationTile Size="2x2" Row="4" Column="0" DesktopApplicationLinkPath="%ALLUSERSPROFILE%\Microsoft\Windows\Start Menu\Programs\Mp3tag\Mp3tag.lnk" />
-          <start:DesktopApplicationTile Size="2x2" Row="4" Column="2" DesktopApplicationLinkPath="%ALLUSERSPROFILE%\Microsoft\Windows\Start Menu\Programs\Plex Media Server\Plex Media Server.lnk" />
           <start:DesktopApplicationTile Size="2x2" Row="4" Column="4" DesktopApplicationLinkPath="%APPDATA%\Microsoft\Windows\Start Menu\Programs\WinCompose\WinCompose.lnk" />
           <start:DesktopApplicationTile Size="2x2" Row="6" Column="0" DesktopApplicationLinkPath="%ALLUSERSPROFILE%\Microsoft\Windows\Start Menu\Programs\RandyRants.com\SharpKeys\SharpKeys.lnk" />
         </start:Group>
@@ -33,9 +32,7 @@
           <start:DesktopApplicationTile Size="2x2" Row="0" Column="4" DesktopApplicationLinkPath="%ALLUSERSPROFILE%\Microsoft\Windows\Start Menu\Programs\kitty.lnk" />
           <start:DesktopApplicationTile Size="2x2" Row="2" Column="0" DesktopApplicationLinkPath="%APPDATA%\Microsoft\Windows\Start Menu\Programs\Steam\Steam.lnk" />
           <start:DesktopApplicationTile Size="2x2" Row="2" Column="2" DesktopApplicationLinkPath="%ALLUSERSPROFILE%\Microsoft\Windows\Start Menu\Programs\WinSCP.lnk" />
-          <start:Tile                   Size="2x2" Row="2" Column="4" AppUserModelID="Microsoft.SkypeApp_kzf8qxf38zg5c!App" />
-          <start:DesktopApplicationTile Size="2x2" Row="4" Column="0" DesktopApplicationLinkPath="%ALLUSERSPROFILE%\Microsoft\Windows\Start Menu\Programs\Dropbox\Dropbox.lnk" />
-          <start:DesktopApplicationTile Size="2x2" Row="4" Column="2" DesktopApplicationLinkPath="%ALLUSERSPROFILE%\Microsoft\Windows\Start Menu\Programs\MediaMonkey.lnk" />
+          <start:DesktopApplicationTile Size="2x2" Row="4" Column="2" DesktopApplicationLinkPath="%ALLUSERSPROFILE%\Microsoft\Windows\Start Menu\Programs\MediaMonkey5.lnk" />
           <start:DesktopApplicationTile Size="2x2" Row="4" Column="4" DesktopApplicationLinkPath="%ALLUSERSPROFILE%\Microsoft\Windows\Start Menu\Programs\TeamViewer 13.lnk" />
           <start:DesktopApplicationTile Size="2x2" Row="6" Column="0" DesktopApplicationLinkPath="%APPDATA%\Microsoft\Windows\Start Menu\Programs\Vim 8.0\Vim.lnk" />
           <start:DesktopApplicationTile Size="2x2" Row="6" Column="2" DesktopApplicationLinkPath="%ALLUSERSPROFILE%\Microsoft\Windows\Start Menu\Programs\ConEmu (x64).lnk" />
@@ -51,9 +48,7 @@
         <taskbar:DesktopApp DesktopApplicationLinkPath="%ALLUSERSPROFILE%\Microsoft\Windows\Start Menu\Programs\Google Chrome.lnk" />
         <taskbar:DesktopApp DesktopApplicationLinkPath="%APPDATA%\Microsoft\Windows\Start Menu\Programs\Steam\Steam.lnk" />
         <taskbar:DesktopApp DesktopApplicationLinkPath="%ALLUSERSPROFILE%\Microsoft\Windows\Start Menu\Programs\WinSCP.lnk" />
-        <taskbar:DesktopApp DesktopApplicationLinkPath="Microsoft.SkypeApp_kzf8qxf38zg5c!App" />
-        <taskbar:DesktopApp DesktopApplicationLinkPath="%ALLUSERSPROFILE%\Microsoft\Windows\Start Menu\Programs\Dropbox\Dropbox.lnk" />
-        <taskbar:DesktopApp DesktopApplicationLinkPath="%ALLUSERSPROFILE%\Microsoft\Windows\Start Menu\Programs\MediaMonkey.lnk" />
+        <taskbar:DesktopApp DesktopApplicationLinkPath="%ALLUSERSPROFILE%\Microsoft\Windows\Start Menu\Programs\MediaMonkey5.lnk" />
         <taskbar:DesktopApp DesktopApplicationLinkPath="%ALLUSERSPROFILE%\Microsoft\Windows\Start Menu\Programs\ConEmu\ConEmu (x64).lnk" />
         <taskbar:DesktopApp DesktopApplicationLinkPath="%APPDATA%\Microsoft\Windows\Start Menu\Programs\Telegram Desktop\Telegram.lnk" />
         <taskbar:DesktopApp DesktopApplicationLinkPath="%ALLUSERSPROFILE%\Microsoft\Windows\Start Menu\Programs\Process Explorer.lnk" />
