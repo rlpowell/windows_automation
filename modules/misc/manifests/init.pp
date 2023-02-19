@@ -415,12 +415,10 @@ service { 'WSearch':
 
   # Plex *server* is no longer installed locally
   package { 'plexmediaserver':
-    ensure => purged,
+    ensure => absent,
   }
   file { "$homepath/AppData/Local/Plex Media Server/Metadata":
-    # ensure => "$dbpath/Plex_Metadata",
     ensure => absent,
-    # require => Package['plexmediaserver'],
   }
 
 #**************
