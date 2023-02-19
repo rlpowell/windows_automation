@@ -55,7 +55,7 @@ node 'rlp-laptop', 'rlp-lenovo-p71' {
 }
 
 # Desktops
-node 'rlp-desktop' {
+node 'rlp-desktop', 'rlp-desktop.digitalkingdom.org' {
   class { 'everything':
     laptop  => false,
     desktop => true,
