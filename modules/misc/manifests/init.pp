@@ -246,13 +246,6 @@ service { 'WSearch':
     ensure => latest,
   }
 
-#**************
-# Digi.me (formerly socialsafe)
-#**************
-  package { 'digime-2':
-    ensure => latest,
-  }
-
 #********************************************
 # Laptop
 #********************************************
