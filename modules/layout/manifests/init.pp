@@ -128,4 +128,11 @@ class layout {
     source => "$wapath/bin/Git Bash.lnk",
     notify => Exec['refresh group policy'],
   }
+
+  # Run Puppet on startup; modified from https://www.tenforums.com/tutorials/57690-create-elevated-shortcut-without-uac-prompt-windows-10-a.html
+  exec { 'run puppet on startup':
+    logoutput   => true,
+    creates     => "$homepath/AppData/Roaming/Microsoft/Windows/Start Menu/Programs/Startup/Puppet.lnk",
+    command     => "C:\\Users\\rlpowell\\Dropbox\\Windows_Automation\\extras\\make_puppet_startup.bat",
+  }
 }
