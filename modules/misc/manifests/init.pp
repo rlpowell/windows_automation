@@ -638,6 +638,13 @@ service { 'WSearch':
   }
 
 #**************
+# Keep goodsync honest
+#**************
+  file { "$homepath/AppData/Roaming/Microsoft/Windows/Start Menu/Programs/Startup/GoodSync.bat":
+    ensure => "$dbpath/Windows_Automation/extras/goodsync_setup.bat",
+  }
+
+#**************
 # Dyson Sphere Program
 #**************
   windows_extras::windows_conditional_symlink_early { "$homepath/Documents/Dyson Sphere Program/Save":
