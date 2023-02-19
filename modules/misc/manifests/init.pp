@@ -650,4 +650,12 @@ service { 'WSearch':
     unless_value => 'HungAppTimeout',
     unless_check  => '300000',
   }
+
+#**************
+# Start steam *after* networkking
+#**************
+  file { "$homepath/AppData/Roaming/Microsoft/Windows/Start Menu/Programs/Startup/slow_steam.bat":
+    source => "$wapath/extras/slow_steam.bat",
+  }
+
 } # end of misc class
