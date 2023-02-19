@@ -416,15 +416,14 @@ service { 'WSearch':
     onlyifexists => "$homepath/AppData/LocalLow/ProjectorGames",
   }
 
-#**************
-# Plex
-#**************
+  # Plex *server* is no longer installed locally
   package { 'plexmediaserver':
-    ensure => latest,
+    ensure => purged,
   }
   file { "$homepath/AppData/Local/Plex Media Server/Metadata":
-    ensure => "$dbpath/Plex_Metadata",
-    require => Package['plexmediaserver'],
+    # ensure => "$dbpath/Plex_Metadata",
+    ensure => absent,
+    # require => Package['plexmediaserver'],
   }
 
 #**************
