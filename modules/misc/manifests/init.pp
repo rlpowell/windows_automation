@@ -637,11 +637,9 @@ service { 'WSearch':
     onlyifexists => "$homepath/AppData/Local/Uber Entertainment",
   }
 
-#**************
-# Keep goodsync honest
-#**************
+  # No longer needed; goodsync added support for saving auto-sync configs
   file { "$homepath/AppData/Roaming/Microsoft/Windows/Start Menu/Programs/Startup/GoodSync.bat":
-    ensure => "$dbpath/Windows_Automation/extras/goodsync_setup.bat",
+    ensure => absent,
   }
 
 #**************
