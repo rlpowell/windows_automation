@@ -41,10 +41,8 @@ class everything( $laptop, $desktop ) {
 
   include 'windows_extras'
   include 'conemu'
-  include 'firefox'
   include 'layout'
   include 'pdfxchange'
-  include 'secrets'
   include 'pictures'
 }
 
