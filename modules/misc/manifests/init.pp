@@ -569,22 +569,6 @@ service { 'WSearch':
   }
 
 #**************
-# Citra (3DS Emulator)
-#**************
-  windows_extras::windows_conditional_symlink_early { "$appdatapath/Citra/config":
-    target => "$homepath/Dropbox/Games/Emulation/3DS/Citra_Windows_config",
-    onlyifexists => "$appdatapath/Citra/",
-  }
-  windows_extras::windows_conditional_symlink_early { "$appdatapath/Citra/nand":
-    target => "$homepath/Dropbox/Games/Emulation/3DS/Citra_Windows_nand",
-    onlyifexists => "$appdatapath/Citra/",
-  }
-  windows_extras::windows_conditional_symlink_early { "$appdatapath/Citra/sdmc":
-    target => "$homepath/Dropbox/Games/Emulation/3DS/Citra_Windows_sdmc",
-    onlyifexists => "$appdatapath/Citra/",
-  }
-
-#**************
 # SevTech Ages
 #**************
   windows_extras::windows_conditional_symlink_early { "$homepath/Twitch/Minecraft/Instances/SevTech Ages/saves":
