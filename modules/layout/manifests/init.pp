@@ -111,6 +111,7 @@ class layout {
   file { "$allusersprofile/Microsoft/Windows/Start Menu/Programs/anki.lnk":
     source => "$wapath/extras/anki.lnk",
     notify => Exec['refresh group policy'],
+    require => Package['anki'],
   }
   file { "$allusersprofile/Microsoft/Windows/Start Menu/Programs/KeePass.lnk":
     source => "$wapath/extras/KeePass.lnk",
