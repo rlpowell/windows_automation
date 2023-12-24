@@ -614,14 +614,6 @@ service { 'WSearch':
   }
 
 #**************
-# Dyson Sphere Program
-#**************
-  windows_extras::windows_conditional_symlink_early { "$homepath/Documents/Dyson Sphere Program/Save":
-    target       => "$dbpath/Games/Dyson_Sphere_Program_Save",
-    onlyifexists => "$homepath/Documents/Dyson Sphere Program",
-  }
-
-#**************
 # Make Windows wait longer to exit, so GoodSync can complete
 #**************
   windows_extras::regload { "$wapath/extras/hung_app_timeout.reg":
