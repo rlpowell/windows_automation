@@ -58,6 +58,11 @@ class layout {
     source => "$wapath/modules/layout/files/layout.xml",
     notify => Exec['refresh group policy'],
   }
+
+  # Run packages first since sometimes the layout
+  # points at things in the packages
+  Package <| |> -> File['layout xml']
+
   reboot { 'after layout xml':
     timeout   => 30,
     message   => 'Puppet will reboot this system in 30 seconds',

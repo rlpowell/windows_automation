@@ -131,7 +131,8 @@ class misc( $laptop, $desktop ) {
 # vim
 #**************
   package { 'vim':
-    ensure => latest,
+    # We specify a version so that the stuff in layout.xml continues to work; alternate solutions welcome.  :)
+    ensure => '9.1.105',
   }
   file { "$homepath/AppData/Local/Temp/vim":
     ensure => directory,
@@ -139,13 +140,6 @@ class misc( $laptop, $desktop ) {
   file { "$homepath/.vimrc":
     source => "$wapath/modules/misc/files/vimrc",
     require => File["$homepath/AppData/Local/Temp/vim"],
-  }
-  if( ! $operatingsystemmajrelease == 10 ) {
-    windows_extras::regload { "$wapath/extras/vim.reg":
-      require => Package['vim'],
-      unless_key => 'HKEY_CLASSES_ROOT\*\shell\Edit with Vim\command',
-      unless_check  => 'gvim.bat',
-    }
   }
 
 #**************
