@@ -86,7 +86,7 @@ class misc( $laptop, $desktop ) {
     # actually being able to download this requires Chocolatey Pro,
     # because it uses the Chocolatey CDN (the 1.17 version doesn't
     # download properly from its original source anymore).
-    ensure   => '1.17',
+    ensure   => '1.17.0',
   }
   package { 'calibre':
     ensure => latest,
