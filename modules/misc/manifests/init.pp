@@ -56,6 +56,15 @@ class misc( $laptop, $desktop ) {
   }
 
 #**************
+# Don't run web searches in the windows search menu
+#**************
+  windows_extras::regload { "$wapath/extras/disable_web_search.reg":
+    unless_key => 'HKEY_CURRENT_USER\SOFTWARE\Policies\Microsoft\Windows\Explorer',
+    unless_value => 'DisableSearchBoxSuggestions',
+    unless_check  => '0x1',
+  }
+
+#**************
 # VLC
 #**************
   package { 'vlc':
